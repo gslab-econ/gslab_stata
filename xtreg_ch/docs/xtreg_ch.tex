@@ -1,0 +1,419 @@
+
+\documentclass[12pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.50.0.2953}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Wednesday, May 17, 2006 13:09:49}
+%TCIDATA{LastRevised=Thursday, March 05, 2009 15:00:11}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+%TCIDATA{CSTFile=40 LaTeX article.cst}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{tcilatex}
+\begin{document}
+
+
+\section{Model}
+
+\[
+y_{ig}=X_{i}\beta +\left( \bar{X}_{g}\beta \right) \gamma +\mu
+_{g}+\varepsilon _{i}+\xi _{i}
+\]%
+\qquad 
+\begin{eqnarray*}
+\mu _{g} &\mid &\bar{X}_{g}\sim N\left( 0,\tau ^{2}\right)  \\
+\varepsilon _{i} &\mid &\bar{X}_{g},X_{i},\mu _{g}\sim N\left( 0,\sigma
+^{2}\right)  \\
+\xi _{i} &\mid &\bar{X}_{g},X_{i},\mu _{g},\varepsilon _{i}\sim N\left(
+0,r_{i}\right) .
+\end{eqnarray*}%
+Comments:
+
+\begin{itemize}
+\item $\mu _{g}$ is group random effect
+
+\item $\gamma $ allows for group effects to be correlated with average group
+characteristics
+
+\item $\varepsilon _{i}$ is individual shock
+
+\item $\xi _{i}$ is measurement error with known variance $r_{i}$ that can
+vary by individual.
+\end{itemize}
+
+\section{Likelihood}
+
+The likelihood function for group $g$ is%
+\[
+L_{g}=\int_{-\infty }^{\infty }\phi \left( \frac{\mu _{g}}{\tau }\right)
+\prod_{i=1}^{T_{g}}\phi \left( \frac{y_{ig}-X_{i}\beta -\left( \bar{X}%
+_{g}\beta \right) \gamma -\mu _{g}}{\sqrt{\sigma ^{2}+r_{i}}}\right) d\mu
+_{g}
+\]%
+Let%
+\[
+\tilde{y}_{ig}=y_{ig}-X_{i}\beta -\left( \bar{X}_{g}\beta \right) \gamma 
+\]%
+and let%
+\[
+\tilde{\sigma}_{i}^{2}=\sigma ^{2}+r_{i}.
+\]%
+Then likelihood can be written as%
+\[
+\ln L_{g}=-\frac{1}{2}\left[ \sum_{i=1}^{T_{g}}\ln \left( \tilde{\sigma}%
+_{i}^{2}\right) +\ln \left( 1+\tau ^{2}\sum_{i=1}^{T_{g}}\frac{1}{\tilde{%
+\sigma}_{i}^{2}}\right) +\sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}^{2}}{\tilde{%
+\sigma}_{i}^{2}}-\left( \frac{1}{\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{1}{%
+\tilde{\sigma}_{i}^{2}}\right) ^{-1}\left( \sum_{i=1}^{T_{g}}\frac{\tilde{y}%
+_{ig}}{\tilde{\sigma}_{i}^{2}}\right) ^{2}\right] 
+\]%
+following derivation below.
+
+Note that in the case that $\gamma =\eta =0$, the likelihood becomes%
+\[
+\ln L_{g}=-\frac{1}{2}\left\{ \frac{1}{\sigma ^{2}}\left[ \sum_{i=1}^{T_{g}}%
+\left( y_{ig}-X_{i}\beta \right) ^{2}-\frac{\tau ^{2}}{T_{g}\tau ^{2}+\sigma
+^{2}}\left( \sum_{i=1}^{T_{g}}\left( y_{ig}-X_{i}\beta \right) \right) ^{2}%
+\right] +\ln \left( T_{g}\frac{\tau ^{2}}{\sigma ^{2}}+1\right) +T_{g}\ln
+\left( \sigma ^{2}\right) \right\} 
+\]%
+Borrowing from the Stata manual, if we put the constant term back in\
+(irrelevant for maximization \&\ derivatives) we have%
+\[
+\ln L_{g}=-\frac{1}{2}\left[ \sum_{i=1}^{T_{g}}\ln \left( \tilde{\sigma}%
+_{i}^{2}\right) +\ln \left( 1+\tau ^{2}\sum_{i=1}^{T_{g}}\frac{1}{\tilde{%
+\sigma}_{i}^{2}}\right) +\sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}^{2}}{\tilde{%
+\sigma}_{i}^{2}}-\left( \frac{1}{\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{1}{%
+\tilde{\sigma}_{i}^{2}}\right) ^{-1}\left( \sum_{i=1}^{T_{g}}\frac{\tilde{y}%
+_{ig}}{\tilde{\sigma}_{i}^{2}}\right) ^{2}+T_{g}\ln \left( 2\pi \right) %
+\right] 
+\]
+
+\section{First Derivatives}
+
+\begin{eqnarray*}
+\frac{\partial \left( \ln L_{g}\right) }{\partial \beta } &=&%
+\sum_{i=1}^{T_{g}}\frac{\partial \left( \ln L_{g}\right) }{\partial \left(
+X_{i}\beta \right) }X_{i} \\
+\frac{\partial \left( \ln L_{g}\right) }{\partial \left( X_{i}\beta \right) }
+&=&\left( 1+\frac{\gamma }{T_{g}}\right) \left( \frac{\tilde{y}_{ig}}{\tilde{%
+\sigma}_{i}^{2}}-\left( \sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}}{\tilde{\sigma%
+}_{i}^{2}}\right) \left( \frac{1}{\tilde{\sigma}_{i}^{2}}\right) \left( 
+\frac{1}{\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}%
+\right) ^{-1}\right)
+\end{eqnarray*}%
+\[
+\frac{\partial \left( \ln L_{g}\right) }{\partial \sigma }=-\sigma \left[
+\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}-\frac{\tau ^{2}\left(
+\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{4}}\right) }{1+\tau
+^{2}\left( \sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}\right) }%
+-\sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}^{2}}{\tilde{\sigma}_{i}^{4}}+2\left(
+\sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}}{\tilde{\sigma}_{i}^{2}}\right)
+\left( \sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}}{\tilde{\sigma}_{i}^{4}}%
+\right) \left( \frac{1}{\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}%
+_{i}^{2}}\right) ^{-1}-\left( \sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}}{\tilde{%
+\sigma}_{i}^{2}}\right) ^{2}\left( \sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}%
+_{i}^{4}}\right) \left( \frac{1}{\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{1}{%
+\tilde{\sigma}_{i}^{2}}\right) ^{-2}\right] 
+\]%
+\[
+\frac{\partial \left( \ln L_{g}\right) }{\partial \tau }=-\tau \frac{%
+\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}}{\left( 1+\tau
+^{2}\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}\right) }+\frac{1}{%
+\tau ^{3}}\left( \frac{1}{\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma%
+}_{i}^{2}}\right) ^{-2}\left( \sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}}{\tilde{%
+\sigma}_{i}^{2}}\right) ^{2} 
+\]%
+\[
+\frac{\partial \left( \ln L_{g}\right) }{\partial \gamma }=\left( \bar{X}%
+_{g}\beta \right) \left( \sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}}{\tilde{%
+\sigma}_{i}^{2}}\right) \left[ 1-\left( \sum_{i=1}^{T_{g}}\frac{1}{\tilde{%
+\sigma}_{i}^{2}}\right) \left( \frac{1}{\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{1%
+}{\tilde{\sigma}_{i}^{2}}\right) ^{-1}\right] 
+\]
+
+\section{Derivation of Likelihood}
+
+Substituting expression for normal pdf gives:%
+\[
+L_{g}=\frac{1}{2\pi }\frac{1}{\sqrt{\tau ^{2}}}\prod_{i=1}^{T_{g}}\frac{1}{%
+\sqrt{\tilde{\sigma}_{i}^{2}}}\int_{-\infty }^{\infty }\exp \left( -\frac{1}{%
+2}\frac{\mu _{g}^{2}}{\tau ^{2}}\right) \prod_{i=1}^{T_{g}}\exp \left( -%
+\frac{1}{2}\frac{\left( \tilde{y}_{ig}-\mu _{g}\right) ^{2}}{\tilde{\sigma}%
+_{i}^{2}}\right) d\mu _{g} 
+\]%
+Rewriting:%
+\begin{eqnarray*}
+L_{g} &=&\frac{1}{2\pi }\frac{1}{\sqrt{\tau ^{2}}}\prod_{i=1}^{T_{g}}\frac{1%
+}{\sqrt{\tilde{\sigma}_{i}^{2}}}\int_{-\infty }^{\infty }\exp \left( -\frac{1%
+}{2}\left( \frac{\mu _{g}^{2}}{\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{\left( 
+\tilde{y}_{ig}-\mu _{g}\right) ^{2}}{\tilde{\sigma}_{i}^{2}}\right) \right)
+d\mu _{g} \\
+&=&\frac{1}{2\pi }\frac{1}{\sqrt{\tau ^{2}}}\prod_{i=1}^{T_{g}}\frac{1}{%
+\sqrt{\tilde{\sigma}_{i}^{2}}}\int_{-\infty }^{\infty }\exp \left( -\frac{1}{%
+2}\left( \frac{\mu _{g}^{2}}{\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{\tilde{y}%
+_{ig}^{2}-2\tilde{y}_{ig}\mu _{g}+\mu _{g}^{2}}{\tilde{\sigma}_{i}^{2}}%
+\right) \right) d\mu _{g} \\
+&=&\frac{1}{2\pi }\frac{1}{\sqrt{\tau ^{2}}}\prod_{i=1}^{T_{g}}\frac{1}{%
+\sqrt{\tilde{\sigma}_{i}^{2}}}\int_{-\infty }^{\infty }\exp \left( -\frac{1}{%
+2}\left( \frac{\mu _{g}^{2}}{\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{1}{\tilde{%
+\sigma}_{i}^{2}}\mu _{g}^{2}-2\mu _{g}\sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}%
+}{\tilde{\sigma}_{i}^{2}}+\sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}^{2}}{\tilde{%
+\sigma}_{i}^{2}}\right) \right) d\mu _{g} \\
+&=&\frac{1}{2\pi }\frac{1}{\sqrt{\tau ^{2}}}\prod_{i=1}^{T_{g}}\frac{1}{%
+\sqrt{\tilde{\sigma}_{i}^{2}}}\int_{-\infty }^{\infty }\exp \left( -\frac{1}{%
+2}\left( \frac{1}{\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}%
+_{i}^{2}}\right) \left( \mu _{g}^{2}-2\mu _{g}\frac{\sum_{i=1}^{T_{g}}\frac{%
+\tilde{y}_{ig}}{\tilde{\sigma}_{i}^{2}}}{\frac{1}{\tau ^{2}}%
++\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}}+\frac{\sum_{i=1}^{T_{g}}%
+\frac{\tilde{y}_{ig}^{2}}{\tilde{\sigma}_{i}^{2}}}{\frac{1}{\tau ^{2}}%
++\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}}\right) \right) d\mu _{g}
+\end{eqnarray*}%
+Completing the square:%
+\begin{eqnarray*}
+L_{g} &=&\frac{1}{2\pi }\frac{1}{\sqrt{\tau ^{2}}}\prod_{i=1}^{T_{g}}\frac{1%
+}{\sqrt{\tilde{\sigma}_{i}^{2}}}\int_{-\infty }^{\infty }\exp \left( -\frac{1%
+}{2}\left( \frac{1}{\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}%
+_{i}^{2}}\right) \left( \mu _{g}^{2}-2\mu _{g}\frac{\sum_{i=1}^{T_{g}}\frac{%
+\tilde{y}_{ig}}{\tilde{\sigma}_{i}^{2}}}{\frac{1}{\tau ^{2}}%
++\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}}+\left( \frac{%
+\sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}}{\tilde{\sigma}_{i}^{2}}}{\frac{1}{%
+\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}}\right)
+^{2}-\left( \frac{\sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}}{\tilde{\sigma}%
+_{i}^{2}}}{\frac{1}{\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}%
+_{i}^{2}}}\right) ^{2}+\frac{\sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}^{2}}{%
+\tilde{\sigma}_{i}^{2}}}{\frac{1}{\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{1}{%
+\tilde{\sigma}_{i}^{2}}}\right) \right) d\mu _{g} \\
+L_{g} &=&\frac{1}{2\pi }\frac{1}{\sqrt{\tau ^{2}}}\prod_{i=1}^{T_{g}}\frac{1%
+}{\sqrt{\tilde{\sigma}_{i}^{2}}}\int_{-\infty }^{\infty }\exp \left( -\frac{1%
+}{2}\left( \frac{1}{\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}%
+_{i}^{2}}\right) \left( \left( \mu _{g}^{2}-\frac{\sum_{i=1}^{T_{g}}\frac{%
+\tilde{y}_{ig}}{\tilde{\sigma}_{i}^{2}}}{\frac{1}{\tau ^{2}}%
++\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}}\right) ^{2}+\frac{%
+\sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}^{2}}{\tilde{\sigma}_{i}^{2}}}{\frac{1%
+}{\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}}-\left( 
+\frac{\sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}}{\tilde{\sigma}_{i}^{2}}}{\frac{%
+1}{\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}}\right)
+^{2}\right) \right) d\mu _{g}
+\end{eqnarray*}%
+Pulling constants out of integrand and "building" a normal pdf:%
+\[
+L_{g}=\frac{1}{2\pi }\sqrt{\frac{2\pi }{\left( \frac{1}{\tau ^{2}}%
++\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}\right) }}\frac{1}{\sqrt{%
+\tau ^{2}}}\prod_{i=1}^{T_{g}}\frac{1}{\sqrt{\tilde{\sigma}_{i}^{2}}}\exp
+\left( -\frac{1}{2}\left( \frac{1}{\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{1}{%
+\tilde{\sigma}_{i}^{2}}\right) \left( \frac{\sum_{i=1}^{T_{g}}\frac{\tilde{y}%
+_{ig}^{2}}{\tilde{\sigma}_{i}^{2}}}{\frac{1}{\tau ^{2}}+\sum_{i=1}^{T_{g}}%
+\frac{1}{\tilde{\sigma}_{i}^{2}}}-\left( \frac{\sum_{i=1}^{T_{g}}\frac{%
+\tilde{y}_{ig}}{\tilde{\sigma}_{i}^{2}}}{\frac{1}{\tau ^{2}}%
++\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}}\right) ^{2}\right)
+\right) \int_{-\infty }^{\infty }\frac{1}{\sqrt{\frac{2\pi }{\left( \frac{1}{%
+\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}\right) }}}\exp
+\left( -\frac{1}{2}\frac{\left( \mu _{g}^{2}-\frac{\sum_{i=1}^{T_{g}}\frac{%
+\tilde{y}_{ig}}{\tilde{\sigma}_{i}^{2}}}{\frac{1}{\tau ^{2}}%
++\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}}\right) ^{2}}{\frac{1}{%
+\frac{1}{\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}}}%
+\right) d\mu _{g} 
+\]%
+All PDFs integrate to one:%
+\[
+L_{g}=\frac{1}{\sqrt{2\pi }}\sqrt{\frac{1}{\left( 1+\sum_{i=1}^{T_{g}}\frac{%
+\tau ^{2}}{\tilde{\sigma}_{i}^{2}}\right) }}\prod_{i=1}^{T_{g}}\frac{1}{%
+\sqrt{\tilde{\sigma}_{i}^{2}}}\exp \left( -\frac{1}{2}\left( \frac{1}{\tau
+^{2}}+\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}\right) \left( \frac{%
+\sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}^{2}}{\tilde{\sigma}_{i}^{2}}}{\frac{1%
+}{\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}}-\left( 
+\frac{\sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}}{\tilde{\sigma}_{i}^{2}}}{\frac{%
+1}{\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}}\right)
+^{2}\right) \right) 
+\]%
+Taking logs and dropping constants:%
+\[
+\ln L_{g}=-\frac{1}{2}\ln \left( 1+\sum_{i=1}^{T_{g}}\frac{\tau ^{2}}{\tilde{%
+\sigma}_{i}^{2}}\right) -\frac{1}{2}\sum_{i=1}^{T_{g}}\ln \left( \tilde{%
+\sigma}_{i}^{2}\right) -\frac{1}{2}\left( \frac{1}{\tau ^{2}}%
++\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}\right) \left( \frac{%
+\sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}^{2}}{\tilde{\sigma}_{i}^{2}}}{\frac{1%
+}{\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}}-\left( 
+\frac{\sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}}{\tilde{\sigma}_{i}^{2}}}{\frac{%
+1}{\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}}\right)
+^{2}\right) 
+\]%
+Multiply through by $-2$:%
+\[
+-2\ln L_{g}=\ln \left( 1+\sum_{i=1}^{T_{g}}\frac{\tau ^{2}}{\tilde{\sigma}%
+_{i}^{2}}\right) +\ln \tau ^{2}+\sum_{i=1}^{T_{g}}\ln \left( \tilde{\sigma}%
+_{i}^{2}\right) +\left( \frac{1}{\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{1}{%
+\tilde{\sigma}_{i}^{2}}\right) \left( \frac{\sum_{i=1}^{T_{g}}\frac{\tilde{y}%
+_{ig}^{2}}{\tilde{\sigma}_{i}^{2}}}{\frac{1}{\tau ^{2}}+\sum_{i=1}^{T_{g}}%
+\frac{1}{\tilde{\sigma}_{i}^{2}}}-\left( \frac{\sum_{i=1}^{T_{g}}\frac{%
+\tilde{y}_{ig}}{\tilde{\sigma}_{i}^{2}}}{\frac{1}{\tau ^{2}}%
++\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}}\right) ^{2}\right) 
+\]%
+Simplifying:%
+\[
+-2\ln L_{g}=\ln \left( 1+\sum_{i=1}^{T_{g}}\frac{\tau ^{2}}{\tilde{\sigma}%
+_{i}^{2}}\right) +\sum_{i=1}^{T_{g}}\ln \left( \tilde{\sigma}_{i}^{2}\right)
++\left( \sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}^{2}}{\tilde{\sigma}_{i}^{2}}-%
+\frac{1}{\frac{1}{\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}%
+_{i}^{2}}}\left( \sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}}{\tilde{\sigma}%
+_{i}^{2}}\right) ^{2}\right) 
+\]%
+\[
+-2\ln L_{g}=\sum_{i=1}^{T_{g}}\ln \left( \tilde{\sigma}_{i}^{2}\right) +\ln
+\left( 1+\tau ^{2}\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}\right)
++\sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}^{2}}{\tilde{\sigma}_{i}^{2}}-\left( 
+\frac{1}{\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}%
+\right) ^{-1}\left( \sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}}{\tilde{\sigma}%
+_{i}^{2}}\right) ^{2} 
+\]
+
+Checking what happens when measurement error is zero:%
+\begin{eqnarray*}
+-2\ln L_{g} &=&\ln \left( 1+\sum_{i=1}^{T_{g}}\frac{\tau ^{2}}{\sigma ^{2}}%
+\right) +\sum_{i=1}^{T_{g}}\ln \left( \sigma ^{2}\right) +\left(
+\sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}^{2}}{\sigma ^{2}}-\frac{1}{\frac{1}{%
+\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{1}{\sigma ^{2}}}\left( \sum_{i=1}^{T_{g}}%
+\frac{\tilde{y}_{ig}}{\sigma ^{2}}\right) ^{2}\right) \\
+&=&\ln \left( 1+\frac{T_{g}\tau ^{2}}{\sigma ^{2}}\right) +T_{g}\ln \left(
+\sigma ^{2}\right) +\frac{1}{\sigma ^{2}}\left( \sum_{i=1}^{T_{g}}\tilde{y}%
+_{ig}^{2}-\frac{\tau ^{2}}{\sigma ^{2}+T_{g}\tau ^{2}}\left(
+\sum_{i=1}^{T_{g}}\tilde{y}_{ig}\right) ^{2}\right)
+\end{eqnarray*}
+
+\section{Derivation of Derivatives}
+
+recall:%
+\[
+-2\ln L_{g}=\sum_{i=1}^{T_{g}}\ln \left( \tilde{\sigma}_{i}^{2}\right) +\ln
+\left( 1+\tau ^{2}\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}\right)
++\sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}^{2}}{\tilde{\sigma}_{i}^{2}}-\left( 
+\frac{1}{\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}%
+\right) ^{-1}\left( \sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}}{\tilde{\sigma}%
+_{i}^{2}}\right) ^{2} 
+\]
+
+\[
+\tilde{y}_{ig}=y_{ig}-X_{i}\beta -\gamma \left( \frac{1}{T_{g}}%
+\sum_{i=1}^{T_{g}}X_{i}\beta \right) 
+\]%
+\[
+\frac{\partial \tilde{y}_{ig}}{\partial \left( X_{i}\beta \right) }=-\left(
+1+\frac{\gamma }{T_{g}}\right) 
+\]%
+\[
+\tilde{\sigma}_{i}^{2}=\sigma ^{2}+\eta _{i}^{2}. 
+\]
+
+derive:
+
+\begin{eqnarray*}
+\frac{\partial \left( -2\ln L_{g}\right) }{\partial \beta }
+&=&\sum_{i=1}^{T_{g}}\frac{\partial \left( -2\ln L_{g}\right) }{\partial
+\left( X_{i}\beta \right) }X_{i} \\
+\frac{\partial \left( -2\ln L_{g}\right) }{\partial \left( X_{i}\beta
+\right) } &=&\frac{\partial \tilde{y}_{ig}}{\partial \left( X_{i}\beta
+\right) }\left( \frac{2\tilde{y}_{ig}}{\tilde{\sigma}_{i}^{2}}-\left( \frac{1%
+}{\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}\right)
+^{-1}2\left( \sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}}{\tilde{\sigma}_{i}^{2}}%
+\right) \left( \frac{1}{\tilde{\sigma}_{i}^{2}}\right) \right) \\
+&=&2\frac{\partial \tilde{y}_{ig}}{\partial \left( X_{i}\beta \right) }%
+\left( \frac{\tilde{y}_{ig}}{\tilde{\sigma}_{i}^{2}}-\left(
+\sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}}{\tilde{\sigma}_{i}^{2}}\right)
+\left( \frac{1}{\tilde{\sigma}_{i}^{2}}\right) \left( \frac{1}{\tau ^{2}}%
++\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}\right) ^{-1}\right) \\
+&=&-2\left( 1+\frac{\gamma }{T_{g}}\right) \left( \frac{\tilde{y}_{ig}}{%
+\tilde{\sigma}_{i}^{2}}-\left( \sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}}{%
+\tilde{\sigma}_{i}^{2}}\right) \left( \frac{1}{\tilde{\sigma}_{i}^{2}}%
+\right) \left( \frac{1}{\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}%
+_{i}^{2}}\right) ^{-1}\right)
+\end{eqnarray*}
+
+\bigskip
+
+\[
+-2\ln L_{g}=\sum_{i=1}^{T_{g}}\ln \left( \tilde{\sigma}_{i}^{2}\right) +\ln
+\left( 1+\tau ^{2}\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}\right)
++\sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}^{2}}{\tilde{\sigma}_{i}^{2}}-\left( 
+\frac{1}{\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}%
+\right) ^{-1}\left( \sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}}{\tilde{\sigma}%
+_{i}^{2}}\right) ^{2} 
+\]%
+\begin{eqnarray*}
+\frac{\partial \left( -2\ln L_{g}\right) }{\partial \sigma }
+&=&\sum_{i=1}^{T_{g}}\frac{\partial \left( -2\ln L_{g}\right) }{\tilde{\sigma%
+}_{i}^{2}}\frac{\partial \tilde{\sigma}_{i}^{2}}{\partial \sigma } \\
+&=&2\sigma \sum_{i=1}^{T_{g}}\frac{\partial \left( -2\ln L_{g}\right) }{%
+\tilde{\sigma}_{i}^{2}} \\
+&=&2\sigma \left[ \sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}+\frac{%
+\tau ^{2}\left( \sum_{i=1}^{T_{g}}\frac{-1}{\tilde{\sigma}_{i}^{4}}\right) }{%
+1+\tau ^{2}\left( \sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}\right) }%
++\sum_{i=1}^{T_{g}}-\frac{\tilde{y}_{ig}^{2}}{\tilde{\sigma}_{i}^{4}}-\left( 
+\frac{1}{\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}%
+\right) ^{-1}2\left( \sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}}{\tilde{\sigma}%
+_{i}^{2}}\right) \left( \sum_{i=1}^{T_{g}}\frac{-\tilde{y}_{ig}}{\tilde{%
+\sigma}_{i}^{4}}\right) -\left( -1\right) \left( \frac{1}{\tau ^{2}}%
++\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}\right) ^{-2}\left(
+\sum_{i=1}^{T_{g}}\frac{-1}{\tilde{\sigma}_{i}^{4}}\right) \left(
+\sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}}{\tilde{\sigma}_{i}^{2}}\right) ^{2}%
+\right] \\
+&=&2\sigma \left[ \sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}-\frac{%
+\tau ^{2}\left( \sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{4}}\right) }{%
+1+\tau ^{2}\left( \sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}\right) }%
+-\sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}^{2}}{\tilde{\sigma}_{i}^{4}}+2\left(
+\sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}}{\tilde{\sigma}_{i}^{2}}\right)
+\left( \sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}}{\tilde{\sigma}_{i}^{4}}%
+\right) \left( \frac{1}{\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}%
+_{i}^{2}}\right) ^{-1}-\left( \sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}}{\tilde{%
+\sigma}_{i}^{2}}\right) ^{2}\left( \sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}%
+_{i}^{4}}\right) \left( \frac{1}{\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{1}{%
+\tilde{\sigma}_{i}^{2}}\right) ^{-2}\right]
+\end{eqnarray*}%
+\[
+\frac{\partial \left( -2\ln L_{g}\right) }{\partial \tau }=2\tau \frac{%
+\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}}{\left( 1+\tau
+^{2}\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}\right) }-\frac{2}{%
+\tau ^{3}}\left( \frac{1}{\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma%
+}_{i}^{2}}\right) ^{-2}\left( \sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}}{\tilde{%
+\sigma}_{i}^{2}}\right) ^{2} 
+\]
+
+\begin{eqnarray*}
+\frac{\partial \left( -2\ln L_{g}\right) }{\partial \gamma } &=&\left(
+\sum_{i=1}^{T_{g}}\frac{2\tilde{y}_{ig}\left( -\left( \bar{X}_{g}\beta
+\right) \right) }{\tilde{\sigma}_{i}^{2}}-\left( \frac{1}{\tau ^{2}}%
++\sum_{i=1}^{T_{g}}\frac{1}{\tilde{\sigma}_{i}^{2}}\right) ^{-1}2\left(
+\sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}}{\tilde{\sigma}_{i}^{2}}\right)
+\sum_{i=1}^{T_{g}}\frac{-\bar{X}_{g}\beta }{\tilde{\sigma}_{i}^{2}}\right) \\
+&=&-2\sum_{i=1}^{T_{g}}\frac{\tilde{y}_{ig}\left( \bar{X}_{g}\beta \right) }{%
+\tilde{\sigma}_{i}^{2}}+2\left( \frac{1}{\tau ^{2}}+\sum_{i=1}^{T_{g}}\frac{1%
+}{\tilde{\sigma}_{i}^{2}}\right) ^{-1}\left( \sum_{i=1}^{T_{g}}\frac{\tilde{y%
+}_{ig}}{\tilde{\sigma}_{i}^{2}}\right) \sum_{i=1}^{T_{g}}\frac{\bar{X}%
+_{g}\beta }{\tilde{\sigma}_{i}^{2}}
+\end{eqnarray*}
+
+\end{document}

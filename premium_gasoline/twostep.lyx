@@ -1,0 +1,213 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section*
+
+\series bold
+Notes on two-step adjustment in fungible_mlogit.ado
+\end_layout
+
+\begin_layout Subsection*
+Preliminaries
+\end_layout
+
+\begin_layout Standard
+From Murphy and Topel, in the case where the first and second-step models
+ are estimated on independent samples, the adjusted variance-covariance
+ matrix in the second step is
+\begin_inset Formula 
+\[
+V_{2}^{*}=V_{2}+JV_{1}J'
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $V_{1}$
+\end_inset
+
+ is the first-step variance-covariance matrix, 
+\begin_inset Formula $V_{2}$
+\end_inset
+
+ is the second-step variance-covariance matrix (unadjusted) and 
+\begin_inset Formula $J$
+\end_inset
+
+ is the Jacobian of second-step parameters with respect to first-step parameters.
+\end_layout
+
+\begin_layout Standard
+Note that this is a different way of writing the result than M&T's equation
+ (34).
+ Because their result comes from taking comparative statics on second-step
+ parameters with respect to first-step parameters, the above is an equivalent
+ representation.
+\end_layout
+
+\begin_layout Subsection*
+Our case
+\end_layout
+
+\begin_layout Standard
+Our second step model has marginal utility given by
+\begin_inset Formula 
+\[
+\left(\mu-\eta^{M}m_{it}+\eta^{G}q_{it}p_{0t}\right)
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $m_{it}$
+\end_inset
+
+ is estimated in a first-step model as
+\begin_inset Formula 
+\[
+m_{it}=\beta_{0}+\beta_{1}y_{it}
+\]
+
+\end_inset
+
+Because of the linear form of the model no parameters outside the marginal
+ utility function are affected by the first-step estimates, hence it is
+ without loss of generality to restrict attention to the parameters 
+\begin_inset Formula $\left\{ \mu,\eta^{M},\eta^{G}\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The linear form of the marginal utility function implies the following derivativ
+es:
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{d\hat{\mu}}{d\hat{\beta}_{0}} & = & -\hat{\eta}^{M}\\
+\frac{d\hat{\eta}^{M}}{d\hat{\beta}_{0}} & = & 0\\
+\frac{d\hat{\eta}^{G}}{d\hat{\beta}_{0}} & = & 0
+\end{eqnarray*}
+
+\end_inset
+
+and
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{d\hat{\mu}}{d\hat{\beta}_{1}} & = & 0\\
+\frac{d\hat{\eta}^{M}}{d\hat{\beta}_{1}} & = & -\frac{\hat{\eta}^{M}}{\hat{\beta}_{1}}\\
+\frac{d\hat{\eta}^{G}}{d\hat{\beta}_{1}} & = & 0
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As a sketch of a proof, consider that we can write the marginal utility
+ as
+\begin_inset Formula 
+\[
+\left(\left(\mu-\eta^{M}\beta_{0}\right)-\eta^{M}\beta_{1}y_{it}+\eta^{G}q_{it}p_{0t}\right)
+\]
+
+\end_inset
+
+We could imagine estimating this model directly and then inverting out the
+ preference parameters of interest.
+ This makes transparent that as 
+\begin_inset Formula $\beta_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta_{1}$
+\end_inset
+
+ change, the terms 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\left(\mu-\eta^{M}\beta_{0}\right)$
+\end_inset
+
+, 
+\begin_inset Formula $\eta^{M}\beta_{1}$
+\end_inset
+
+, and 
+\begin_inset Formula $\eta^{G}$
+\end_inset
+
+ remain constant, implying the derivatives above.
+\end_layout
+
+\end_body
+\end_document

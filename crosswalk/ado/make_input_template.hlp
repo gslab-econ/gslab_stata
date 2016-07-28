@@ -1,0 +1,55 @@
+.-
+help for ^make_input_template^
+.-
+
+Syntax
+-----------------------------------------------------------------------
+
+	make_input_template filename [if], from(varlist) to(varlist) [ current(str) 
+        from_info_vars(varlist) to_info_file(str) to_info_vars(str) from_prefix(str) 
+        to_prefix(str) ]
+
+Description
+-----------------------------------------------------------------------
+
+Write an input template based on data in memory, additional variables contained in to_info_file(),
+    and an existing input file specified in current().
+
+Options
+-----------------------------------------------------------------------
+
+
+filename: Output file name. Default is ../output/templates/`from'-`to'_template.csv. (optional)
+
+from: Name of variable crosswalk maps from (required).
+
+to: Name of variable crosswalk maps to (required).
+
+current: Name of existing input file. Values from this file will be imported to template.
+
+from_info_vars: Variables to include in template file keyed on from variable. Must exist in
+    data in memory when build_crosswalk is called. (optional)
+
+to_info_file: Name of file containing the variables in to_info_vars() option. (optional)
+
+to_info_vars: Variables to include in template file keyed on 'to' variable. Must exist in the
+    file specified in the to_info_file() option. (optional)
+    
+from_prefix: String to be prefixed to the names of the from_info_vars in the output file.  
+    Defaults to the name of the from variable.
+
+to_prefix: String to be prefixed to the names of the to_info_vars in the output file.  
+    Defaults to "current_`to'", where `to' is the name of the to variable.
+
+
+Examples
+-----------------------------------------------------------------------
+
+    make_input_template ../output/templates/state-reg_template.csv, from(state) to(reg) current(../corrections/state-reg.csv)  ///
+            from_info_vars(statename) to_info_file(../external/data/reg.dta) to_info_vars(regionname)
+
+See also
+--------
+@build_crosswalk@, @merge_manual_input@, @save_crosswalk@ 
+
+

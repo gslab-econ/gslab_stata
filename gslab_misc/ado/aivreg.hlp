@@ -1,0 +1,94 @@
+.-
+help for ^aivreg^
+.-
+
+^Estimates panel IV models using 2SLS within estimator^
+.-
+
+Full syntax:
+
+^aivreg^ depvar [ varlist_1 ] (varlist_2 = varlist_iv) [if], ^absorb^(varname) ///
+        [ ^robust^ ^cluster^(varname) ]
+        
+Options:
+
+^absorb^(varname)        Categorical variable to be absorbed via within transformation
+^robust^                 Use robust (i.e., Eicker-White) VCE
+^cluster^(varname)       Use cluster-robust VCE clustered by varname
+^dfadj_absorb^           Force areg-style DOF adjustment. See below for details
+
+Notes: 
+
+The ^absorb^(varname) option is required. varlist_1 and varlist_iv may contain factor variables. 
+depvar, varlist_1, varlist_2, and varlist_iv may contain time-series operators. 
+
+^Description^
+.-
+
+^aivreg^ estimates panel IV models using the 2SLS within estimator. Its primary feature is
+that it can replicate the output of its Stata-official counterpart ^xtivreg, fe^ (and other
+third-party commands such as ^xtivreg2, fe^) in considerably less run-time.
+
+Details regarding DOF adjustments applied to cluster-robust VCE:
+
+Let N be the number of observations in the estimation sample, K the number of included 
+regressors (including a constant), and M the number of distinct values of the fixed effects
+variable that we hope to partial out of the model via the within transformation. 
+
+When clustering, ^xtreg, fe^ and ^xtivreg, fe^ both require that the fixed effects be nested 
+within clusters (i.e., that each fixed effect appears in only one cluster). Both commands apply 
+the following DOF adjustment:
+
+            DOF_ADJ_XTREG = N / (N - K)
+            
+^areg^, by contrast, does not require that the fixed effects be nested within clusters. It 
+applies the following DOF adjustment:
+
+            DOF_ADJ_AREG  = N / (N - K - M + 1)
+
+regardless of whether the fixed effects are nested within clusters.
+
+Following these conventions, the default behavior of ^aivreg^ is to employ DOF_ADJ_XTREG if the
+fixed effects are nested within clusters and DOF_ADJ_AREG if the fixed effects are not nested 
+within clusters. The ^dfadj_absorb^ option allows users to override this behavior and employ 
+DOF_ADJ_AREG when the fixed effects are nested within clusters. Note, however, that consistent 
+with Stata conventions, users cannot employ DOF_ADJ_XTREG when the fixed effects are not nested 
+within clusters. 
+
+^Examples^
+.-
+
+. ^aivreg y (x = z), absorb(id)^
+. ^aivreg y i.time (x = z), absorb(id)^
+. ^aivreg y i.time (x = z), absorb(id) robust^
+. ^aivreg y i.time (x = i.z), absorb(id) cluster(id)^
+. ^aivreg y i.time (x = z), absorb(id) cluster(time) dfadj_absorb^
+
+^Stored results^
+.-
+
+Scalars:
+
+e(N)                Number of observations
+e(df_r)             Residual degrees of freedom
+e(N_clust)          Number of clusters
+
+Macros:
+
+e(depvar)           Name of dependent variable
+e(clustvar)         Name of ^cluster^ variable
+e(properties)       ^b V^
+
+Matrices:
+
+e(b)                Coefficient vector
+e(V)                Variance-covariance matrix
+
+Functions:
+
+e(sample)           Marks estimation sample
+
+^Author^
+.-
+
+Ryan Kessler

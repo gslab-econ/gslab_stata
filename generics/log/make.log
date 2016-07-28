@@ -1,0 +1,208 @@
+
+ make.py started: 2014-11-06 16:59:38 C:\Users\zqian\Documents\lib\stata\generics 
+
+
+Path: gslab_make
+URL: http://gsbhmg01.chicagobooth.edu/svn/trunk/lib/python/gslab_make
+Repository Root: http://gsbhmg01.chicagobooth.edu/svn
+Repository UUID: 89b4331b-4301-411a-8e06-9c78d9cdb83d
+Revision: 29172
+Node Kind: directory
+Last Changed Author: mwong4
+Last Changed Rev: 27564
+Last Changed Date: 2014-08-05 17:20:16 -0500 (Tue, 05 Aug 2014)
+
+
+ get_externals.py started: 2014-11-06 16:59:39 C:\Users\zqian\Documents\lib\stata\generics
+
+ Input was: "16195	%svn%/lib/stata/gslab_misc	*	./lib/stata/gslab_misc/	""""".
+SVN command passed: http://gsbhmg01.chicagobooth.edu/svn/trunk/lib/stata/gslab_misc/ @16195 exported to ./external/./lib/stata/gslab_misc/.
+
+ Input was: "16194	%svn%/lib/third_party/stata_tools	*	./lib/third_party/stata_tools	""""".
+SVN command passed: http://gsbhmg01.chicagobooth.edu/svn/trunk/lib/third_party/stata_tools/ @16194 exported to ./external/./lib/third_party/stata_tools/.
+
+ get_externals.py ended: 2014-11-06 16:59:41
+
+
+Execute:  %STATAEXE% /e do "test_input_param.do"
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   13.1   Copyright 1985-2013 StataCorp LP
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+22-user 8-core Stata network license expires 30 Jun 2015:
+       Serial number:  501306001307
+         Licensed to:  Shapiro/Gentzkow
+                       Booth
+
+Notes:
+      1.  (/v# option or -set maxvar-) 5000 maximum variables
+      2.  Stata running in batch mode
+
+
+running C:\Program Files (x86)\Stata13\profile.do ...
+
+. do test_input_param.do 
+
+. version 13
+
+. set more off
+
+. adopath + ../external/lib/stata/gslab_misc/ado
+  [1]  (BASE)      "C:\Program Files (x86)\Stata13\ado\base/"
+  [2]  (SITE)      "C:\Program Files (x86)\Stata13\ado\site/"
+  [3]              "."
+  [4]  (PERSONAL)  "c:\ado\personal/"
+  [5]  (PLUS)      "c:\ado\plus/"
+  [6]  (OLDPLACE)  "c:\ado/"
+  [7]              "../external/lib/stata/gslab_misc/ado"
+
+. preliminaries, loadglob(../input_param.txt)
+
+. 
+. program main
+  1.     display "Generic indicator = $generic_ind"
+  2.     display "Household demographics = $hh_demos"
+  3.     display "Baseline controls = $base_controls"
+  4.     display "Analytic weight = $analytic_weight"
+  5.     display "VCE Cluster = $vce_cluster"
+  6.     display "Main fixed effect = $main_fixed_effect" 
+  7. end
+
+. 
+. main
+Generic indicator = generic
+Household demographics = i.race i.household_composition i.male_head_age i.female_head_age i.household_size_trunc i.type_of_residence
+Baseline controls = i.comparable_id i.race i.household_composition i.male_head_age i.female_head_age i.household_size_trunc i.type_of_residence
+Analytic weight = equiv
+VCE Cluster = hhld_id
+Main fixed effect = mkt_outlet_yq
+
+. 
+end of do-file
+
+
+Execute:  %STATAEXE% /e do "test_comparables_regression.do"
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   13.1   Copyright 1985-2013 StataCorp LP
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+22-user 8-core Stata network license expires 30 Jun 2015:
+       Serial number:  501306001307
+         Licensed to:  Shapiro/Gentzkow
+                       Booth
+
+Notes:
+      1.  (/v# option or -set maxvar-) 5000 maximum variables
+      2.  Stata running in batch mode
+
+
+running C:\Program Files (x86)\Stata13\profile.do ...
+
+. do test_comparables_regression.do 
+
+. version 13
+
+. set more off
+
+. adopath + ../ado
+  [1]  (BASE)      "C:\Program Files (x86)\Stata13\ado\base/"
+  [2]  (SITE)      "C:\Program Files (x86)\Stata13\ado\site/"
+  [3]              "."
+  [4]  (PERSONAL)  "c:\ado\personal/"
+  [5]  (PLUS)      "c:\ado\plus/"
+  [6]  (OLDPLACE)  "c:\ado/"
+  [7]              "../ado"
+
+. adopath + ../external/lib/stata/gslab_misc/ado
+  [1]  (BASE)      "C:\Program Files (x86)\Stata13\ado\base/"
+  [2]  (SITE)      "C:\Program Files (x86)\Stata13\ado\site/"
+  [3]              "."
+  [4]  (PERSONAL)  "c:\ado\personal/"
+  [5]  (PLUS)      "c:\ado\plus/"
+  [6]  (OLDPLACE)  "c:\ado/"
+  [7]              "../ado"
+  [8]              "../external/lib/stata/gslab_misc/ado"
+
+. preliminaries, loadglob(../input_param.txt)
+
+. 
+. program main
+  1.     testgood test_baseline_regression, in_file(../data/test_regression_input) ///
+>                                        out_file(../data/coeffs_output.txt) ///
+>                                        coeffs_compare_file(../data/coeffs_docs_compare_clustering.txt) ///
+>                                        group_id(comparable_id) ///
+>                                        indep_vars(svy_college1 svy_pharmdoc1 svy_other_health1) ///
+>                                        generic_ind($generic_ind) hh_demos($hh_demos) ///
+>                                        analytic_weight($analytic_weight) main_fixed_effect($main_fixed_effect) ///
+>                                        mean_var(svy_college1) condition_var(svy_pharmdoc1) vce_cluster($vce_cluster)
+  2.                                        
+.     testgood test_baseline_regression, in_file(../data/test_regression_input) ///
+>                                        out_file(../data/coeffs_output.txt) ///
+>                                        coeffs_compare_file(../data/coeffs_docs_compare_noclustering.txt) ///
+>                                        group_id(comparable_id) ///
+>                                        indep_vars(svy_college1 svy_pharmdoc1 svy_other_health1) ///
+>                                        generic_ind($generic_ind) hh_demos($hh_demos) ///
+>                                        analytic_weight($analytic_weight) main_fixed_effect($main_fixed_effect) ///
+>                                        mean_var(svy_college1) condition_var(svy_pharmdoc1)
+  3. end
+
+. 
+. /*
+> When option vce_cluster is specified, we're asserting that we can match a subset of the results in
+> /analysis/Generics (All Categories)/output/coeffs_docs.txt.
+> When option vce_cluster is not specified, we're asserting we can match the results for the same subset
+> of regressions with standard errors given by OLS asymptotic theory instead of being robust to clustering. 
+> */
+. 
+. program test_baseline_regression
+  1.     syntax, in_file(str) out_file(str) coeffs_compare_file(str) group_id(str) indep_vars(str) ///
+>         generic_ind(str) hh_demos(str) analytic_weight(str) main_fixed_effect(str) ///
+>         [ mean_var(str) condition_var(str) vce_cluster(str) ]
+  2.         
+.     baseline_regression, in_file(`in_file') out_file(`out_file') ///
+>                          group_id(`group_id') indep_vars(`indep_vars') ///
+>                          generic_ind(`generic_ind') hh_demos(`hh_demos') ///
+>                          analytic_weight(`analytic_weight') main_fixed_effect(`main_fixed_effect') ///
+>                          mean_var(`mean_var') condition_var(`condition_var') vce_cluster(`vce_cluster')
+  3.                          
+.     quietly insheet using `out_file', clear
+  4.     quietly save ../data/coeffs_output, replace
+  5.     
+.     quietly insheet using `coeffs_compare_file', clear
+  6.     quietly save ../data/coeffs_compare, replace
+  7.     
+.     quietly use ../data/coeffs_output, clear
+  8.     capture cf _all using ../data/coeffs_compare
+  9.     assert _rc == 0
+ 10.     
+.     quietly erase `out_file'
+ 11.     quietly erase ../data/coeffs_output.dta
+ 12.     quietly erase ../data/coeffs_compare.dta
+ 13. end
+
+. 
+. * EXECUTE
+. main
+Test passed
+Test passed
+
+. 
+. 
+. 
+end of do-file
+
+ make.py ended: 2014-11-06 16:59:55

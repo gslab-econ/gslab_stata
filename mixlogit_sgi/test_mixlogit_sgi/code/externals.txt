@@ -1,0 +1,4 @@
+rev	dir	file	outdir	outfile	notes
+9354	%svn%/tools/ado/mixlogit_sgi/	*	/.	""""	
+9318	%svn%/tools/ado/nwspgr/	*	/.	""""	
+2485	%svn%/tools/perl/	logcheck.pl	./	""""	

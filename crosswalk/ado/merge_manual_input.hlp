@@ -1,0 +1,42 @@
+.-
+help for ^merge_manual_input^
+.-
+
+Syntax
+-----------------------------------------------------------------------
+
+    merge_manual_input using, from(varlist) to(str) [replace nogen insheet_options(str) *]
+
+
+Description
+-----------------------------------------------------------------------
+
+Merge values of to() variable from a manual input file, using from() variable as key.
+Missing values are updated based on values in input file; non-missing values are only
+replaced if 'replace' option is specified.
+
+Options
+-----------------------------------------------------------------------
+
+using: Input file. (required)
+
+from: Name of variable crosswalk maps from (required).
+
+to: Name of variable crosswalk maps to (required).
+
+replace: Replace non-missing values of 'to' variable with values in input file. (optional)
+
+nogen: Do not generate merge indicator. (optional)
+
+insheet_options: Options to be passed to insheet command when input file is loaded.
+
+
+Examples
+-----------------------------------------------------------------------
+
+    merge_manual_input using ../corrections/state-reg.csv, from(state) to(reg) replace
+
+See also
+--------
+@build_crosswalk@, @make_input_template@, @save_crosswalk@ 
+

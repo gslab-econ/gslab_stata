@@ -1,0 +1,95 @@
+.-
+help for ^fungible^
+.-
+
+Program to estimate model of quality grade choice and formally test fungibility hypothesis
+---------------------------------------------------------------------------
+
+	^fungible^   [^if^ exp], ^grade(^varname^)^ [^cluster(^varname^)^] ^quantity(^varname^)^ ^share(^varname^)^ ^gapvar(^varname^)^
+	^depvar(^varname^)^ ^totexp(^varname^)^ ^gasexp(^varname^)^ ^inciv(^varlist fv^)^ ^priceiv(^varlist fv^)^
+	^controls(^varlist fv^)^ ^adjust(^real^)^ ^[ols]^
+
+Description
+-----------
+
+^fungible^ estimates a logit model of quality grade choice allowing for two expenditure
+variables to enter the determination of the price coefficient.  It tests the
+equality of coefficients between the two expenditure variables as a test for fungibility.
+It is designed to estimate a model on aggregate data using a logit transform as a
+dependent measure.
+
+Options for use with ^fungible^
+---------------------------
+
+^grade(^varname^)^ is not optional. It specifies the variable that
+		encodes which quality grade each observation corresponds to.
+
+^cluster(^varname^)^ is optional. If specified, the estimation command clusters by the variable provided.
+
+^quantity(^varname^)^ is not optional. It specifies the variable that
+		corresponds to the group's total consumption (volume, not expenditure) 
+		of the good.  It is used to compute the effect of a $1 change in the 
+		price of the good.
+		
+^share(^varname^)^ is not optional. It specifies the variable that
+		corresponds to the market share of the specified grade for the group.  It is
+		used to translate parameters into average marginal effects.
+		
+^gapvar(^varname^)^ is not optional. It specifies the variable that
+		corresponds to the difference in price between the given grade and the regular
+		grade.  It is used to translate parameters into average
+		marginal effects.
+
+^depvar(^varname^)^ is not optional. It specifies the variable containing the logit-transformed
+		shares to be used as a dependent variable in the regression.
+
+^totexp(^varname^)^ is not optional. It specifies the variable containing annualized per capita
+		expenditure (on all items, not just the good being studied) for the group.
+		
+^gasexp(^varname^)^ is not optional. It specifies the variable containing annualized per capita
+		expenditure on the good in question.
+
+^inciv(^varlist fv^)^ is not optional. It specifies the instruments for total expenditures.
+
+^priceiv(^varlist fv^)^ is not optional. It specifies the instruments for regular price.
+
+^controls(^varlist fv^)^ is not optional. It specifies control variables.  Usually at a 
+		minimum this will contain grade dummies.
+
+^adjust(^real^)^ is not optional. It specifies the amount by which to rescale expenditure values
+		for the purposes of reporting.  So, if it is set to $1000, marginal effects are reported
+		for $1000 changes in expenditures.
+	
+^[ols]^ is optional. It switches to estimate using OLS rather than 2sls.
+
+Remarks
+-------
+
+Estimation is accomplished using the ^ivregress^ command with the "2SLS" specification unless option ^[ols]^ is specified.
+
+Although the above documentation separates instruments into two groups,
+in estimation all instruments are used for all endogenous regressors,
+per standard 2SLS practice.
+
+
+Examples
+--------
+
+ . ^local matrix "( _b[totexp] \ _se[totexp] \ _b[gasexp] \ _se[gasexp] \ e(coef_price) \ e(se_price) \ e(coef_gasexp) \ e(se_gasexp) \ e(coef_totexp) \ e(se_totexp) \ e(Chi2) \ e(p_value) \ e(N) \ e(N_clust) )"^
+ . ^fungible^, gapvar(mean_gap) depvar(logit) totexp(mean_gap_pcexp_real) gasexp(mean_gap_pcgasexp_real) inciv(i.grade_encode#c.pcinc_personal_real) priceiv(i.grade_encode#c.us_p_regular)
+   controls(i.grade_encode i.grade_encode#i.decade i.grade_encode#i.quarter i.grade_encode#c.dateyq i.grade_encode#i.decade#c.dateyq i.grade_encode#i.quarter#c.dateyq)
+   grade(grade_encode) cluster(state_encode) quantity(pcgasqty) share(share) adjust(`inc_amt')
+ . ^matrix^ TABLE_nofe = `matrix'
+
+ 
+Author
+------
+
+Jesse Shapiro
+
+See also
+------
+
+^ivregress^
+
+

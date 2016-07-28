@@ -1,0 +1,75 @@
+.-
+help for ^xtreg_ch^
+.-
+
+Random-effects regression with correlation and heteroskedasticity
+-----------------------------------------------------------------------
+
+	^xtreg_ch^  lhsvar rhsvars [^if^ exp] [^in^ range], ^i(^groupvar^)^ [^Corr^ ^Hetero(^hvar^)^ ^Eta(^etaval^)^]
+
+
+Description
+-----------
+^xtreg_ch^ runs a random-effects regression allowing for parametric correlation between RHS variables
+and random effect as well as heteroskedasticity in individual errors.
+
+This command estimates the following random effects model by maximum likelihood:
+
+	y_i = X_i*beta + mu_g + epsilon_i
+
+where the mean of mu_g is assumed to be a linear function of the group mean of the index X_i*beta:
+
+	E(mu_g | X_g) = gamma*X_g*beta 
+	X_g = mean of X_i in group g
+	
+and the variance of epsilon_i is assumed to be a linear function of the variable hvar:
+
+	var(epsilon_i) = sigma^2 + hvar
+
+The parameters reported in addition to the coefficients on X_i are:
+
+	sigma_e: standard deviation of epsilon_i when hvar==0
+	sigma_u: standard deviation of mu_g
+	gamma: parameter measuring strength of correlation between X_i*beta and mu_g
+	
+Note that xtreg_ch.ado requires that xtreg_ch_loglik.ado be available in order to run.
+
+
+Warning
+-------
+This program has an unresolved bug where the derivative calculation with respect to X*beta is incorrect when 
+gamma!=0 (i.e. with option ^Corr^) and there are one or more right-hand side variables.
+
+
+Options for use with ^xtreg_ch^
+---------------------------
+
+^i(^groupvar^)^	is mandatory. It specifies the variable that determines the groups g.
+
+^Corr^ is optional. If specified, the model allows correlation between X_i*beta and mu_g.
+
+^Hetero(^hvar^)^ is optoinal. If specified the variance of epsilon_i will depend on hvar.
+
+
+Examples
+--------
+
+. xtreg_ch pred_rep_2005 pctrep_2004, i(gindex_nomiss)
+
+. xtreg_ch pred_rep_2005 pctrep_2004, i(gindex_nomiss) corr hetero(variance) eta(`etaset')
+
+. xtreg_ch pred_rep_2005 pctrep_2004, i(gindex_nomiss) hetero(variance) eta(`etaset')
+
+
+
+Author
+------
+
+Matthew Gentzkow / Jesse M. Shapiro
+
+
+Also see
+--------
+
+
+

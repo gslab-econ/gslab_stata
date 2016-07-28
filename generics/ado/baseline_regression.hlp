@@ -1,0 +1,54 @@
+.-
+help for ^baseline_regression^
+.-
+
+Syntax
+-----------------------------------------------------------------------
+
+    baseline_regression, in_file(str) out_file(str) group_id(str) indep_vars(str) ///
+        generic_ind(str) hh_demos(str) analytic_weight(str) main_fixed_effect(str) ///
+        [ mean_var(str) condition_var(str) vce_cluster(str) ]
+
+Description
+-----------------------------------------------------------------------
+
+Performs regression by each group of variables defined by the user and write the regression results to file.
+
+The following output variables are written to file:
+    'group_id': unique identifier for the group that the regression is run on
+    df: residual degrees of freedom
+    mean_'varname': mean of independent variable 'varname'
+    coef_'varname': regression coefficient of independent variable 'varname'
+    se_'varname': standard error for the coefficient of independent variable 'varname'
+    If appropriate options are given, the following variables are added:
+    mean_'varname'_'condition': mean of 'varname' for observations where 'condition' = 1
+
+Options
+-----------------------------------------------------------------------
+
+    in_file: input dataset.
+    out_file: name of an output text file for writing regression results.
+    group_id: unique identifier for the user defined group of variables.
+    indep_vars: list of independent variables of regression.
+    generic_ind: indicator variable for generics.
+    hh_demos: household demographics variables.
+    analytic_weight: analytic weight.
+    main_fixed_effect: variable for main fixed effect.
+    
+    Optional arguments: 
+    mean_var: variable for conditional mean. 
+    condition_var: indicator variable for condition for conditional mean. 
+    vce_cluster: variable that indicates the level of clustering when standard errors of regression coefficients 
+        are calculated. If this option is not specified, the default standard errors given by OLS asymptotic theory
+        are calculated instead. If clustering is not necessary, e.g., when bootstrap is used to calculate standard errors, 
+        vce_cluster should not be specified as it improves the speed considerably. 
+
+Examples
+-----------------------------------------------------------------------
+
+    baseline_regression, in_file(../temp/combined_data) out_file(../output/coeffs_docs.txt) ///
+                         group_id(comparable_id) indep_vars(svy_college1 svy_pharmdoc1 svy_other_health1)
+                         generic_ind(generic) hh_demos(i.race i.household_composition) ///
+                         analytic_weight(equiv) main_fixed_effect(mkt_outlet_yq) ///
+                         mean_var(svy_college1) condition_var(svy_pharmdoc1) vce_cluster(hhld_id)
+                         

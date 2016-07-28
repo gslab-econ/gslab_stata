@@ -1,0 +1,361 @@
+
+ make.py started: 2015-09-29 14:46:53 C:\Checkout\trans 
+
+
+Path: gslab_make
+URL: http://gsbhmg01.chicagobooth.edu/svn/trunk/lib/python/gslab_make
+Repository Root: http://gsbhmg01.chicagobooth.edu/svn
+Repository UUID: 89b4331b-4301-411a-8e06-9c78d9cdb83d
+Revision: 32625
+Node Kind: directory
+Last Changed Author: ashahidinejad
+Last Changed Rev: 32396
+Last Changed Date: 2015-09-04 17:23:55 -0500 (Fri, 04 Sep 2015)
+
+
+ get_externals.py started: 2015-09-29 14:46:53 C:\Checkout\trans
+
+ Input was: "16195	%svn%/lib/stata/gslab_misc	*	./lib/stata/gslab_misc/	""""".
+SVN command passed: http://gsbhmg01.chicagobooth.edu/svn/trunk/lib/stata/gslab_misc/ @16195 exported to ./external/./lib/stata/gslab_misc/.
+
+ Input was: "16194	%svn%/lib/third_party/stata_tools	*	./lib/third_party/stata_tools	""""".
+SVN command passed: http://gsbhmg01.chicagobooth.edu/svn/trunk/lib/third_party/stata_tools/ @16194 exported to ./external/./lib/third_party/stata_tools/.
+
+ get_externals.py ended: 2015-09-29 14:46:56
+
+
+Execute:  %STATAEXE% /e do "test_sensitivity_matrix.do"
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   13.1   Copyright 1985-2013 StataCorp LP
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+22-user 8-core Stata network license expires 30 Jun 2016:
+       Serial number:  501409201094
+         Licensed to:  Chicago Booth
+                       The University of Chicago Booth School of BUsiness
+
+Notes:
+      1.  (/v# option or -set maxvar-) 7000 maximum variables
+      2.  Stata running in batch mode
+
+
+running C:\Program Files (x86)\Stata13\profile.do ...
+
+. do test_sensitivity_matrix.do 
+
+. version 12
+
+. set more off
+
+. adopath + ../ado
+  [1]  (BASE)      "C:\Program Files (x86)\Stata13\ado\base/"
+  [2]  (SITE)      "C:\Program Files (x86)\Stata13\ado\site/"
+  [3]              "."
+  [4]  (PERSONAL)  "c:\ado\personal/"
+  [5]  (PLUS)      "c:\ado\plus/"
+  [6]  (OLDPLACE)  "c:\ado/"
+  [7]              "../ado"
+
+. adopath + ../external/lib/stata/gslab_misc/ado
+  [1]  (BASE)      "C:\Program Files (x86)\Stata13\ado\base/"
+  [2]  (SITE)      "C:\Program Files (x86)\Stata13\ado\site/"
+  [3]              "."
+  [4]  (PERSONAL)  "c:\ado\personal/"
+  [5]  (PLUS)      "c:\ado\plus/"
+  [6]  (OLDPLACE)  "c:\ado/"
+  [7]              "../ado"
+  [8]              "../external/lib/stata/gslab_misc/ado"
+
+. preliminaries
+
+. 
+. program main
+  1.     testgood test_basic_handling
+  2.     testbad test_non_gmm
+  3.     testgood test_two_regressors
+  4. end
+
+. 
+. program test_basic_handling
+  1.     quietly use ../data/test_data
+  2.     
+.     quietly gmm (y-{a}-{b}*x), instruments(x)
+  3.     quietly sensitivity_matrix
+  4.     checkdims
+  5.     
+.     quietly gmm (y-{b}*x), instruments(x)
+  6.     quietly sensitivity_matrix
+  7.     checkdims
+  8.     
+.     quietly gmm (y-exp({a}+{b}*x)), instruments(x)
+  9.     quietly sensitivity_matrix
+ 10.     checkdims
+ 11.     
+.     quietly gmm (x-exp({a}+{b}*x1+{c}*x2)) (y-{b0}+{b1}*x), ///
+>         instruments(x1 x2) winitial(unadjusted, independent)
+ 12.     quietly sensitivity_matrix
+ 13.     checkdims
+ 14. end
+
+. 
+. program checkdims
+  1.     assert colsof(r(sensitivity)) == e(n_moments)
+  2.     assert rowsof(r(sensitivity)) == e(k)
+  3.     assert colsof(r(standardized_sensitivity)) == e(n_moments)
+  4.     assert rowsof(r(standardized_sensitivity)) == e(k)
+  5. end
+
+.     
+. program test_non_gmm
+  1.     quietly use ../data/test_data
+  2.     quietly reg y x
+  3.     quietly sensitivity_matrix
+  4. end
+
+. 
+. program test_two_regressors
+  1.     quietly use ../data/test_data
+  2.     quietly gmm (y-{b1}*x1-{b2}*x2), instruments(x1 x2, noconstant)
+  3.     quietly sensitivity_matrix
+  4.     matrix lambda = r(sensitivity)
+  5.     quietly correlate x1 x2, cov
+  6.     matrix XZ = r(C)
+  7.     matrix inv_XZ = inv(XZ)
+  8.     assert round(lambda[1,1], 0.01)==round(inv_XZ[1,1], 0.01)
+  9.     assert round(lambda[1,2], 0.01)==round(inv_XZ[1,2], 0.01)
+ 10.     assert round(lambda[2,2], 0.01)==round(inv_XZ[2,2], 0.01)
+ 11. end
+
+. 
+. * EXECUTE
+. main
+Test passed
+Test passed
+Test passed
+
+. 
+. 
+. 
+end of do-file
+
+
+Execute:  %STATAEXE% /e do "test_prepare_figures_data.do"
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   13.1   Copyright 1985-2013 StataCorp LP
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+22-user 8-core Stata network license expires 30 Jun 2016:
+       Serial number:  501409201094
+         Licensed to:  Chicago Booth
+                       The University of Chicago Booth School of BUsiness
+
+Notes:
+      1.  (/v# option or -set maxvar-) 7000 maximum variables
+      2.  Stata running in batch mode
+
+
+running C:\Program Files (x86)\Stata13\profile.do ...
+
+. do test_prepare_figures_data.do 
+
+. version 12
+
+. set more off
+
+. adopath + ../ado
+  [1]  (BASE)      "C:\Program Files (x86)\Stata13\ado\base/"
+  [2]  (SITE)      "C:\Program Files (x86)\Stata13\ado\site/"
+  [3]              "."
+  [4]  (PERSONAL)  "c:\ado\personal/"
+  [5]  (PLUS)      "c:\ado\plus/"
+  [6]  (OLDPLACE)  "c:\ado/"
+  [7]              "../ado"
+
+. adopath + ../external/lib/stata/gslab_misc/ado
+  [1]  (BASE)      "C:\Program Files (x86)\Stata13\ado\base/"
+  [2]  (SITE)      "C:\Program Files (x86)\Stata13\ado\site/"
+  [3]              "."
+  [4]  (PERSONAL)  "c:\ado\personal/"
+  [5]  (PLUS)      "c:\ado\plus/"
+  [6]  (OLDPLACE)  "c:\ado/"
+  [7]              "../ado"
+  [8]              "../external/lib/stata/gslab_misc/ado"
+
+. preliminaries
+
+. 
+. program main
+  1.      testgood test_prepare_figures_data
+  2. end
+
+. 
+. program test_prepare_figures_data
+  1.     quietly use ../data/figures_data_compare.dta
+  2.     
+.     quietly describe *
+  3.     local nvars = `r(k)'
+  4.     local nobs  = _N
+  5.     
+.     local descra_compare = descra
+  6.     local keya_compare   = keya    
+  7. 
+.     quietly prepare_figures_data, sen_file(../data/sensitivity_matrix.tsv)          ///
+>                                   stsen_file(../data/standardized_sensitivity_matrix.tsv) ///
+>                                   param_file(../data/param_data_nw2013.dta)         ///
+>                                   mom_file(../data/mom_data_nw2013.dta)             ///
+>                                   out_file(../data/figures_data.dta)                ///
+>                                   mom_type_order(real financial incentive)
+  8.     
+.     quietly use ../data/figures_data.dta, replace
+  9.     
+.     quietly describe *
+ 10.     assert `r(k)' == `nvars'
+ 11.     assert _N     == `nobs'
+ 12.     
+.     local descra_new = descra
+ 13.     local keya_new   = keya
+ 14.     
+.     assert "`descra_new'" == "`descra_compare'"
+ 15.     assert "`keya_new'"   == "`keya_compare'"
+ 16.     
+.     quietly clear
+ 17.     quietly erase ../data/figures_data.dta
+ 18. end
+
+. 
+. * EXECUTE
+. main
+Test passed
+
+. 
+end of do-file
+
+
+Execute:  %STATAEXE% /e do "test_graph_param_sensitivity.do"
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   13.1   Copyright 1985-2013 StataCorp LP
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+22-user 8-core Stata network license expires 30 Jun 2016:
+       Serial number:  501409201094
+         Licensed to:  Chicago Booth
+                       The University of Chicago Booth School of BUsiness
+
+Notes:
+      1.  (/v# option or -set maxvar-) 7000 maximum variables
+      2.  Stata running in batch mode
+
+
+running C:\Program Files (x86)\Stata13\profile.do ...
+
+. do test_graph_param_sensitivity.do 
+
+. version 12
+
+. set more off
+
+. adopath + ../ado
+  [1]  (BASE)      "C:\Program Files (x86)\Stata13\ado\base/"
+  [2]  (SITE)      "C:\Program Files (x86)\Stata13\ado\site/"
+  [3]              "."
+  [4]  (PERSONAL)  "c:\ado\personal/"
+  [5]  (PLUS)      "c:\ado\plus/"
+  [6]  (OLDPLACE)  "c:\ado/"
+  [7]              "../ado"
+
+. adopath + ../external/lib/stata/gslab_misc/ado
+  [1]  (BASE)      "C:\Program Files (x86)\Stata13\ado\base/"
+  [2]  (SITE)      "C:\Program Files (x86)\Stata13\ado\site/"
+  [3]              "."
+  [4]  (PERSONAL)  "c:\ado\personal/"
+  [5]  (PLUS)      "c:\ado\plus/"
+  [6]  (OLDPLACE)  "c:\ado/"
+  [7]              "../ado"
+  [8]              "../external/lib/stata/gslab_misc/ado"
+
+. preliminaries
+
+. 
+. program main
+  1.     quietly prepare_figures_data, sen_file(../data/sensitivity_matrix.tsv)          ///
+>                                   stsen_file(../data/standardized_sensitivity_matrix.tsv) ///
+>                                   param_file(../data/param_data_nw2013.dta)         ///
+>                                   mom_file(../data/mom_data_nw2013.dta)             ///
+>                                   out_file(../data/figures_data.dta)                ///
+>                                   mom_type_order(real financial incentive)
+  2. 
+.     testgood test_graph_params
+  3. end
+
+. 
+. program test_graph_params
+  1.     quietly use ../data/figures_data.dta, clear
+  2. 
+.     quietly ds *_sen
+  3.     local all_vars = "`r(varlist)'"
+  4.     local param_list = subinstr("`all_vars'", "_sen", "", .)
+  5. 
+.     foreach param in `param_list' {
+  6.         quietly graph_param_default, param("`param'")
+  7.         quietly graph_param_changes, param("`param'")
+  8.     }
+  9.     
+.     quietly erase ../data/figures_data.dta
+ 10. end
+
+.     
+.     program graph_param_default
+  1.         syntax, param(string)
+  2.         
+.         prepare_param_sensitivity, param("`param'")
+  3.         
+.         graph_param_sensitivity, param("`param'") ///
+>                                  mom_type_order(real financial incentive) ///
+>                                  legend_opts(`"order(1 "Real" 2 "Financial" 3 "Incentive") size(vsmall) rows(1)"')
+  4.     end
+
+.     
+.     program graph_param_changes
+  1.         syntax, param(string)
+  2.         
+.         prepare_param_sensitivity, param("`param'")
+  3.         
+.         get_trans_graph_defaults, param("`param'")
+  4.         local bar_opts = "`r(bar_opts)' fintensity(100)"
+  5.         
+.         graph_param_sensitivity, param("`param'") ///
+>                                  mom_type_order(real financial incentive) ///
+>                                  legend_opts(`"order(1 "Real" 2 "Financial" 3 "Incentive") size(vsmall) rows(1)"') ///
+>                                  bar_opts("`bar_opts'")
+  6.     end    
+
+. 
+. * EXECUTE
+. main
+Test passed
+
+. 
+end of do-file
+
+ make.py ended: 2015-09-29 14:47:07

@@ -1,0 +1,18 @@
+***********************************************************
+*
+* input_param.txt: This file defines constants, variables
+*	and parameters that are inputs to estimation.
+*
+***********************************************************
+
+main_gasexp "cons_hhgasexp"
+main_gasqty "cons_hhgasqty"
+main_totexp "cex_hhexp_pred"
+main_adjust 1000
+main_cluster "mofd"
+months_in_data 39
+
+monoscheme "s1mono"
+monolabel ""
+colorscheme "s2color"
+colorlabel "_color"

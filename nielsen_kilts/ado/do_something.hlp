@@ -1,0 +1,35 @@
+.-
+help for ^do_something^
+.-
+
+Syntax
+-----------------------------------------------------------------------
+
+	do_something filename, option1(varlist) [option2 option3(filename)]
+
+Description
+-----------------------------------------------------------------------
+
+XXX
+
+Options
+-----------------------------------------------------------------------
+
+filename: Input file.
+
+option1(): Defines variables.
+
+option2: Switch to change something.
+
+option3(): Indicates output file 
+
+Examples
+-----------------------------------------------------------------------
+
+    do_something temp.dta, option1(var1)
+    do_something temp.dta, option2
+
+See also
+--------
+@othercmd@
+

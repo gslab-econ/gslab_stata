@@ -1,0 +1,501 @@
+
+ make.py started: 2013-02-08 10:24:09 C:\crosswalk 
+
+
+Path: gslab_make
+URL: http://gsbhmg01.chicagobooth.edu/svn/trunk/lib/python/gslab_make
+Repository Root: http://gsbhmg01.chicagobooth.edu/svn
+Repository UUID: 89b4331b-4301-411a-8e06-9c78d9cdb83d
+Revision: 18816
+Node Kind: directory
+Last Changed Author: tditta
+Last Changed Rev: 18788
+Last Changed Date: 2013-02-07 11:19:12 -0600 (Thu, 07 Feb 2013)
+
+
+
+List of all files in sub-directories in ./log
+./log
+created/modified Wed Jan 23 13:23:31 2013
+                                          make.log --- created/modified Fri Feb 08 10:24:10 2013 ( 404 bytes )
+
+
+
+ get_externals.py started: 2013-02-08 10:24:10 C:\crosswalk
+
+ Input was: "16195	%svn%/lib/stata/gslab_misc	*	./lib/stata/gslab_misc/	""""".
+SVN command passed: http://gsbhmg01.chicagobooth.edu/svn/trunk/lib/stata/gslab_misc/ @16195 exported to ./external/./lib/stata/gslab_misc/.
+
+ Input was: "16194	%svn%/lib/third_party/stata_tools	*	./lib/third_party/stata_tools	""""".
+SVN command passed: http://gsbhmg01.chicagobooth.edu/svn/trunk/lib/third_party/stata_tools/ @16194 exported to ./external/./lib/third_party/stata_tools/.
+
+ get_externals.py ended: 2013-02-08 10:24:13
+
+
+Execute:  %STATAEXE% /e do test_save_crosswalk.do
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   12.0   Copyright 1985-2011 StataCorp LP
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+22-user 8-core Stata network license expires 30 Jun 2013:
+       Serial number:  5012045083
+         Licensed to:  Preferred Customer
+                       University of Chicago Booth School of Business
+
+Notes:
+      1.  (/v# option or -set maxvar-) 5000 maximum variables
+      2.  Stata running in batch mode
+
+
+running C:\Program Files (x86)\Stata12\profile.do ...
+
+. do test_save_crosswalk.do 
+
+. version 12
+
+. set more off
+
+. adopath + ../ado
+  [1]  (UPDATES)   "C:\Program Files (x86)\Stata12\ado\updates/"
+  [2]  (BASE)      "C:\Program Files (x86)\Stata12\ado\base/"
+  [3]  (SITE)      "C:\Program Files (x86)\Stata12\ado\site/"
+  [4]              "."
+  [5]  (PERSONAL)  "c:\ado\personal/"
+  [6]  (PLUS)      "c:\ado\plus/"
+  [7]  (OLDPLACE)  "c:\ado/"
+  [8]              "../ado"
+
+. adopath + ../external/lib/stata/gslab_misc/ado
+  [1]  (UPDATES)   "C:\Program Files (x86)\Stata12\ado\updates/"
+  [2]  (BASE)      "C:\Program Files (x86)\Stata12\ado\base/"
+  [3]  (SITE)      "C:\Program Files (x86)\Stata12\ado\site/"
+  [4]              "."
+  [5]  (PERSONAL)  "c:\ado\personal/"
+  [6]  (PLUS)      "c:\ado\plus/"
+  [7]  (OLDPLACE)  "c:\ado/"
+  [8]              "../ado"
+  [9]              "../external/lib/stata/gslab_misc/ado"
+
+. preliminaries
+
+. 
+. program main
+  1. 
+.     * Test no options
+.     load_raw_data
+  2.     testgood save_crosswalk ./temp/name-code.dta, from(name) to(code)
+  3.     cap sum code
+  4.     assert `r(sum)' == 4
+  5.     cap count if missing(code)
+  6.     assert `r(N)' == 0
+  7.     
+.     * Test to_missok
+.     load_raw_data
+  8.     testgood save_crosswalk ./temp/name-code.dta, from(name) to(code) ///
+>                             to_missok replace
+  9.     cap sum code
+ 10.     assert `r(sum)' == 4
+ 11.     cap count if missing(code)
+ 12.     assert `r(N)' == 3
+ 13.     
+.     * Test fromfile 
+.     create_from_to_files
+ 14.     load_raw_data
+ 15.     testgood save_crosswalk ./temp/name-code.dta, from(name) to(code) ///
+>                             fromfile(./temp/from_file_good.dta) replace
+ 16.     cap sum code
+ 17.     assert `r(sum)' == 4
+ 18.     cap count if missing(code)
+ 19.     assert `r(N)' == 0
+ 20.     
+.     * Test fromfile mismatch
+.     load_raw_data
+ 21.     testbad save_crosswalk ./temp/name-code.dta, from(name) to(code) ///
+>                            fromfile(./temp/from_to_file_bad.dta) replace
+ 22.     
+.     * Test tofile 
+.     load_raw_data
+ 23.     testgood save_crosswalk ./temp/name-code.dta, from(name) to(code) ///
+>                             tofile(./temp/to_file_good.dta) replace
+ 24.     cap sum code
+ 25.     assert `r(sum)' == 4
+ 26.     cap count if missing(code)
+ 27.     assert `r(N)' == 0
+ 28.     
+.     * Test tofile mismatch
+.     load_raw_data
+ 29.     testbad save_crosswalk ./temp/name-code.dta, from(name) to(code) ///
+>                            tofile(./temp/from_to_file_bad.dta) replace
+ 30.     
+.     * Test tofile fromfile to_missok
+.     load_raw_data
+ 31.     testgood save_crosswalk ./temp/name-code.dta, from(name) to(code) ///
+>                             fromfile(./temp/from_file_good.dta) ///
+>                             tofile(./temp/to_file_good.dta) to_missok replace
+ 32.     cap sum code
+ 33.     assert `r(sum)' == 4
+ 34.     cap count if missing(code)
+ 35.     assert `r(N)' == 3
+ 36. 
+. end
+
+. 
+. program load_raw_data
+  1.     qui insheet using "raw_data.csv", comma clear
+  2. end
+
+. 
+. program create_from_to_files
+  1.     quietly {
+  2.         insheet using "raw_data.csv", comma clear
+  3.         save ./temp/from_file_good.dta
+  4.         
+.         insheet using "raw_data.csv", comma clear
+  5.         replace code = 1 if code == .
+  6.         keep if name == "a"
+  7.         save ./temp/to_file_good.dta
+  8.         
+.         qui insheet using "manual_input.csv", comma clear
+  9.         keep if name == "a" | name == "b"
+ 10.         save ./temp/from_to_file_bad.dta
+ 11.     }
+ 12. end
+
+. 
+. * EXECUTE
+. main
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+
+. 
+end of do-file
+
+
+Execute:  %STATAEXE% /e do test_merge_manual_input.do
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   12.0   Copyright 1985-2011 StataCorp LP
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+22-user 8-core Stata network license expires 30 Jun 2013:
+       Serial number:  5012045083
+         Licensed to:  Preferred Customer
+                       University of Chicago Booth School of Business
+
+Notes:
+      1.  (/v# option or -set maxvar-) 5000 maximum variables
+      2.  Stata running in batch mode
+
+
+running C:\Program Files (x86)\Stata12\profile.do ...
+
+. do test_merge_manual_input.do 
+
+. version 12
+
+. set more off
+
+. adopath + ../ado
+  [1]  (UPDATES)   "C:\Program Files (x86)\Stata12\ado\updates/"
+  [2]  (BASE)      "C:\Program Files (x86)\Stata12\ado\base/"
+  [3]  (SITE)      "C:\Program Files (x86)\Stata12\ado\site/"
+  [4]              "."
+  [5]  (PERSONAL)  "c:\ado\personal/"
+  [6]  (PLUS)      "c:\ado\plus/"
+  [7]  (OLDPLACE)  "c:\ado/"
+  [8]              "../ado"
+
+. adopath + ../external/lib/stata/gslab_misc/ado
+  [1]  (UPDATES)   "C:\Program Files (x86)\Stata12\ado\updates/"
+  [2]  (BASE)      "C:\Program Files (x86)\Stata12\ado\base/"
+  [3]  (SITE)      "C:\Program Files (x86)\Stata12\ado\site/"
+  [4]              "."
+  [5]  (PERSONAL)  "c:\ado\personal/"
+  [6]  (PLUS)      "c:\ado\plus/"
+  [7]  (OLDPLACE)  "c:\ado/"
+  [8]              "../ado"
+  [9]              "../external/lib/stata/gslab_misc/ado"
+
+. preliminaries
+
+. 
+. program main
+  1. 
+.     * Test csv file
+.     load_raw_data
+  2.     testgood merge_manual_input using manual_input.csv, from(name) to(code)
+  3.     cap sum code
+  4.     assert `r(sum)' == 13
+  5.     testgood confirm var _merge
+  6.     
+.     * Test replace 
+.     load_raw_data
+  7.     testgood merge_manual_input using manual_input.csv, from(name) to(code) replace
+  8.     cap sum code
+  9.     assert `r(sum)' == 15
+ 10.     testgood confirm var _merge
+ 11.     
+.     * Test nogen
+.     load_raw_data
+ 12.     testgood merge_manual_input using manual_input.csv, from(name) to(code) nogen
+ 13.     cap sum code
+ 14.     assert `r(sum)' == 13
+ 15.     testbad confirm var _merge
+ 16.     
+.     * Test replace nogen
+.     load_raw_data
+ 17.     testgood merge_manual_input using manual_input.csv, from(name) to(code) replace nogen 
+ 18.     cap sum code
+ 19.     assert `r(sum)' == 15
+ 20.     testbad confirm var _merge
+ 21. end
+
+. 
+. program load_raw_data
+  1.     qui insheet using "raw_data.csv", comma clear
+  2. end
+
+. 
+. * EXECUTE
+. main
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+
+. 
+end of do-file
+
+
+Execute:  %STATAEXE% /e do test_make_input_template.do
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   12.0   Copyright 1985-2011 StataCorp LP
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+22-user 8-core Stata network license expires 30 Jun 2013:
+       Serial number:  5012045083
+         Licensed to:  Preferred Customer
+                       University of Chicago Booth School of Business
+
+Notes:
+      1.  (/v# option or -set maxvar-) 5000 maximum variables
+      2.  Stata running in batch mode
+
+
+running C:\Program Files (x86)\Stata12\profile.do ...
+
+. do test_make_input_template.do 
+
+. version 12
+
+. set more off
+
+. adopath + ../ado
+  [1]  (UPDATES)   "C:\Program Files (x86)\Stata12\ado\updates/"
+  [2]  (BASE)      "C:\Program Files (x86)\Stata12\ado\base/"
+  [3]  (SITE)      "C:\Program Files (x86)\Stata12\ado\site/"
+  [4]              "."
+  [5]  (PERSONAL)  "c:\ado\personal/"
+  [6]  (PLUS)      "c:\ado\plus/"
+  [7]  (OLDPLACE)  "c:\ado/"
+  [8]              "../ado"
+
+. adopath + ../external/lib/stata/gslab_misc/ado
+  [1]  (UPDATES)   "C:\Program Files (x86)\Stata12\ado\updates/"
+  [2]  (BASE)      "C:\Program Files (x86)\Stata12\ado\base/"
+  [3]  (SITE)      "C:\Program Files (x86)\Stata12\ado\site/"
+  [4]              "."
+  [5]  (PERSONAL)  "c:\ado\personal/"
+  [6]  (PLUS)      "c:\ado\plus/"
+  [7]  (OLDPLACE)  "c:\ado/"
+  [8]              "../ado"
+  [9]              "../external/lib/stata/gslab_misc/ado"
+
+. preliminaries
+
+. 
+. program main
+  1. 
+.     * Test no options
+.     load_raw_data
+  2.     testgood make_input_template ./temp/name-code_template.csv, from(name) to(code)
+  3.     qui insheet using "./temp/name-code_template.csv", comma clear
+  4.     testgood confirm var name
+  5.     testgood confirm var current_code
+  6.     testgood confirm var code
+  7.     cap sum current_code
+  8.     assert `r(sum)' == 4
+  9.     
+.     * Test current
+.     load_raw_data
+ 10.     testgood make_input_template ./temp/name-code_template.csv, from(name) to(code) ///
+>                                  current(manual_input.csv)
+ 11.     qui insheet using "./temp/name-code_template.csv", comma clear
+ 12.     testgood confirm var name
+ 13.     testgood confirm var current_code
+ 14.     testgood confirm var code
+ 15.     cap sum current_code
+ 16.     assert `r(sum)' == 4
+ 17.     cap sum code
+ 18.     assert `r(sum)' == 12
+ 19.     
+.     * Test from_info_vars
+.     load_raw_data
+ 20.     testgood make_input_template ./temp/name-code_template.csv, from(name) to(code) ///
+>                                  from_info_vars(info)
+ 21.     qui insheet using "./temp/name-code_template.csv", comma clear
+ 22.     testgood confirm var name
+ 23.     testgood confirm var current_code
+ 24.     testgood confirm var code
+ 25.     testgood confirm var name_info
+ 26.     cap sum current_code
+ 27.     assert `r(sum)' == 4
+ 28.     
+.     * Test to_info_vars
+.     create_to_info_file
+ 29.     load_raw_data
+ 30.     testgood make_input_template ./temp/name-code_template.csv, from(name) to(code) ///
+>                                  to_info_vars(info) to_info_file(./temp/to_info.dta)
+ 31.     qui insheet using "./temp/name-code_template.csv", comma clear
+ 32.     testgood confirm var name
+ 33.     testgood confirm var current_code
+ 34.     testgood confirm var code
+ 35.     testgood confirm var current_code_info
+ 36.     cap sum current_code
+ 37.     assert `r(sum)' == 4
+ 38.     
+.     * Test to_info_vars no file
+.     load_raw_data
+ 39.     testbad make_input_template ./temp/name-code_template.csv, from(name) to(code) ///
+>                                 to_info_vars(info)
+ 40.     
+.     * Test from_prefix
+.     load_raw_data
+ 41.     testgood make_input_template ./temp/name-code_template.csv, from(name) to(code) ///
+>                                  from_info_vars(info) from_prefix(from_)
+ 42.     qui insheet using "./temp/name-code_template.csv", comma clear
+ 43.     testgood confirm var name
+ 44.     testgood confirm var current_code
+ 45.     testgood confirm var code
+ 46.     testgood confirm var from_info
+ 47.     cap sum current_code
+ 48.     assert `r(sum)' == 4
+ 49.     
+.     * Test to_prefix
+.     load_raw_data
+ 50.     testgood make_input_template ./temp/name-code_template.csv, from(name) to(code) ///
+>                                  to_info_vars(info) to_info_file(./temp/to_info.dta) ///
+>                                  to_prefix(to_)
+ 51.     qui insheet using "./temp/name-code_template.csv", comma clear
+ 52.     testgood confirm var name
+ 53.     testgood confirm var current_code
+ 54.     testgood confirm var code
+ 55.     testgood confirm var to_info
+ 56.     cap sum current_code
+ 57.     assert `r(sum)' == 4
+ 58.     
+.     * Test current from_info_vars to_info_vars
+.     load_raw_data
+ 59.     testgood make_input_template ./temp/name-code_template.csv, from(name) to(code) /// 
+>                                  current(manual_input.csv) to_info_vars(info) /// 
+>                                  to_info_file(./temp/to_info.dta)
+ 60.     qui insheet using "./temp/name-code_template.csv", comma clear
+ 61.     testgood confirm var name
+ 62.     testgood confirm var current_code
+ 63.     testgood confirm var code
+ 64.     testgood confirm var current_code_info
+ 65.     cap sum current_code
+ 66.     assert `r(sum)' == 4
+ 67.     cap sum code
+ 68.     assert `r(sum)' == 12
+ 69.     
+. end
+
+. 
+. program load_raw_data
+  1.     qui insheet using "raw_data.csv", comma clear
+  2. end
+
+. 
+. program create_to_info_file
+  1.     quietly {
+  2.         insheet using "raw_data.csv", comma clear
+  3.         replace code = 1 if code == .
+  4.         keep code 
+  5.         duplicates drop
+  6.         gen info = "the number one"
+  7.         save ./temp/to_info.dta
+  8.     }
+  9. end
+
+. 
+. * EXECUTE
+. main
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+
+. 
+end of do-file
+
+ make.py ended: 2013-02-08 10:24:14

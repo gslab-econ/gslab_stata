@@ -1,0 +1,1270 @@
+
+ make.py started: 2016-04-28 16:26:58 C:\Users\ahthomas\Documents\svn\lib\stata\gslab_misc 
+
+
+Path: gslab_make
+URL: https://econ-gentzkow-svn.stanford.edu/repos/main/trunk/lib/python/gslab_make
+Relative URL: ^/trunk/lib/python/gslab_make
+Repository Root: https://econ-gentzkow-svn.stanford.edu/repos/main
+Repository UUID: 89b4331b-4301-411a-8e06-9c78d9cdb83d
+Revision: 34230
+Node Kind: directory
+Last Changed Author: jwchoi2
+Last Changed Rev: 33502
+Last Changed Date: 2016-02-07 20:40:17 -0500 (Sun, 07 Feb 2016)
+
+
+ get_externals.py started: 2016-04-28 16:27:02 C:\Users\ahthomas\Documents\svn\lib\stata\gslab_misc
+
+ Input was: "33414	%svn%/lib/third_party/stata_tools	*	./lib/third_party/stata_tools	""""".
+SVN command passed: https://econ-gentzkow-svn.stanford.edu/repos/main/trunk/lib/third_party/stata_tools/ @33414 exported to ./external./lib/third_party/stata_tools/.
+
+ get_externals.py ended: 2016-04-28 16:27:08
+
+
+Execute:  %STATAEXE% /e do "test_testgood.do"
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   14.1   Copyright 1985-2015 StataCorp LP
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+10-user 16-core Stata network perpetual license:
+       Serial number:  501406206055
+         Licensed to:  ECONUSER
+                       Brown University
+
+Notes:
+      1.  Stata is running in batch mode.
+      2.  Unicode is supported; see help unicode_advice.
+      3.  More than 2 billion observations are allowed; see help obs_advice.
+      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+
+
+running C:\Program Files (x86)\Stata14\profile.do ...
+
+. do test_testgood.do 
+
+. ****************************************************************************************************
+. *
+. * TEST_TESTGOOD.DO
+. *
+. ****************************************************************************************************
+. 
+. quietly {
+
+. 
+. * EXECUTE
+. main
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+
+THESE TESTS SHOULD ALL FAIL:
+Test failed
+    Command: regress y q, 
+    Result: Error where none expected
+Test failed
+    Command: regress y x, , blah
+    Result: Error where none expected
+Test failed
+    Command: blah, 
+    Result: Error where none expected
+
+. 
+. 
+. 
+end of do-file
+
+
+Execute:  %STATAEXE% /e do "test_testbad.do"
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   14.1   Copyright 1985-2015 StataCorp LP
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+10-user 16-core Stata network perpetual license:
+       Serial number:  501406206055
+         Licensed to:  ECONUSER
+                       Brown University
+
+Notes:
+      1.  Stata is running in batch mode.
+      2.  Unicode is supported; see help unicode_advice.
+      3.  More than 2 billion observations are allowed; see help obs_advice.
+      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+
+
+running C:\Program Files (x86)\Stata14\profile.do ...
+
+. do test_testbad.do 
+
+. ****************************************************************************************************
+. *
+. * TEST_TESTBAD.DO
+. *
+. ****************************************************************************************************
+. 
+. quietly {
+
+. 
+. * EXECUTE
+. main
+Test passed
+Test passed
+Test passed
+
+THESE TESTS SHOULD ALL FAIL:
+Test failed
+    Command: regress y x, 
+    Result: No error when error was expected
+Test failed
+    Command: regress y x, , robust
+    Result: No error when error was expected
+Test failed
+    Command: gen z = 2, 
+    Result: No error when error was expected
+
+. 
+. 
+. 
+end of do-file
+
+
+Execute:  %STATAEXE% /e do "test_save_data.do"
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   14.1   Copyright 1985-2015 StataCorp LP
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+10-user 16-core Stata network perpetual license:
+       Serial number:  501406206055
+         Licensed to:  ECONUSER
+                       Brown University
+
+Notes:
+      1.  Stata is running in batch mode.
+      2.  Unicode is supported; see help unicode_advice.
+      3.  More than 2 billion observations are allowed; see help obs_advice.
+      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+
+
+running C:\Program Files (x86)\Stata14\profile.do ...
+
+. do test_save_data.do 
+
+. ****************************************************************************************************
+. *
+. * TEST_SAVE_DATA.DO
+. *
+. ****************************************************************************************************
+. 
+. quietly {
+
+. 
+. * EXECUTE
+. main
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+(6 vars, 40 obs)
+(data now sorted by a)
+  variable d was double now byte
+  (700 bytes saved)
+==================================================================================================
+File: ../output/temp.dta
+Key: a
+==================================================================================================
+  100:4(100229):4062377441:2323123220
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+           a |        100    .5262392    .2743336   .0017093   .9941372
+           b |        100    .5238146    .2957984   .0067327   .9961973
+           c |        100    .0878837    1.107756  -2.399411   3.057399
+           d |        100        50.5    29.01149          1        100
+
+
+
+
+file ../output/temp.dta saved
+
+. 
+. 
+. 
+end of do-file
+
+
+Execute:  %STATAEXE% /e do "test_preliminaries.do"
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   14.1   Copyright 1985-2015 StataCorp LP
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+10-user 16-core Stata network perpetual license:
+       Serial number:  501406206055
+         Licensed to:  ECONUSER
+                       Brown University
+
+Notes:
+      1.  Stata is running in batch mode.
+      2.  Unicode is supported; see help unicode_advice.
+      3.  More than 2 billion observations are allowed; see help obs_advice.
+      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+
+
+running C:\Program Files (x86)\Stata14\profile.do ...
+
+. do test_preliminaries.do 
+
+.  /**********************************************************
+>  *
+>  *  TEST_PRELIMINARIES.ADO
+>  * 
+>  * 
+>  **********************************************************/ 
+. 
+. adopath ++ ../ado/
+  [1]              "../ado/"
+  [2]  (BASE)      "C:\Program Files (x86)\Stata14\ado\base/"
+  [3]  (SITE)      "C:\Program Files (x86)\Stata14\ado\site/"
+  [4]              "."
+  [5]  (PERSONAL)  "c:\ado\personal/"
+  [6]  (PLUS)      "c:\ado\plus/"
+  [7]  (OLDPLACE)  "c:\ado/"
+
+. 
+. display "maxvar " c(maxvar) ", matsize " c(matsize) ", linesize " c(linesize) ", seed " c(seed)
+maxvar 5000, matsize 400, linesize 255, seed XAA000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+> 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+> 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+> 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+> 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+> 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+> 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+> 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+> 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+> 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+> 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+> 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+> 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+> 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+> 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+> 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+> 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+> 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+> 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+> 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000001391839
+
+. query sortseed
+
+. display "`r(sortseed)'"
+1001XZA112210f4b16c1cb10507a1f38cb440c40003c9a83566fa1201b69ab0aff2f2401e18
+
+. ***DEFAULT TEST
+. preliminaries
+
+. display "maxvar " c(maxvar) ", matsize " c(matsize) ", linesize " c(linesize) ", seed " c(seed)
+maxvar 5000, matsize 5000, linesize 255, seed XAA0000000000000093b70f3602f9d806d8f7da818ecb415a5446411e158ef10a4ed98bd8f1287700e7ac7d1f125b10441944711ad5bb5c5dc539d6839184d4b77bcb4c44602f0145a7cec106781d3999dd8fbf79d72cab2e10d34c3c74ee6c0735952e3657baff0e
+> 8a245fcfdc3c3305f59b2e8b1c1885971f188386d12553f32860fbf85c9baa961822930ebec5ffc976284c4b2ffc95f3d0e82ea8f672600ba3cb01968a04c66b34da2de29d011421c0b69b1f26b7c8ac5d727112a663146dcadeda5691b83601c7ed04e16963728b8d319faaebb003fa10bc64cd1d3510e4eb2119c3351d2
+> 4d41126ea0a2cde92b61ab3f5f0539d42e8b092adae071dcd3569dbb1c323e5d978ef1b56a54bbb93559df02c3b2280bfefbb7ddaf128ffc16b7b86f42f03af536a963d83b2d52bad28290998270d2039665bd5c3e615bad52326f45caf7f046f88a98d409be61f595c0bd53818eb149aa4bf5dd80c8108543937aa2c964f
+> 939dd8aad6f2e2f13b026db5f1c862a776c8932cd34fc51000a13072148b042fd122930debc7af385c984c7a7343a37543227877195edb7c0b7fb6f1913d96846779b791d027e1ca0f06320c51a29c134da73dd975fc9a95bccc072f378e04f33d33154e502069e2a7f270ef399079a12e29ec10b2ae66870eca6f0b77c7d
+> 37252e7fbd10dc68590f8c373cdcffaf510f31f0e47f34d87daa21d3e33c1010fc672edbeb038d2d35a479452b8c4d68c9bef33d29ad67c87a7c0a2ec28e45b0d8ce8d3d8d3f9900d80f6dc4cd5b809e8c8ef65abe4d8bb8eb8da0451b5f24fcc6a0e39a746bcc81c0af146a26ae6336e39da842492153a1ed44bc35cc829
+> 9ec44f9cc687747ce18fec529c5bb1d6aee7afb4686e3e9d3c6a9dca8ca40880b80788d1ebcc12a30c80d365fecf21f7b84cb649ebc67931b71b4fb2ea69c531966c3bc95652f5387798543bed2066c83ec1194f1f4c4483b6ec0ae8aaa1d2c0b5ac417a54a1e8e16088d57efb0ba89a2a70296b71e26995c964e4ee9ee22
+> a9dae3d4445679964a00df93328ad914bf10481287d12c133482ddcdefb12c5cf9df7439cbb53f7967c672dde9eb8f165c4cf88c1d5770af65d673993b0f57874632ef2f2ba0137f5a00524274dfce24982bc9526235dfc954ae2f27bafb74ff209a7570e80519b1fc32439348757a5dca18f9cd5047cc99d57c6e41b3f80
+> 525e23f5b221f7b69c1f9e948af13497d2e0683c3e3065d830280fb8f15d5ac1cea42470bc690f08af44eefd2ff7260d8b65abf6ee84d2e71b60af6266d7c13f6ead2947ac55cfea46378e453118f706a120bbe37d9b96e4317008f72ebd59fe3f8134992070354729255491004a997496fa446cc30b347c0f997cbed68ff
+> 9032633457d60cd689a8546fa53c5fbb19aa6f840eb890ea51cdf9d4c800618cecdb2eb54164aed001c89a29bd6d5d6ad2b0f28e1845b97188980e4080cfda32191421e7f1163c659cb81ca855eeb138d508634c6cc3cbeef2a62042a4416363327b4c2f15e08c77d9104a2831de970817eafd62ceccc37e2e314ce89bf17
+> efcd22dac1aa453a6d912631d3555768068112714abc0782ba0b191fbdb1dbd1d498555622ebe8fccdbd5a0430364ac8b486970a88c15c7d7217ee527acdc928645c3b86d82b7bae933fd45a13f930df39a21242ec4f9e250b758555997cd91a0cbf5e744fdf741d6458b3244e122e873873509522b06a6f4823f0159489c
+> f4e05843735f9572e84d7909302bb0cc1d7af2673c14f5905d383263a2c81d3c695967acd531fb052ac79219e808cd2e5f95985490b97748099d357b975a65e8bdae57b2a87fe681696649b5c6977395b3698913e146395b4317595a5b30d739d17252dafeb4ab2372ca0844d91d7e09128bbd9f44e1a6f0e4aeb633d220f
+> 65c72ec2bfc9ef219408f18691bfe94c26c45fa1c5dfb5635964e40eb9ee00154ce157e3bc83f03325ad32713c74077a0a724517c21cd7238103a648092b2ed9885317c0524ce232eb0bd1f881a993248cc70a3f248237907fb5f529b46f336018a84cde957e27c41fbe32f931fb3a2c5a206bd356a10e759bb4228bf9ff1
+> 71e69377fe14199f4a7128b568e950c5bea977c8e9e4bf73edf4aa2e7ed3546b09785c4730fbe55751d3cbe5226392af83352aeabbcf75deeb861e715fef29dbe479a2d8cc76ddd2d11c1635202e94c5a1b66fc06a77315befdb9d1702dfd3d971206490438be147e97896bc853164a2a53ba4d10a1632ca0068acbe5bfe4
+> 8e1d7ed2ad2b61a6c7b39788670e76d854fdd055fe6af24415ccb7948789d0f65146cc93e52c76fc4fa505c70205a9fdf17c0b8bb13fa400a2c6397997521ac14b1e31cc7390b7101e1f4346c5123bf70c3f14e5da7ba573ab8286b203c36ade4eed37338966bf0765fe286a553718b34b85e091fcb38ab3a62866cde5abc
+> 83472b66e4b370e4baa1b250485f2635b660bfdbd10c8699347285c70451604cf9523d08efdad385fd2fd9b02fa75bd506a0ebf0d7506348350858857531ad1574829a200a2d5e3a4ed44fa10f421863fd1a8e40e150ae7843b638a2ef61e8bbfe6d21cfc652ba1f763bc9abaad6aac8babc0f8c7d7fe5e8e32fe768a8194
+> cdabdd45cdffe690463c86b6b964dbd8c9f7d10bb10796a38353c3331aa1618a76dd8f118c9506a30fe29cf722f350adb1a2ad36b2a7342c9a93d7dbc21fa31e100f26f98165716d03bd8600d90ea8e3605cc38f99972b976cb03d27eb26a06f890ab2ca30a4115440e1544ae825e24e8f7213de2a79bb681345a621fe6ba
+> 965866e504cd06fe13a6cf8e457b724fd4ef04fd4fa8bd79d2dd44b0dccc141f88c335d60dd36c51ff8c0496e4cdbcd667945a64ede570927a5950331ea4569e944a8bd90ba4b774e72125736b1d0670a4ef6c167023cf2bb7e4f08887ac58f22612018bca6adcf6ddb0bef77013f6af8a6a97e36f53bd7b65dc736142db1
+> 4defcd9ea2ddf95cedc03f164f787568e19f4927ed8f358ec6d2f407d006515581d2a75546d26186e81b7d39f1a7da4d5eca18c44cbd773c962f7eea0ef3bc924284eb05521d1e74ac4f0203d4cb82d5a91e523679e8c5e79c776fb046367c1b8169a6354526f556968ce45286c8f822a2de6e983813eb77382535448e39e
+> 13b780193fd8e25effd322e219471efe550e50af2cec6ffb9d45d0a810c655a2578766852b1d99406b7dc09b35005fa05f5f8b7e0ef2bb16a45b8904810f1b58788d3f50108c8d357bcdf78351cf3e92957cfba04d9e2c1b9a25ad7a511acc263329d6ab7e456bf8248ec065806651a0565d0f4042c9c428516b855c9d18c
+> 7682c508c60087ac0ef91abf41bdc2a49578f8378402dfabc8d46caab621b740cd0672b506cb3114558df459d84e6ed319f91bd4d1b2180a2dbc8efb789d61436b6a2ac942c3b9c9d34abe5ac722254f07899c32de4f29b50c31c4d16a63c62fbb9dc81fb74d53fba279107ca5d118579fcc695d0001000001383f9f
+
+. query sortseed
+
+. display "`r(sortseed)'"
+47XZA000000000000002f0507a1f38cb440c40003c9a83566fa1201b69ab0aff2f24015a0
+
+. 
+. ***FULL TEST
+. *test global file
+. file open TESTCONST using ./testconst.txt, write replace
+(note: file ./testconst.txt not found)
+
+. file write TESTCONST "testconst 1"
+
+. file close TESTCONST
+
+. 
+. preliminaries, matsize(1000) maxvar(10000) seed(10) sortseed(100) linesize(200) loadglob(testconst.txt)
+
+. display "maxvar " c(maxvar) ", matsize " c(matsize) ", linesize " c(linesize) ", seed " c(seed)
+maxvar 10000, matsize 1000, linesize 200, seed XAA000000000000000a733389c4fdd6f7c313bbf6540f9ccb1c1ed007000e9e97efaab95aafa15b46071e0f27b5e1b0c9e60782c3332b1a9774b621dd355b532b6b8f13e86fc044b87dd10b15
+> 1ef9866f5c9f5f583d942cb4bd74ee649620b1869e22b719d95f888aff160e002a225fefe0cea415e2c03d4a6e01f26527e023283830c5e672dfb9d9e8252850d33acd65d9356bee3aeeee8e375d466ba0727f48beb94ac74250a18aa70f4772d7fe36
+> 3a16689293c0ed271ff4ad9d75e36e542928d69b044c92a9127a3a19df60544f465e9d349f50028e00a0e66edba55b907a9595935857a683f67a1c41ce15d04fdb3558150c0c8da1d36f82ccd4c2e45bbc756a30c7ceabe22a0b0800c178d96e59e322
+> e56eecac1c6a09c21cbc95bcd61ab89819d66c7bbc7803429d86f3643e9752598e1a756361c6bda805e0e4753333339ca8fbe957ea4ec55fd34a5f9f179224bb110f57b42e0baba7d3dfc5793de3e091c5b442be782ce6099f8992ea190041ed80bd02
+> ff5a4a9b5003209f385884e742226058735b769ea803822ce577bb2419e55fa7f101bfe09e22267068deda93530157de3fff5ab13531734cf6504125f5b75a4702f5ceb7dc66b1063584a1dbd84a0bda87529b30afd7abaa3d329530b83d25ce880208
+> 047bfdff655dd46349a1f1ec1d047e2be485ace83a36d2d1abba1f21156c6eb1f37cdb662d1700d69c5cb45522fafe9cd95e667063d848ba39fa13df4e1bc2841aa4fbf453af469fa81f9f8b0d3e916726db34f24c72d8fbf3bc4ed0afb7d05976e6cf
+> fb4a2c8445abb7688451dc9696d09ed0a2289b84b13392a368bcd7bf74e7fa2c519decee278ca9598bcb45b7e56f7e95ce9f609567762acd9085a4da3939f77dd34b76ec5654b2880ebe3b03569b7c015a42da99203652d8ce8d77e8f2fdf3cb565ee1
+> 29ba9f30372e7d34b531c0c94d80231c47ff15b3c495b3b001c134e834d9c64b96c0d5353044f6d7b80ff6aed00d848d73d897305bf163a087fd8b0619b701849686caa866012d66e5e7de92805158677be609d99b1737d04de54d8008c945e0d90115
+> 5d47737fa4129a6bd3d7d1226991bb03dde869c1b162df62cdb1fef60aa763704fbcdcb2efb1889bca1f92516e9b697756e6bb565b2615ca698371b7dda88a16badc726ac684af7337e38f6d6120e646050ff83a33c334b8a6f93a853f8f8cc37bb8b2
+> 379b647d599d5a19083f10b0e5bf696b92e824b20910f29422e72dc15ea52a1361c9ae9ff69827d3419e102a556fa4d938467b9abd531c34c894e9777fb0e4dda3f3a7839aafe8d8faa6328a2d66424f35aaca9bb98f24d9a8caf5a7cf9deef13011be
+> 32815cecc5f9c3bcde805767c4aae7aa1c27dfcedc03c6fbcd2977e13639c67ce6de279aee0f6e4836b0fa8f7da04a42ed6e5e6f519dcdfdcfa81912750328ff58355107d303f47dccd2560ad11a3d88ae9991b4bb3e5e1c193baae9bb8315a0b68992
+> 0adcf00ab60bf4a8a4c542301d24c4c7735930199bb1550ab8ce8a7c65d6a6cd7e983b9a0115b71203a997adb91d2ebd8a195602c9f3a13405e306df3cb133eda205d9a0427384a121f976749148492873c8dae80deabe159974c9ba7c85f634182176
+> 8e8696cf020d6a0a0cf433f568a04fd1664cada4453701be12a861956a21a9a78b2593991047e6e3214b5a4e67423ad1f371924d06be0e91d8c66bf481da879acf73067deef8b754035c25ed4537ba2a0989bd710ba812378460dd4c4030e2ddb00b9a
+> f9aea561a8864346366ca7ca5e45eb23c3855008d558fc87ba2502634389d023f9198b9bd5575bda6732dae83e9e717dbe6c17ff64beea5d0a9e9768623ec1d0943b8cc9801dda1504c1c59a33db16ae5bc7759a3b5cb24e20ca258a8c9e7a19d07b10
+> 40291a1537c1aff7f2d08f230d6b16174c8286ed732187fdeb10520f9c7a97f4b135dd3609c616c53203906bf4238e2af0bc6d7647d745cb4308f6664c22b7f9c11bc41fbfd999d2c11be8395f3265077732ef3e8c24b164f027a30dfe361b8f2e9bfe
+> d57bdab649d52f81d9ec09dab44a9d95cef3a7256410a17eb3308dbad5e7bc48a67c83ec77b0ad201ce268c4b8fe3385ade28b42cf1dbcfc1a4aa545a6f3937d1a7b927c1d7dedb184a6968f93f60dccd9324bfa203939b29d0e96504fd8af08907bf3
+> 6e0d3e722abcd84d38d802c1a6bbba2060128be644f59865ac37f97357f9665a47122dede1d4a63f27ecf8de5aeffbae9aa7502e2e50905f23ffe530bde88423fb519d7e07cb97f2160198fd5a6f4529d8ef7be685bb80028db7182c530afffba35229
+> 26f5d88694b9518f287f22132e65daac72791c338d57f47687d803846e6fef12eabfec5956293e47dad080de1f5805634c10e36d48edbb536512ae6dab3f01dba483d79f5f730b88d61b42258b4db0e70f6c92101bd02e6eefa2cbbb6c99955c9ebb67
+> 045e4299234be5d169081299d4001727ee72c37f369281a978e817984aec028dd72ee8a48446b674a5f67910d82c446eb7f2e3f59a7f2926e399d68a870ab76168f511059ff4ae5f7e22c948eb8488260adf3bdc47e0701f0d920de1fed75b2ad191cd
+> b572b549e2c665ba7c85573ea77ad7ca5383cdd359435b9a548071c1517f63e299913358f983f9ed14568474d739df0cddad5d4c95509a0dce9c4c2add9201c4569b22baf62a1d35cf64e867a04a3773dc66414201559d2e3ce5d46780715f4ec49ecc
+> 1a1d0fa7b56ef692657d1b23ec7466c07da824c33d1c11b2e489b6b739f14c632a5ce8234544069709dd2c207171b312effa21c788e575cbb5f72ac9d2d30f53c6d43bab6ad09921d5aed58590c5524dc17c0532af2522d0ce4fba6f2cc51df6aef0d9
+> 2972513801ccee84369e4b7cb9a18787ada2a8e9b08dfdabc647db9f90f6e16e784da3543b73db734a23b0a2109a6c7a359445ce42d28ac758e0def8f89aacb1da82d97ae3cbe2eb2eb343ebd05a2a2bc6941a51586e33ee7ffc27ca370d31f00506b8
+> 459993582c1be020d840541826cd8bdf34d08165054510759fb002b3278bf74d94b9a202e980cd164d0cb99a0a1950952b89a438ada5930a2e07bc8ee2e88d8a039091e1fa37c173d6e81cb24767649d6a92b9f529ab58bde4fd07b5a9fac4e74f9eed
+> 596738c3e5e7bcac446b79d16615ccff5a6b8de9383f3b7fe65b121086ac01cf90721a910ca9ce4620f5b084a2a07686487f69601611487f3b7bef814d581ca975dbf7d42e8212036f3633ab97171f905e5793cb2f5a90316b54a12da35cef49243f9f
+> 63201b48127a1119e0f46c2ce0e7ea5f70c4ea314d93d7545aa489118b49061ad7ae5a3e479478e9364cc8e71547584d520b6e736329b9b577aff788a739f1d19c63980ea235b2be9de4f267fe87b03bb770eedc8b734235fee2d75b8f1eeddc6c351e
+> ea273c7265f5e6cc582693b8c73dca3feacab4b7a8d710c1120da8a1bd77356e839a77b19c41ad03c184881cd0000100000138317d
+
+. query sortseed
+
+. display "`r(sortseed)'"
+100XZA00000000000000640507a1f38cb440c40003c9a83566fa1201b69ab0aff2f2402beb
+
+. display "$testconst"
+1
+
+. 
+. *test seed set
+. display runiform()
+.60128311
+
+. display runiform()
+.91370436
+
+. preliminaries, seed(10)
+
+. display runiform()
+.60128311
+
+. 
+. *test matsize/maxvar error
+. capture noisily preliminaries, maxvar(test)
+'test' found where number expected
+
+. capture noisily preliminaries, matsize(test)
+test found where number expected
+
+. 
+. *test linesize error
+. capture noisily preliminaries, linesize(256)
+linesize must be between 40 and 255
+
+. 
+. *test loadglob error
+. capture noisily preliminaries, loadglob(none)
+file none not found
+
+. capture noisily preliminaries, loadglob(testconst.txt testconst2.txt)
+file testconst2.txt not found
+
+. 
+. erase ./testconst.txt
+
+. 
+. * Help file exists and is correct
+. help preliminaries
+request ignored because of batch mode
+
+. 
+. 
+end of do-file
+
+
+Execute:  %STATAEXE% /e do "test_select_observations.do"
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   14.1   Copyright 1985-2015 StataCorp LP
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+10-user 16-core Stata network perpetual license:
+       Serial number:  501406206055
+         Licensed to:  ECONUSER
+                       Brown University
+
+Notes:
+      1.  Stata is running in batch mode.
+      2.  Unicode is supported; see help unicode_advice.
+      3.  More than 2 billion observations are allowed; see help obs_advice.
+      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+
+
+running C:\Program Files (x86)\Stata14\profile.do ...
+
+. do test_select_observations.do 
+
+. ****************************************************************************************************
+. *
+. * TEST_SELECT_OBSERVATIONS.DO
+. *
+. ****************************************************************************************************
+. 
+. quietly {
+
+. 
+. * EXECUTE
+. main
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+
+. 
+. 
+. 
+end of do-file
+
+
+Execute:  %STATAEXE% /e do "test_build_recode_template.do"
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   14.1   Copyright 1985-2015 StataCorp LP
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+10-user 16-core Stata network perpetual license:
+       Serial number:  501406206055
+         Licensed to:  ECONUSER
+                       Brown University
+
+Notes:
+      1.  Stata is running in batch mode.
+      2.  Unicode is supported; see help unicode_advice.
+      3.  More than 2 billion observations are allowed; see help obs_advice.
+      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+
+
+running C:\Program Files (x86)\Stata14\profile.do ...
+
+. do test_build_recode_template.do 
+
+. ****************************************************************************************************
+. *
+. * TEST_BUILD_RECODE_TEMPLATE.DO
+. *
+. ****************************************************************************************************
+. 
+. quietly {
+
+. 
+. * EXECUTE
+. main
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+
+. 
+end of do-file
+
+
+Execute:  %STATAEXE% /e do "test_insert_tag.do"
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   14.1   Copyright 1985-2015 StataCorp LP
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+10-user 16-core Stata network perpetual license:
+       Serial number:  501406206055
+         Licensed to:  ECONUSER
+                       Brown University
+
+Notes:
+      1.  Stata is running in batch mode.
+      2.  Unicode is supported; see help unicode_advice.
+      3.  More than 2 billion observations are allowed; see help obs_advice.
+      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+
+
+running C:\Program Files (x86)\Stata14\profile.do ...
+
+. do test_insert_tag.do 
+
+. ****************************************************************************************************
+. *
+. * TEST_INSERT_TAG.DO
+. *
+. ****************************************************************************************************
+. 
+. quietly {
+
+. 
+. * EXECUTE
+. main
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+
+. 
+. 
+. 
+end of do-file
+
+
+Execute:  %STATAEXE% /e do "test_load_and_append.do"
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   14.1   Copyright 1985-2015 StataCorp LP
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+10-user 16-core Stata network perpetual license:
+       Serial number:  501406206055
+         Licensed to:  ECONUSER
+                       Brown University
+
+Notes:
+      1.  Stata is running in batch mode.
+      2.  Unicode is supported; see help unicode_advice.
+      3.  More than 2 billion observations are allowed; see help obs_advice.
+      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+
+
+running C:\Program Files (x86)\Stata14\profile.do ...
+
+. do test_load_and_append.do 
+
+. version 12
+
+. set more off
+
+. adopath + ../ado
+  [1]  (BASE)      "C:\Program Files (x86)\Stata14\ado\base/"
+  [2]  (SITE)      "C:\Program Files (x86)\Stata14\ado\site/"
+  [3]              "."
+  [4]  (PERSONAL)  "c:\ado\personal/"
+  [5]  (PLUS)      "c:\ado\plus/"
+  [6]  (OLDPLACE)  "c:\ado/"
+  [7]              "../ado"
+
+. preliminaries
+
+. 
+. program main
+  1.     setup_data
+  2.     local csvlist = r(csvlist)
+  3.     tempfile tempmerged
+  4. 
+.     * Test dta files
+.     testgood load_and_append ./temp/file1 ./temp/file2 ./temp/file3, clear
+  5.     testgood load_and_append ./temp/file1.dta ./temp/file2.dta ./temp/file3.dta, clear
+  6.     qui save "`tempmerged'", replace
+  7. 
+.     * Test tsv files
+.     testgood load_and_append ./temp/delim/file1.txt ./temp/delim/file2.txt ./temp/delim/file3.txt, clear insheet
+  8.     testgood cf * using "`tempmerged'"
+  9. 
+.     * Test csv files
+.     testgood load_and_append ./temp/delim/file1.csv ./temp/delim/file2.csv ./temp/delim/file3.csv, clear insheet
+ 10.     testgood cf * using `"`tempmerged'"'
+ 11. 
+.     * Test dir() option
+.     testgood load_and_append file1 file2 file3, dir(./temp) clear
+ 12.     testgood load_and_append file1 file2 file3, dir(./temp/) clear
+ 13.     testgood load_and_append file1.txt file2.txt file3.txt, dir(./temp/delim/) insheet clear
+ 14.     testgood load_and_append delim/file1.txt delim/file2.txt delim/file3.txt, dir(./temp/) insheet clear
+ 15.     testgood cf * using `"`tempmerged'"'
+ 16. 
+.     * Test wildcards
+.     testgood load_and_append file*, dir(./temp) clear
+ 17.     testgood load_and_append file*.dta, dir(./temp) clear
+ 18.     testgood load_and_append ./temp/file*.dta, clear
+ 19.     testgood load_and_append ./temp/delim/file*.txt, clear insheet
+ 20.     testgood cf * using `"`tempmerged'"'
+ 21. 
+.     * Test clear
+.     testbad load_and_append ./temp/file1 ./temp/file2 ./temp/file3
+ 22.     clear
+ 23.     testgood load_and_append ./temp/file1 ./temp/file2 ./temp/file3
+ 24.     testgood cf * using `"`tempmerged'"'
+ 25. 
+.     * Test insheet_options
+.     testbad load_and_append ./temp/delim/file1.csv ./temp/delim/file2.csv ./temp/delim/file3.csv, ///
+>         clear insheet insheet_options(blah)
+ 26.     testgood load_and_append ./temp/delim/file1.csv ./temp/delim/file2.csv ./temp/delim/file3.csv, ///
+>         clear insheet insheet_options(case)
+ 27.     testgood cf * using `"`tempmerged'"'
+ 28. 
+.     * Test append_options
+.     testbad load_and_append ./temp/file1 ./temp/file2 ./temp/file3, clear append_options(blah)
+ 29.     testgood load_and_append ./temp/file1 ./temp/file2 ./temp/file3, clear append_options(force)
+ 30.     testgood cf * using `"`tempmerged'"'
+ 31. 
+.     * Test if list has only one file
+.     testgood load_and_append ./temp/file1, clear
+ 32. 
+.     * Test backslashes
+.     testgood load_and_append .\temp\file1 .\temp\file2 .\temp\file3, clear
+ 33.     testgood load_and_append file1 file2 file3, dir(.\temp) clear
+ 34.     testgood load_and_append file1 file2 file3, dir(.\temp\) clear
+ 35.         
+.         * Test dsid
+.         testgood load_and_append ./temp/file1 ./temp/file2 ./temp/file3, clear dsid(studynumber)
+ 36.         
+.         * Test dsname
+.         testgood load_and_append ./temp/file1 ./temp/file2 ./temp/file3, clear dsname(study_name)
+ 37.         
+.         * Test obsseq
+.         testgood load_and_append ./temp/file1 ./temp/file2 ./temp/file3, clear obsseq(obs_order)
+ 38.         
+.         * Test subset
+.         testgood load_and_append ./temp/file1 ./temp/file2 ./temp/file3, clear subset(x)
+ 39.         testbad load_and_append ./temp/file1 ./temp/file2 ./temp/file3, clear subset(z)
+ 40.         
+.         * Test fast
+.         testgood load_and_append ./temp/file1 ./temp/file2 ./temp/file3, clear fast
+ 41.         use ./temp/file1, clear
+ 42.         local orig = c(filename)
+ 43.         testbad load_and_append ./temp/file2 ./temp/file3 ./temp/file5, clear fast
+ 44.         local test = c(filename)
+ 45.         assert "`orig'" != "`test'"
+ 46. end
+
+. 
+. program setup_data
+  1.     cap mkdir temp
+  2.     cap mkdir temp/delim
+  3.     foreach i of numlist 1/3 {
+  4.         quietly {
+  5.             clear
+  6.             set obs 100
+  7.             foreach var in x y {
+  8.                 gen `var' = round(uniform(), 0.001)
+  9.             }
+ 10. 
+.             save ./temp/file`i'.dta, replace
+ 11.             outsheet using ./temp/delim/file`i'.txt, replace
+ 12. 
+.             tempfile csvfile`i'
+ 13.             outsheet using ./temp/delim/file`i'.csv, comma replace
+ 14.         }
+ 15.     }
+ 16. end
+
+. 
+. * EXECUTE
+. main
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+
+. 
+. 
+. 
+.  
+. 
+. 
+. 
+.         
+. 
+. 
+end of do-file
+
+
+Execute:  %STATAEXE% /e do "test_plotcoeffs.do"
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   14.1   Copyright 1985-2015 StataCorp LP
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+10-user 16-core Stata network perpetual license:
+       Serial number:  501406206055
+         Licensed to:  ECONUSER
+                       Brown University
+
+Notes:
+      1.  Stata is running in batch mode.
+      2.  Unicode is supported; see help unicode_advice.
+      3.  More than 2 billion observations are allowed; see help obs_advice.
+      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+
+
+running C:\Program Files (x86)\Stata14\profile.do ...
+
+. do test_plotcoeffs.do 
+
+. version 11
+
+. set more off
+
+. adopath + ../ado
+  [1]  (BASE)      "C:\Program Files (x86)\Stata14\ado\base/"
+  [2]  (SITE)      "C:\Program Files (x86)\Stata14\ado\site/"
+  [3]              "."
+  [4]  (PERSONAL)  "c:\ado\personal/"
+  [5]  (PLUS)      "c:\ado\plus/"
+  [6]  (OLDPLACE)  "c:\ado/"
+  [7]              "../ado"
+
+. preliminaries
+
+. 
+. program main
+  1.     quietly setup_dataset
+  2.     testgood test_basic
+  3.     testgood test_with_options
+  4.     testgood test_with_multiple_regs
+  5.     testgood test_with_matrix_notation
+  6.     testgood test_with_factor_variables
+  7. end
+
+. 
+. program setup_dataset
+  1.     set obs 100
+  2.     gen n = round(_n,10)
+  3.     gen x1 = round(5*runiform(), 1)
+  4.     gen x2 = round(5*runiform(), 1)
+  5.     gen x3 = round(5*runiform(), 1)
+  6.     gen x4 = round(5*runiform(), 1)
+  7.     gen a = _n
+  8.     gen y = a*rnormal(1)
+  9. end
+
+. 
+. program test_basic
+  1.     reg y x1 x2 x3 x4
+  2.     plotcoeffs x1 x2 x4, nodraw
+  3. end
+
+. 
+. program test_with_options
+  1.     reg y x1 x2 x3 x4
+  2.     plotcoeffs x1 x2 x4, graphs(bar) label("cows sheep grass") ytitle(Meat Production) nodraw
+  3.     plotcoeffs x1 x2 x4, graphs(err) label("cows sheep grass") ytitle(Meat Production) nodraw
+  4.     plotcoeffs x1 x2 x4, graphs(line) label("cows sheep grass") ytitle(Meat Production) nodraw
+  5.     plotcoeffs x1 x2 x4, graphs(linearea) label("cows sheep grass") ytitle(Meat Production) nodraw
+  6.     plotcoeffs x1 x2 x4, graphs(linenose) label("cows sheep grass") ytitle(Meat Production) nodraw
+  7.     plotcoeffs x1 x2 x4, graphs(nose) label("cows sheep grass") ytitle(Meat Production) nodraw
+  8.     plotcoeffs x1 x2 x4, graphs(connect) label("cows sheep grass") ytitle(Meat Production) nodraw
+  9.     plotcoeffs x1 x2 x4, yshift(10) lcolor(gs8) fcolor(gs6) nodraw
+ 10.     plotcoeffs x1 x2 x4, nodraw savedata(plotted_coefs, replace)
+ 11.     erase plotted_coefs.dta
+ 12.     plotcoeffs x1 x2 x4, nodraw yshift(10) savedata("Plotted coefficients", replace)
+ 13.     erase "Plotted coefficients.dta"
+ 14. end
+
+. 
+. program test_with_multiple_regs
+  1.     reg y x1 x2 x3
+  2.     estimates store reg1
+  3.     reg y a x1 x2 x3 x4
+  4.     estimates store reg2
+  5.     plotcoeffs x1 x2 x3, estimates(reg1 reg2) graphs(err line) nodraw
+  6.     plotcoeffs x1 x2 x3, ///
+>         scheme(s1color) estimates(reg1 reg2) graphs(connect connect) yshift(5 10) nodraw
+  7.     plotcoeffs x1 x2 x3, ///
+>         combine estimates(reg1 reg2) graphs(connect) yshift(5) lcolor(blue) nodraw
+  8. end
+
+. 
+. program test_with_matrix_notation
+  1.     foreach V in x1 x2 x3 x4 {
+  2.         reg y `V'
+  3.         matrix beta1 = nullmat(beta1) \ _b[`V']
+  4.         matrix stderr1 = nullmat(stderr1) \ _se[`V']
+  5.     }
+  6.     matrix beta2 = beta1 + J(rowsof(beta1), 1, 15)
+  7.     matrix stderr2 = stderr1 * 0.5
+  8.     matrix beta = beta1 , beta2
+  9.     matrix stderr = stderr1 , stderr2
+ 10.     plotcoeffs, b(beta1) se(stderr1) nodraw
+ 11.     plotcoeffs, b(beta1) se(stderr1) graphs(line) nodraw
+ 12.     plotcoeffs, b(beta) se(stderr) graphs(err linearea) nodraw
+ 13. end
+
+. 
+. program test_with_factor_variables
+  1.     reg y i.n#c.a
+  2.     plotcoeffs i.n#c.a, nodraw
+  3.     plotcoeffs i.n#c.a, graphs(line) label( "1 2 3 4 5 6 7 8 9 10 11") ytitle(Production per year) xtitle(Year) nodraw
+  4.     reg y i.n#i.a
+  5.     plotcoeffs i.n#i.a, nodraw
+  6.     reg y c.n#c.a
+  7.     plotcoeffs c.n#c.a, nodraw
+  8.     reg y c.n#i.a
+  9.     plotcoeffs c.n#i.a, scheme(s1color) graphs(connect) nodraw
+ 10.     reg y i.n##c.a
+ 11.     plotcoeffs i.n##c.a, scheme(s1color) graphs(connect) nodraw
+ 12. end
+
+. 
+. 
+. * EXECUTE
+. main
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+
+. 
+end of do-file
+
+
+Execute:  %STATAEXE% /e do "test_center_estimates.do"
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   14.1   Copyright 1985-2015 StataCorp LP
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+10-user 16-core Stata network perpetual license:
+       Serial number:  501406206055
+         Licensed to:  ECONUSER
+                       Brown University
+
+Notes:
+      1.  Stata is running in batch mode.
+      2.  Unicode is supported; see help unicode_advice.
+      3.  More than 2 billion observations are allowed; see help obs_advice.
+      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+
+
+running C:\Program Files (x86)\Stata14\profile.do ...
+
+. do test_center_estimates.do 
+
+. version 13
+
+. set more off
+
+. adopath + ../ado
+  [1]  (BASE)      "C:\Program Files (x86)\Stata14\ado\base/"
+  [2]  (SITE)      "C:\Program Files (x86)\Stata14\ado\site/"
+  [3]              "."
+  [4]  (PERSONAL)  "c:\ado\personal/"
+  [5]  (PLUS)      "c:\ado\plus/"
+  [6]  (OLDPLACE)  "c:\ado/"
+  [7]              "../ado"
+
+. preliminaries
+
+. 
+. program main
+  1.     quietly setup_dataset
+  2.     testgood test_basic
+  3.     testgood test_weights
+  4.     testgood test_alternate_target
+  5.     testbad test_var_missing
+  6.     testbad test_wrong_notation
+  7. end
+
+. 
+. program setup_dataset
+  1.     set obs 100
+  2.     gen group = 1
+  3.     replace group = 2 if (_n >= 30 & _n < 60)
+  4.     replace group = 3 if (_n >= 60 & _n < 90)
+  5.     replace group = 4 if (_n >= 90)
+  6.     gen x = round(5*runiform(), 1)
+  7.     gen a = _n
+  8.     gen y = a*rnormal(1)
+  9.     gen weights = 85 + int(13 * runiform())
+ 10. end
+
+. 
+. program test_basic
+  1.     reg y x i.group
+  2.     center_estimates i.group
+  3.     center_estimates i(1/3).group
+  4.     center_estimates i(2/3)bn.group
+  5.     center_estimates i2bn.group i3bn.group
+  6. end
+
+. 
+. program test_weights
+  1.     reg y i.group [weight = weight], nocons
+  2.     center_estimates i(2/4)bn.group
+  3.     assert abs(`r(diff_to_mean)') < 1e-5
+  4. end
+
+. 
+. program test_alternate_target
+  1.     summarize a
+  2.     local expected_mean = r(mean)
+  3.     reg y x i.group
+  4.     center_estimates i.group, target(a)
+  5.     assert (r(target_var) == "a")
+  6.     
+.     assert (`r(target_mean)' == `expected_mean')
+  7.     assert abs(`r(diff_to_mean)' - (`expected_mean' - `r(weighted_b_mean)')) < 1e-5
+  8. end
+
+. 
+. program test_var_missing
+  1.     reg y x i.group
+  2.     center_estimates this_var_doesnt_exist
+  3. end
+
+. 
+. program test_wrong_notation
+  1.     reg y x i.group
+  2.     center_estimates group
+  3. end
+
+. 
+. * EXECUTE
+. main
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+
+. 
+end of do-file
+
+
+Execute:  %STATAEXE% /e do "test_aivreg.do"
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   14.1   Copyright 1985-2015 StataCorp LP
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+10-user 16-core Stata network perpetual license:
+       Serial number:  501406206055
+         Licensed to:  ECONUSER
+                       Brown University
+
+Notes:
+      1.  Stata is running in batch mode.
+      2.  Unicode is supported; see help unicode_advice.
+      3.  More than 2 billion observations are allowed; see help obs_advice.
+      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+
+
+running C:\Program Files (x86)\Stata14\profile.do ...
+
+. do test_aivreg.do 
+
+. version 13
+
+. set more off
+
+. adopath + ../ado
+  [1]  (BASE)      "C:\Program Files (x86)\Stata14\ado\base/"
+  [2]  (SITE)      "C:\Program Files (x86)\Stata14\ado\site/"
+  [3]              "."
+  [4]  (PERSONAL)  "c:\ado\personal/"
+  [5]  (PLUS)      "c:\ado\plus/"
+  [6]  (OLDPLACE)  "c:\ado/"
+  [7]              "../ado"
+
+. preliminaries
+
+. 
+. program main
+  1.     build_data, num_hhlds(50) num_periods(10)
+  2.     testgood test_basic
+  3.     testgood test_nested_cluster
+  4.     testgood test_errors
+  5.     
+.     // PRIOR TO STATA 14 XTIVREG DIDN'T SUPPORT CLUSTERING
+.     if _caller() >= 14.0 testgood test_basic, cluster(mask_cust_id)
+  6. end
+
+. 
+. program build_data 
+  1.     syntax, num_hhlds(str) num_periods(str)
+  2.     
+.     clear 
+  3.     set obs `=`num_hhlds' * `num_periods''
+  4.     gen mask_cust_id = int((_n-1)/`num_periods') + 1
+  5.     bysort mask_cust_id : gen transaction_month = ym(2002, 12) + _n 
+  6.     gen z1 = rnormal()
+  7.     gen z2 = rnormal()
+  8.     gen x1 = z1 + rnormal()
+  9.     gen x2 = z2 + rnormal()
+ 10.     gen y = 10*x1 + 10*x2 + rnormal()
+ 11.     
+.     xtset mask_cust_id transaction_month 
+ 12. end 
+
+. 
+. program test_basic
+  1.     syntax [, cluster(varname) ]
+  2.     if "`cluster'" != "" local clustopt "cluster(`cluster')"
+  3. 
+.     test_run y (x1 = z1), `clustopt'
+  4.     test_run y (x1 x2 = z1 z2), `clustopt'
+  5.     test_run y i.transaction_month (x1 = z1), `clustopt'
+  6.     test_run y (x1 x2 = z1 z2) i.transaction_month, `clustopt'
+  7.     test_run y (x1 x2 = i.transaction_month), `clustopt'
+  8.     test_run y (x1 x2 = i.transaction_month z1 z2), `clustopt'
+  9.     test_run y (x1 = z1) if x1 < 0, `clustopt'
+ 10.     test_run y i.transaction_month (x1 = z1) if x2 > 0, `clustopt'
+ 11.     test_run y (z1 = z1), `clustopt'
+ 12. end
+
+. 
+. program test_run 
+  1.     syntax anything(name = cmd) [if] [, cluster(varname) tolerance(real `=10^(-12)') ]
+  2.     
+.     if "`cluster'" != "" {
+  3.         local aivreg_clustopt "cluster(`cluster')"
+  4.         local xtivreg_clustopt "vce(cluster `cluster')"
+  5.     }
+  6.     
+.     timer clear 1
+  7.     timer clear 2
+  8. 
+.     timer on 1
+  9.     xtivreg `cmd', fe small `xtivreg_clustopt'
+ 10.     timer off 1
+ 11.     
+.     mata: b_xt = st_matrix("e(b)")
+ 12.     mata: V_xt = st_matrix("e(V)")
+ 13. 
+.     timer on 2
+ 14.     aivreg `cmd', absorb(mask_cust_id) `aivreg_clustopt'
+ 15.     timer off 2
+ 16.     
+.     mata: b_aiv = st_matrix("e(b)")
+ 17.     mata: V_aiv = st_matrix("e(V)")
+ 18. 
+.     mata {
+ 19.         assert(sum(abs(b_xt:-b_aiv):> `tolerance') == 0)
+ 20.         assert(sum(abs(V_xt:-V_aiv):> `tolerance') == 0)
+ 21.     }
+ 22. 
+.     di "Run time of xtivreg (in seconds)"
+ 23.     timer list 1
+ 24.     di "Run time of aivreg (in seconds)"
+ 25.     timer list 2
+ 26. end
+
+. 
+. program test_nested_cluster
+  1.     test_run_nc, exog(x1)
+  2.     test_run_nc if z1 > 0, exog(x1)
+  3.     test_run_nc, exog(x1 x2)
+  4.     test_run_nc, exog(x1) controls(i.transaction_month)
+  5.     test_run_nc if z1 < 0, exog(x1) controls(i.transaction_month)
+  6. end 
+
+. 
+. program test_run_nc 
+  1.     syntax [if], exog(varlist) [ controls(varlist fv) tolerance(real `=10^(-12)') ]
+  2.     
+.     /* WHEN X ARE EXOGENOUS AND PANELS ARE NESTED W/I CLUSTERS AIVREG SHOULD REPLICATE XTREG */
+.     xtreg y `exog' `controls' `if', fe cluster(mask_cust_id)
+  3.     
+.     mata: b_xt = st_matrix("e(b)")
+  4.     mata: V_xt = st_matrix("e(V)")
+  5.     
+.     aivreg y `controls' (`exog' = `exog') `if', absorb(mask_cust_id) cluster(mask_cust_id)
+  6.     
+.     mata: b_aiv = st_matrix("e(b)")
+  7.     mata: V_aiv = st_matrix("e(V)")
+  8. 
+.     mata {
+  9.         assert(sum(abs(b_xt:-b_aiv):>  `tolerance') == 0)
+ 10.         assert(sum(abs(V_xt:-V_aiv):>  `tolerance') == 0)
+ 11.     }
+ 12.     
+.     /* WHEN X ARE EXOGENOUS, PANELS ARE NESTED W/I CLUSTERS, AND DFADJ_ABSORB 
+>     OPTION IS SPECIFIED AIVREG SHOULD REPLICATE AREG */
+.     areg y `exog' `if', absorb(transaction_month) cluster(transaction_month)
+ 13.     
+.     mata: b_a = st_matrix("e(b)")
+ 14.     mata: V_a = st_matrix("e(V)")
+ 15.     
+.     aivreg y (`exog' = `exog') `if', absorb(transaction_month) cluster(transaction_month) dfadj_absorb
+ 16.     
+.     mata: b_aiv = st_matrix("e(b)")
+ 17.     mata: V_aiv = st_matrix("e(V)")
+ 18. 
+.     mata {
+ 19.         assert(sum(abs(b_a:-b_aiv):>  `tolerance') == 0)
+ 20.         assert(sum(abs(V_a:-V_aiv):>  `tolerance') == 0)
+ 21.     }
+ 22.     
+.     /* WHEN X ARE EXOGENOUS AND PANELS ARE NOT NESTED W/I CLUSTERS 
+>     AIVREG SHOULD REPLICATE AREG */
+.     areg y `exog' `controls' `if', absorb(mask_cust_id) cluster(transaction_month)
+ 23.     
+.     mata: b_a = st_matrix("e(b)")
+ 24.     mata: V_a = st_matrix("e(V)")
+ 25.     
+.     aivreg y `controls' (`exog' = `exog') `if', absorb(mask_cust_id) cluster(transaction_month)
+ 26.     
+.     mata: b_aiv = st_matrix("e(b)")
+ 27.     mata: V_aiv = st_matrix("e(V)")
+ 28. 
+.     mata {
+ 29.         assert(sum(abs(b_a:-b_aiv):>  `tolerance') == 0)
+ 30.         assert(sum(abs(V_a:-V_aiv):>  `tolerance') == 0)
+ 31.     }
+ 32. end
+
+. 
+. program test_errors
+  1.     // NO ABSORB()
+.     cap aivreg y x1
+  2.     assert _rc == 198
+  3.     
+.     // NO ENDOGENOUS VARIABLES
+.     cap aivreg y x1, absorb(mask_cust_id)
+  4.     assert _rc == 198
+  5.     
+.     // NOT IDENTIFIED
+.     cap aivreg y (x1 x2 = z1), absorb(mask_cust_id)
+  6.     assert _rc == 481
+  7. end
+
+. 
+. main
+number of observations (_N) was 0, now 500
+       panel variable:  mask_cust_id (strongly balanced)
+        time variable:  transaction~h, 516 to 525
+                delta:  1 unit
+Test passed
+Test passed
+Test passed
+
+. 
+end of do-file
+
+ make.py ended: 2016-04-28 16:27:47

@@ -1,0 +1,44 @@
+.-
+help for ^save_crosswalk^
+.-
+
+Syntax
+-----------------------------------------------------------------------
+
+	save_crosswalk filename, from(varlist) to(varname) [fromfile(str) tofile(str) to_missok *]
+
+Description
+-----------------------------------------------------------------------
+
+Save a crosswalk file, keeping only observations with non-missing value of 'to' variable
+and (optionally) confirming that to and from values exist in reference files.
+
+Options
+-----------------------------------------------------------------------
+
+filename: Output file. (required)
+
+from: Name of variable crosswalk maps from (required).
+
+to: Name of variable crosswalk maps to (required).
+
+fromfile: Name of file that defines valid values for 'from' variable. If this option is specified,
+    command requires that all 'from' values in the crosswalk also exist in this file. (optional)
+
+tofile: Name of file that defines valid values for 'to' variable. If this option is specified,
+    command requires that all 'to' values in the crosswalk also exist in this file. (optional)
+
+to_missok: Keep observaitons with missing values of "to" variable
+
+*: Any additional options specified are passed forward to the save_data command.
+
+Examples
+-----------------------------------------------------------------------
+
+    save_crosswalk ../output/state-reg.dta, from(state) to(reg)
+    save_crosswalk ../output/state-reg.dta, from(state) to(reg) fromfile(state.dta) tofile(reg.dta)
+
+See also
+--------
+@build_crosswalk@, @make_input_template@, @merge_manual_input@ 
+

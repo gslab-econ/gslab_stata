@@ -1,0 +1,988 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\rightmargin 1cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Candidate Demand Functions
+\end_layout
+
+\begin_layout Standard
+Consider a market with Republican share 
+\begin_inset Formula $\gamma$
+\end_inset
+
+, consumers indexed by 
+\begin_inset Formula $i\in{1,\ldots,S}$
+\end_inset
+
+ that identify either as Republican or Democrat, 
+\begin_inset Formula $\theta_{i}\in{R,D}$
+\end_inset
+
+.
+ Firms indexed by 
+\begin_inset Formula $j\in{1,\ldots,J}$
+\end_inset
+
+ enter a sequential, multi-stage game for entrance, pricing and affiliation
+ as described in competition.pdf.
+ 
+\end_layout
+
+\begin_layout Subsection
+J-Choose-Bundles Logit
+\end_layout
+
+\begin_layout Itemize
+Utility for a consumer 
+\begin_inset Formula $i$
+\end_inset
+
+ of consuming bundle 
+\begin_inset Formula $r$
+\end_inset
+
+ is
+\begin_inset Formula 
+\[
+u_{ir}=\sum_{j\in B_{r}}\overline{u}_{ij}+\Gamma_{ir}+\epsilon_{ir}
+\]
+
+\end_inset
+
+if 
+\begin_inset Formula $r>0$
+\end_inset
+
+ where 
+\begin_inset Formula $\epsilon_{ir}$
+\end_inset
+
+ is a logit error.
+ 
+\end_layout
+
+\begin_layout Itemize
+Mean utility for a consumer 
+\begin_inset Formula $i$
+\end_inset
+
+ of consuming a single good 
+\begin_inset Formula $j$
+\end_inset
+
+ is
+\begin_inset Formula 
+\[
+\overline{u}_{ij}=\beta_{0}-\alpha p_{j}+\beta_{1}\tau_{j}+\beta_{2}\theta_{i}+\beta_{3}\tau_{j}\theta_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+We define 
+\begin_inset Formula $\Gamma_{ir}$
+\end_inset
+
+ for any 
+\begin_inset Formula $r$
+\end_inset
+
+ such that 
+\begin_inset Formula $\left|r\right|\geq2$
+\end_inset
+
+: 
+\begin_inset Formula 
+\[
+\Gamma_{ir}=\sum_{t\in B_{r}^{2}\mbox{ }}\Gamma_{it}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $B_{r}^{2}$
+\end_inset
+
+ is the set of all 2-good subsets of bundle 
+\begin_inset Formula $r$
+\end_inset
+
+.
+ For a given 2-good bundle 
+\begin_inset Formula $t$
+\end_inset
+
+, are no restrictions on the term 
+\begin_inset Formula $\Gamma_{it}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+For all 
+\begin_inset Formula $r$
+\end_inset
+
+ such that 
+\begin_inset Formula $\left|r\right|\leq1$
+\end_inset
+
+, 
+\begin_inset Formula $\Gamma_{ir}=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+If 
+\begin_inset Formula $r=0$
+\end_inset
+
+, 
+\begin_inset Formula $u_{ir}=\epsilon_{ir}$
+\end_inset
+
+, i.e., the mean utility of the outside option is normalized to zero.
+\end_layout
+
+\begin_layout Itemize
+Each consumer 
+\begin_inset Formula $i$
+\end_inset
+
+ chooses exactly one bundle 
+\begin_inset Formula $r$
+\end_inset
+
+ such that 
+\begin_inset Formula $u_{ir}\geq u_{ir'}\:\forall r'\neq r$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+The probability that consumer 
+\begin_inset Formula $i$
+\end_inset
+
+ chooses bundle 
+\begin_inset Formula $r$
+\end_inset
+
+ is:
+\begin_inset Formula 
+\[
+Prob\left(r|\theta,p,\tau\right)=\frac{exp\left(\sum_{j\in B_{r}}\overline{u}_{ij}+\Gamma_{ir}\right)}{\sum_{s=0}^{2^{J}-1}exp\left(\sum_{j\in B_{s}}\overline{u}_{ij}+\Gamma_{is}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Demand for a bundle 
+\begin_inset Formula $r$
+\end_inset
+
+ is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+D_{r}(p,\tau,\gamma)=\gamma Prob(r|R,p,\tau)+(1-\gamma)Prob(r|D,p,\tau)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Demand for a good 
+\begin_inset Formula $j$
+\end_inset
+
+ is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+q_{j}(p,\tau,\gamma)=\sum_{r:j\in B_{r}}\left[\gamma Prob(r|R,p,\tau)+(1-\gamma)Prob(r|D,p,\tau)\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Two-Gamma case
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:twogamma"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+We allow 
+\begin_inset Formula $\Gamma_{ir}$
+\end_inset
+
+ to depend on the types of the papers, with separate coefficients for same-type
+ pairs (
+\begin_inset Formula $\Gamma^{0}$
+\end_inset
+
+) and different-type pairs (
+\begin_inset Formula $\Gamma^{1}$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Itemize
+This case outlined in competition.pdf.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+One-Gamma case
+\end_layout
+
+\begin_layout Itemize
+Identical to the general J-Choose-Bundles Logit demand function, with the
+ simplifying assumption that 
+\begin_inset Formula $\Gamma_{ir}=\Gamma$
+\end_inset
+
+ (i.e.
+ a constant) for all 
+\begin_inset Formula $r$
+\end_inset
+
+ with 
+\begin_inset Formula $\left|r\right|=2$
+\end_inset
+
+.
+ Also equivalent to the Two-Gamma case with 
+\begin_inset Formula $\Gamma^{0}=\Gamma^{1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Let 
+\begin_inset Formula $k_{r}$
+\end_inset
+
+ be the number of distinct two-good subsets of 
+\begin_inset Formula $B_{r}$
+\end_inset
+
+.
+ Choice probability is hence:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Prob\left(r|\theta,p,\tau\right)=\frac{exp\left(\sum_{j\in B_{r}}\overline{u}_{ij}+k_{r}\cdot\Gamma\right)}{\sum_{s=0}^{2^{J}-1}exp\left(\sum_{j\in B_{s}}\overline{u}_{ij}+k_{s}\cdot\Gamma\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+J-Choose-1 Logit case
+\end_layout
+
+\begin_layout Itemize
+Special subcase of J-Choose-Bundles Logit, where 
+\begin_inset Formula $\forall r\in{1,\ldots,2^{J}-1}$
+\end_inset
+
+, 
+\begin_inset Formula $\forall t\in B_{r}^{2},$
+\end_inset
+
+
+\begin_inset Formula $\Gamma_{it}\to-\infty$
+\end_inset
+
+.
+ We can think of this as a limit of the One-Gamma case, in which 
+\begin_inset Formula $\Gamma\to-\infty$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+To see this, note that for 
+\begin_inset Formula $r$
+\end_inset
+
+ such that 
+\begin_inset Formula $r=j\in{1,\ldots,J}$
+\end_inset
+
+, we have that the choice probability is 
+\begin_inset Formula 
+\begin{eqnarray*}
+Prob(r|\theta,p,\tau) & = & \frac{exp\left(\overline{u}_{ij}\right)}{\sum_{s=0}^{J}exp\left(\overline{u}_{is}\right)}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+For 
+\begin_inset Formula $|r|>1$
+\end_inset
+
+, we have that the choice probability is 
+\begin_inset Formula 
+\begin{eqnarray*}
+Prob(r|\theta,p,\tau) & = & 0
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+For the outside option (
+\begin_inset Formula $|r|=0),$
+\end_inset
+
+we are left with 
+\begin_inset Formula 
+\[
+Prob\left(r=0|\theta,p,\tau\right)=\frac{1}{\sum_{s=0}^{J}exp\left(\overline{u}_{is}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Utility of inside good 
+\begin_inset Formula $j$
+\end_inset
+
+ is
+\begin_inset Formula 
+\[
+u_{ij}=\overline{u}_{ij}+\epsilon_{ij}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\epsilon_{ij}$
+\end_inset
+
+ is a logit error.
+\end_layout
+
+\begin_layout Itemize
+Each consumer 
+\begin_inset Formula $i$
+\end_inset
+
+ chooses exactly one good 
+\begin_inset Formula $j$
+\end_inset
+
+ such that 
+\begin_inset Formula $u_{ij}>u_{ij'}\forall j'\neq j$
+\end_inset
+
+ and 
+\begin_inset Formula $u_{ij}\geq0$
+\end_inset
+
+ or chooses outside option if 
+\begin_inset Formula $u_{ij}<0\forall j$
+\end_inset
+
+.
+ All bundles with 
+\begin_inset Formula $r>J$
+\end_inset
+
+ are infeasible (chosen with probability zero).
+\end_layout
+
+\begin_layout Subsubsection
+Symmetric case
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:symmetric"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Coefficients 
+\begin_inset Formula $\beta_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $\beta_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $\beta_{2}$
+\end_inset
+
+, and 
+\begin_inset Formula $\beta_{3}$
+\end_inset
+
+ restricted in 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $\overline{u}_{ij}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ so that 
+\begin_inset Formula $R$
+\end_inset
+
+ and 
+\begin_inset Formula $D$
+\end_inset
+
+ are treated symmetrically.
+ 
+\end_layout
+
+\begin_layout Itemize
+The explicit restriction is to reduce to two parameters by restricting 
+\begin_inset Formula $\beta_{0}=\alpha+\beta$
+\end_inset
+
+, 
+\begin_inset Formula $\beta_{1}=-\beta$
+\end_inset
+
+, 
+\begin_inset Formula $\beta_{2}=-\beta$
+\end_inset
+
+, and 
+\begin_inset Formula $\beta_{3}=2\beta$
+\end_inset
+
+.
+ This sets mean utility for same-type papers at 
+\begin_inset Formula $\alpha+\beta$
+\end_inset
+
+ and mean utility for different-type papers at 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Quotes eld
+\end_inset
+
+Nonlinear Alpha
+\begin_inset Quotes erd
+\end_inset
+
+ model
+\end_layout
+
+\begin_layout Itemize
+Share 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ of consumers read all newspapers of their type.
+\end_layout
+
+\begin_layout Itemize
+Share 
+\begin_inset Formula $\left(\mbox{1-\alpha}\right)$
+\end_inset
+
+ of consumers read one random newspaper of their type.
+\end_layout
+
+\begin_layout Itemize
+Therefore
+\begin_inset Formula 
+\begin{eqnarray*}
+Prob\left(r|\theta,p,\tau\right) & = & \alpha\mbox{ for \left\{  \mbox{\ensuremath{r:j\in B_{r}\:\text{{iff}}\:\tau_{j}=\theta_{i}}}\right\}  }\\
+Prob\left(j|\theta,p,\tau\right) & = & \frac{1-\alpha}{J^{\tau_{i}}}\:\text{{for}\:\ensuremath{\left\{ j:\tau_{j}=\theta_{i}\right\} }}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+It is not clear if this model is a subcase of the J-Choose-Bundles model.
+ 
+\end_layout
+
+\begin_layout Section
+Special Case for Stata Estimation
+\end_layout
+
+\begin_layout Standard
+We'd like to have a simple case with no numerical integration that we can
+ implement in Stata, both for quick experimentation and for cross-checking
+ of results.
+\end_layout
+
+\begin_layout Itemize
+Now we index markets by 
+\begin_inset Formula $m\in{1,\ldots,M}$
+\end_inset
+
+, heterogeneous in Republican share 
+\begin_inset Formula $\gamma_{m}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+The markup is constant across markets: 
+\begin_inset Formula $p_{jm}=MC=0$
+\end_inset
+
+ and 
+\begin_inset Formula $a_{jm}(p_{m},\tau{}_{m},\gamma_{m})=a$
+\end_inset
+
+ for some constant 
+\begin_inset Formula $a\geq0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+The number of firms 
+\begin_inset Formula $J_{m}$
+\end_inset
+
+ in each market is exogenous (no entry margin).
+\end_layout
+
+\begin_layout Itemize
+Firms ignore future entrants.
+ Let 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $J_{jm}^{R},J_{jm}^{D}$
+\end_inset
+
+ denote the number of competitors of each type who are present in the market
+ as of firm 
+\begin_inset Formula $j$
+\end_inset
+
+'s choice of affiliation.
+ 
+\end_layout
+
+\begin_layout Itemize
+Affiliation specific variable shocks 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $\xi_{j}(\tau_{j})$
+\end_inset
+
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+are i.i.d.
+ logit.
+\end_layout
+
+\begin_layout Itemize
+Share Republican is known perfectly to the econometrician: 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $\gamma_{m}$
+\end_inset
+
+
+\begin_inset Formula $=Z_{m}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+The market share of a firm 
+\begin_inset Formula $q_{jm}\left(\tau_{jm},\gamma_{m},J_{jm}^{R},J_{jm}^{D},\Theta\right)$
+\end_inset
+
+depends only on the number of competitors of each type, the firm's type,
+ the share Republican, and a vector of parameters 
+\begin_inset Formula $\Theta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Then we can write the probability that firm 
+\begin_inset Formula $j$
+\end_inset
+
+ in market 
+\begin_inset Formula $m$
+\end_inset
+
+ is type 
+\begin_inset Formula $R$
+\end_inset
+
+ as
+\begin_inset Formula 
+\[
+Prob\left(\tau_{jm}=R\mid\gamma_{m},N_{jm}^{R},N_{jm}^{D},\Theta\right)=\left[1+exp\left(-a\left(q_{jm}\left(R,\gamma_{i},J_{jm}^{R}+1,J_{jm}^{D},\Theta\right)-q_{jm}\left(D,\gamma_{m},J_{jm}^{R},J_{jm}^{D}+1,\Theta\right)\right)\right)\right]^{(-1)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Demand models we are considering:
+\end_layout
+
+\begin_layout Subsection
+J-choose-1 symmetric model 
+\end_layout
+
+\begin_layout Itemize
+In this case we have 
+\begin_inset Formula $\Theta=\left\{ \alpha,\beta\right\} $
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+For the entering firm, difference in market share for Republican or Democrat
+ affiliation is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\Delta q_{jm} & = & \left[\gamma_{m}\left(\dfrac{exp(\alpha+\beta)}{1+(J_{jm}^{R}+1)exp(\alpha+\beta)+J_{jm}^{D}exp(\alpha)}\right)+\left(1-\gamma_{m}\right)\left(\dfrac{exp(\alpha)}{1+(J_{jm}^{R}+1)exp(\alpha)+J_{jm}^{D}exp(\alpha+\beta)}\right)\right]\\
+ &  & -\left[\gamma_{m}\left(\dfrac{exp(\alpha)}{1+J_{jm}^{R}exp(\alpha+\beta)+(J_{jm}^{D}+1)exp(\alpha)}\right)+\left(1-\gamma_{m}\right)\left(\dfrac{exp(\alpha+\beta)}{1+J_{jm}^{R}exp(\alpha)+(J_{jm}^{D}+1)exp(\alpha+\beta)}\right)\right]
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Nonlinear alpha model
+\end_layout
+
+\begin_layout Itemize
+In this case we have 
+\begin_inset Formula $\Theta=\left\{ \alpha\right\} $
+\end_inset
+
+, as defined above.
+\end_layout
+
+\begin_layout Itemize
+For the entering firm, difference in market share for Republican or Democrat
+ affiliation is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\Delta q_{jm} & = & \left(\alpha\left(2\gamma_{m}-1\right)+\left(1-\alpha\right)\left(\frac{\gamma_{m}}{J_{jm}^{R}+1}-\frac{\left(1-\gamma_{m}\right)}{J_{jm}^{D}+1}\right)\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+J-choose-bundle symmetric model
+\end_layout
+
+\begin_layout Itemize
+In this case we have 
+\begin_inset Formula $\Theta=\left\{ \alpha,\beta\right\} $
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+One-Gamma Case
+\end_layout
+
+\begin_layout Itemize
+Suppose also that we are dealing with the one-Gamma case, i.e.
+ 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ is constant for all two-way interactions.
+\end_layout
+
+\begin_layout Itemize
+The difference in total demand for Republican vs.
+ Democrat papers if a paper enters as Republican vs.
+ Democrat is
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Recall also that for 
+\begin_inset Formula $n,k\in\mathbb{N}$
+\end_inset
+
+ such that 
+\begin_inset Formula $n<k$
+\end_inset
+
+, 
+\begin_inset Formula ${n \choose k}=0$
+\end_inset
+
+.
+ In Stata estimation we explicitly set these cases to zero, as the comb()
+ function is undefined.
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\Delta TD_{jm} & = & \gamma_{m}\left(\frac{\sum_{k=1}^{J_{jm}^{R}}\sum_{p=0}^{J_{jm}^{D}}\left(_{J_{jm}^{R}-1}C_{k-1}\right)\left(_{J_{jm}^{D}}C_{p}\right)exp\left(\left(k+p\right)\alpha+k\beta+_{\left(k+p\right)}C_{2}\Gamma\right)}{\sum_{k=0}^{J_{jm}^{R}}\sum_{p=0}^{J_{jm}^{D}}\left(_{J_{jm}^{R}}C_{k}\right)\left(_{J_{jm}^{D}}C_{p}\right)exp\left(\left(k+p\right)\alpha+k\beta+_{\left(k+p\right)}C_{2}\Gamma\right)}\right)\\
+ &  & +(1-\gamma_{i})\left(\frac{\sum_{k=1}^{J_{jm}^{R}}\sum_{p=0}^{J_{jm}^{D}}\left(_{J_{jm}^{R}-1}C_{k-1}\right)\left(_{J_{jm}^{D}}C_{p}\right)exp\left(\left(k+p\right)\alpha+p\beta+_{\left(k+p\right)}C_{2}\Gamma\right)}{\sum_{k=0}^{J_{jm}^{R}}\sum_{p=0}^{J_{jm}^{D}}\left(_{J_{jm}^{R}}C_{k}\right)\left(_{J_{jm}^{D}}C_{p}\right)exp\left(\left(k+p\right)\alpha+p\beta+_{\left(k+p\right)}C_{2}\Gamma\right)}\right)\\
+ &  & -\gamma_{i}\left(\frac{\sum_{k=1}^{J_{jm}^{D}}\sum_{p=0}^{J_{jm}^{R}}\left(_{J_{jm}^{D}-1}C_{k-1}\right)\left(_{J_{jm}^{R}}C_{p}\right)exp\left(\left(k+p\right)\alpha+p\beta+_{\left(k+p\right)}C_{2}\Gamma\right)}{\sum_{k=0}^{J_{jm}^{D}}\sum_{p=0}^{J_{jm}^{R}}\left(_{J_{jm}^{D}}C_{k}\right)\left(_{J_{jm}^{R}}C_{p}\right)exp\left(\left(k+p\right)\alpha+p\beta+_{\left(k+p\right)}C_{2}\Gamma\right)}\right)\\
+ &  & -(1-\gamma_{i})\left(\frac{\sum_{k=1}^{J_{jm}^{D}}\sum_{p=0}^{J_{jm}^{R}}\left(_{J_{jm}^{D}-1}C_{k-1}\right)\left(_{J_{jm}^{R}}C_{p}\right)exp\left(\left(k+p\right)\alpha+k\beta+_{\left(k+p\right)}C_{2}\Gamma\right)}{\sum_{k=0}^{J_{jm}^{D}}\sum_{p=0}^{J_{jm}^{R}}\left(_{J_{jm}^{D}}C_{k}\right)\left(_{J_{jm}^{R}}C_{p}\right)exp\left(\left(k+p\right)\alpha+k\beta+_{\left(k+p\right)}C_{2}\Gamma\right)}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Two-Gamma Case
+\end_layout
+
+\begin_layout Itemize
+Suppose now we adopt the Two-Gamma case, i.e.
+ 
+\begin_inset Formula $\Gamma^{0}$
+\end_inset
+
+ represents interaction between same-affiliation newspapers, and 
+\begin_inset Formula $\Gamma^{1}$
+\end_inset
+
+ represents interaction between different-affiliation newspapers.
+ 
+\end_layout
+
+\begin_layout Itemize
+Then the difference in total demand if a paper enters as Republican vs.
+ Democrat is
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Recall also that for 
+\begin_inset Formula $n,k\in\mathbb{N}$
+\end_inset
+
+ such that 
+\begin_inset Formula $n<k$
+\end_inset
+
+, 
+\begin_inset Formula ${n \choose k}=0$
+\end_inset
+
+.
+ In Stata estimation we explicitly set these cases to zero, as the comb()
+ function is undefined.
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\Delta TD_{jm} & = & \gamma_{m}\left(\frac{\sum_{k=1}^{J_{jm}^{R}}\sum_{p=0}^{J_{jm}^{D}}\left(_{J_{jm}^{R}-1}C_{k-1}\right)\left(_{J_{jm}^{D}}C_{p}\right)exp\left(\left(k+p\right)\alpha+k\beta+(_{k}C_{2}+_{p}C_{2})\Gamma^{0}+(kp)\Gamma^{1}\right)}{\sum_{k=0}^{J_{jm}^{R}}\sum_{p=0}^{J_{jm}^{D}}\left(_{J_{jm}^{R}}C_{k}\right)\left(_{J_{jm}^{D}}C_{p}\right)exp\left(\left(k+p\right)\alpha+k\beta+(_{k}C_{2}+_{p}C_{2})\Gamma^{0}+(kp)\Gamma^{1}\right)}\right)\\
+ &  & +(1-\gamma_{m})\left(\frac{\sum_{k=1}^{J_{jm}^{R}}\sum_{p=0}^{J_{jm}^{D}}\left(_{J_{jm}^{R}-1}C_{k-1}\right)\left(_{J_{jm}^{D}}C_{p}\right)exp\left(\left(k+p\right)\alpha+p\beta+(_{k}C_{2}+_{p}C_{2})\Gamma^{0}+(kp)\Gamma^{1}\right)}{\sum_{k=0}^{J_{jm}^{R}}\sum_{p=0}^{J_{jm}^{D}}\left(_{J_{jm}^{R}}C_{k}\right)\left(_{J_{jm}^{D}}C_{p}\right)exp\left(\left(k+p\right)\alpha+p\beta+(_{k}C_{2}+_{p}C_{2})\Gamma^{0}+(kp)\Gamma^{1}\right)}\right)\\
+ &  & -\gamma_{m}\left(\frac{\sum_{k=1}^{J_{jm}^{D}}\sum_{p=0}^{J_{jm}^{R}}\left(_{J_{jm}^{D}-1}C_{k-1}\right)\left(_{J_{jm}^{R}}C_{p}\right)exp\left(\left(k+p\right)\alpha+p\beta+(_{k}C_{2}+_{p}C_{2})\Gamma^{0}+(kp)\Gamma^{1}\right)}{\sum_{k=0}^{J_{jm}^{D}}\sum_{p=0}^{J_{jm}^{R}}\left(_{J_{jm}^{D}}C_{k}\right)\left(_{J_{jm}^{R}}C_{p}\right)exp\left(\left(k+p\right)\alpha+p\beta+(_{k}C_{2}+_{p}C_{2})\Gamma^{0}+(kp)\Gamma^{1}\right)}\right)\\
+ &  & -(1-\gamma_{m})\left(\frac{\sum_{k=1}^{J_{jm}^{D}}\sum_{p=0}^{J_{jm}^{R}}\left(_{J_{jm}^{D}-1}C_{k-1}\right)\left(_{J_{jm}^{R}}C_{p}\right)exp\left(\left(k+p\right)\alpha+k\beta+(_{k}C_{2}+_{p}C_{2})\Gamma^{0}+(kp)\Gamma^{1}\right)}{\sum_{k=0}^{J_{jm}^{D}}\sum_{p=0}^{J_{jm}^{R}}\left(_{J_{jm}^{D}}C_{k}\right)\left(_{J_{jm}^{R}}C_{p}\right)exp\left(\left(k+p\right)\alpha+k\beta+(_{k}C_{2}+_{p}C_{2})\Gamma^{0}+(kp)\Gamma^{1}\right)}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_body
+\end_document

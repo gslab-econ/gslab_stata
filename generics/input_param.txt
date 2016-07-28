@@ -1,0 +1,12 @@
+***********************************************************
+*
+* input_param.txt: This file defines lists of variables
+* and parameters that are inputs to others scripts
+*
+***********************************************************
+generic_ind "generic"
+hh_demos "i.race i.household_composition i.male_head_age i.female_head_age i.household_size_trunc i.type_of_residence"
+base_controls "i.comparable_id $hh_demos"
+analytic_weight "equiv"
+vce_cluster "hhld_id"
+main_fixed_effect "mkt_outlet_yq"

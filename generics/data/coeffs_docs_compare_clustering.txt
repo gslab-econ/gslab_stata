@@ -1,0 +1,4 @@
+comparable_id	df	mean_svy_college1	coef_svy_college1	se_svy_college1	mean_svy_pharmdoc1	coef_svy_pharmdoc1	se_svy_pharmdoc1	mean_svy_other_health1	coef_svy_other_health1	se_svy_other_health1	mean_svy_college1_svy_pharmdoc1	
+111	18489	    0.50488747	    0.02480653	    0.00966930	    0.00639584	    0.03836050	    0.06178187	    0.07341874	   -0.00336644	    0.01988259	    0.94573900	
+185	16514	    0.41681822	    0.02453735	    0.00858839	    0.00454894	    0.07694208	    0.04627232	    0.06947955	    0.00758673	    0.01794643	    0.94933420	
+205	7612	    0.48501364	    0.02853480	    0.01315577	    0.00532876	    0.09379749	    0.09273428	    0.08150411	    0.01676216	    0.02163166	    0.91425993	

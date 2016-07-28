@@ -1,0 +1,34 @@
+.-
+help for ^prepare_param_sensitivity^
+.-
+
+Syntax
+-----------------------------------------------------------------------
+
+	prepare_param_sensitivity, param(string)
+
+Description
+-----------------------------------------------------------------------
+
+	Prepares graph-related variables for given parameter. In particular:
+		- Defines standardized sensitivity by type of moment (so each moment type gets its own bar color)
+		- Adds the sign of unstandardized sensitivity to the moment labels
+		- Defines a dummy variable for parameter's key moments (0 = not key, 1 = key)
+		- Defines numeric moment order variable so moments can be plotted using 'twoway graph'
+	Assumes that all the placeholder variables generated in prepare_figures_data have been
+	generated, and additionally assumes the following variable is defined:
+		- key`param': one observation containg a space-delimited string of key moments
+
+Options
+-----------------------------------------------------------------------
+
+	param: The parameter for which the graph variables should be defined.
+
+Examples
+-----------------------------------------------------------------------
+
+	prepare_figures_data, sen_file("../temp/sensitivity_matrix.tsv") stsen_file("../temp/standardized_sensitivity_matrix.tsv") ///
+						  param_mom_file("../external/data/param_mom_dlm2012.dta") out_file("../temp/figures_data.dta")  ///
+						  mom_type_order(lar ecu svy)
+
+	prepare_param_sensitivity, param("h_0")

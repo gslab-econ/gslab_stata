@@ -1,0 +1,97 @@
+
+ make.py started: 2013-01-22 21:59:34 C:\REPO COPY\gsbhmg01\admin\Templates\svn_lib_stata 
+
+
+Path: gslab_make
+URL: http://gsbhmg01.chicagobooth.edu/svn/trunk/lib/python/gslab_make
+Repository Root: http://gsbhmg01.chicagobooth.edu/svn
+Repository UUID: 89b4331b-4301-411a-8e06-9c78d9cdb83d
+Revision: 18527
+Node Kind: directory
+Last Changed Author: tditta
+Last Changed Rev: 18526
+Last Changed Date: 2013-01-22 21:39:48 -0600 (Tue, 22 Jan 2013)
+
+
+ get_externals.py started: 2013-01-22 21:59:34 C:\REPO COPY\gsbhmg01\admin\Templates\svn_lib_stata
+
+ Input was: "16195	%svn%/lib/stata/gslab_misc	*	./lib/stata/gslab_misc/	""""".
+SVN command passed: http://gsbhmg01.chicagobooth.edu/svn/trunk/lib/stata/gslab_misc/ @16195 exported to ./external/./lib/stata/gslab_misc/.
+
+ Input was: "16194	%svn%/lib/third_party/stata_tools	*	./lib/third_party/stata_tools	""""".
+SVN command passed: http://gsbhmg01.chicagobooth.edu/svn/trunk/lib/third_party/stata_tools/ @16194 exported to ./external/./lib/third_party/stata_tools/.
+
+ get_externals.py ended: 2013-01-22 21:59:36
+
+ get_externals.py started: 2013-01-22 21:59:36 C:\REPO COPY\gsbhmg01\admin\Templates\svn_lib_stata
+Note: not using filename externals.txt.
+
+
+ get_externals.py ended: 2013-01-22 21:59:36
+
+
+Execute:  %STATAEXE% /e do "test_do_something.do"
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   12.1   Copyright 1985-2011 StataCorp LP
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+62-user 4-core Stata network license expires 30 Jun 2013:
+       Serial number:  5012045082
+         Licensed to:  U of C
+                       Booth School of Business
+
+Notes:
+      1.  (/v# option or -set maxvar-) 5000 maximum variables
+      2.  Stata running in batch mode
+
+
+running C:\Program Files (x86)\Stata12\profile.do ...
+
+. do test_do_something.do 
+
+. ****************************************************************************************************
+. *
+. * TEST_DO_SOMETHING.DO
+. *
+. ****************************************************************************************************
+. 
+. version 12
+
+. set more off
+
+. adopath + ../ado
+  [1]  (UPDATES)   "C:\Program Files (x86)\Stata12\ado\updates/"
+  [2]  (BASE)      "C:\Program Files (x86)\Stata12\ado\base/"
+  [3]  (SITE)      "C:\Program Files (x86)\Stata12\ado\site/"
+  [4]              "."
+  [5]  (PERSONAL)  "c:\ado\personal/"
+  [6]  (PLUS)      "c:\ado\plus/"
+  [7]  (OLDPLACE)  "c:\ado/"
+  [8]              "../ado"
+
+. adopath + ../external/gslab_misc/ado
+  [1]  (UPDATES)   "C:\Program Files (x86)\Stata12\ado\updates/"
+  [2]  (BASE)      "C:\Program Files (x86)\Stata12\ado\base/"
+  [3]  (SITE)      "C:\Program Files (x86)\Stata12\ado\site/"
+  [4]              "."
+  [5]  (PERSONAL)  "c:\ado\personal/"
+  [6]  (PLUS)      "c:\ado\plus/"
+  [7]  (OLDPLACE)  "c:\ado/"
+  [8]              "../ado"
+  [9]              "../external/gslab_misc/ado"
+
+. preliminaries
+unrecognized command:  preliminaries
+r(199);
+
+end of do-file
+r(199);
+
+ make.py ended: 2013-01-22 21:59:36

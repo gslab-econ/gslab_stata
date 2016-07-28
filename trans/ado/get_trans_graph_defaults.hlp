@@ -1,0 +1,44 @@
+.-
+help for ^get_trans_graph_defaults^
+.-
+
+Syntax
+-----------------------------------------------------------------------
+
+	get_trans_graph_defaults, param(string)
+
+Description
+-----------------------------------------------------------------------
+
+	Returns default graphing options for a graph of the given parameter. Specifically, the
+	following are returned in r():
+
+		- mom_labels:		Moment labels in "# <label>" format (usable as xlabel() option in twoway)
+		- mom_label_opts:	axis_label_options for x-axis in 'twoway bar'
+		- bar_opts:			barlook_options for 'twoway bar'
+		- bar_colors:		space-delimited list of Stata colors
+		- graph_opts:		other two_options for 'twoway bar'
+
+	Assumes that the following variables have been defined:
+
+		- moment:		moment names
+		- moment_label:	descriptive moment names
+		- key`param':	one observation containg a space-delimited string of key moments for `param'
+		- descr`param':	one observation containg the descriptive name of `param'
+		- `param'stsen:	standardized sensitivities for `param'
+
+Options
+-----------------------------------------------------------------------
+
+	param: The parameter for which the graph options should be defined.
+
+Examples
+-----------------------------------------------------------------------
+
+	get_trans_graph_defaults, param("h_0")
+	local graph_opts = "`r(graph_opts)'"
+	local graph_opts "`graph_opts' graphregion(margin(8 0 0 0))"
+	graph_param_sensitivity, mom_type_order(lar ecu svy) ///
+							 legend_opts(off)            ///
+							 graph_opts("`graph_opts'")
+
