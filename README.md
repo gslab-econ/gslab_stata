@@ -9,7 +9,7 @@ You can install this repository's packages by:
    the location of your `PERSONAL` path by entering `sysdir` at the Stata 
    console. 
 
-2. Adding their `/ado/ directories from a clone of this repository to your
+2. Adding their `/ado/` directories from a clone of this repository to your
    ado-file path. You can do this by adding a line like 
    `adopath + /Users/mrsull/gslab_stata/gslab_misc/ado`
    to your [profile.do](http://www.stata.com/support/faqs/programming/profile-do-file/) script. If you install the gslab_stata packages this way, changing the location 
