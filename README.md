@@ -10,7 +10,9 @@ You can install this repository's packages by:
    console. 
 
 2. Adding a gslab_stata clone's `/ado/` subdirectories to your
-   ado-file path. You can do this by adding a line like 
-   `adopath + /Users/mrsull/gslab_stata/gslab_misc/ado`
+   ado-file path. You can do this by adding lines like 
+   ```stata
+   adopath + <directory hosting gslab_stata>/gslab_stata/gslab_misc/ado`
+   ```
    to your [profile.do](http://www.stata.com/support/faqs/programming/profile-do-file/) script. If you install the gslab_stata packages this way, changing the location 
    or contents of ado files in your clone will change your installation.
