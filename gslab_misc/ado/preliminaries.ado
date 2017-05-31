@@ -44,9 +44,7 @@ program define preliminaries
 	set maxvar `maxvar'
 	set sortseed `sortseed'
 	set seed `seed'
-	adopath ++ "../external/lib/third_party/stata_tools"
 	cap adopath - PLUS
-	cap adopath - PERSONAL
 	
 	if "`loadglob'"!=""{
 		foreach globfile of local loadglob {
