@@ -44,7 +44,6 @@ program define preliminaries
 	set maxvar `maxvar'
 	set sortseed `sortseed'
 	set seed `seed'
-	cap adopath - PLUS
 	
 	if "`loadglob'"!=""{
 		foreach globfile of local loadglob {
