@@ -1,0 +1,6 @@
+d xtreg_ch
+d
+d xtreg_ch_loglik: log likelihood for xtreg_ch
+d
+f xtreg_ch_loglik.ado
+e
