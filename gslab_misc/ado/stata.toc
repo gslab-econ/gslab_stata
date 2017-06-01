@@ -1,5 +1,3 @@
-v 1
-d GSLab
 p aivreg Estimates panel IV models using 2SLS within estimator
 p benchmark Simulates data and runs analyses that we might expect from a highly computation Stata script. Logs output time as I/O, Paralleled, or Serial.
 p build_recode_template Creates new recode_template.csv preserving old recode information
@@ -34,9 +32,3 @@ p select_observations Keep obersvations from the dataset in memory that match a 
 p sortunique Replacement for gsort that uses explicit randomization
 p testbad Unit test utility which confirms that the command entered fails
 p testgood Unit test utility which confirms that the command entered succeeds
-
-* l word-to-show path-or-url [description]
-* t: Directories within site:
-* t path [description]
-* Packages:
-* p pkgname [description]
