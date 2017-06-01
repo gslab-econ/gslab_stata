@@ -1,0 +1,9 @@
+v 1
+
+d gslab_stata
+d
+d aivreg: Estimates panel IV models using 2SLS within estimator
+d
+f aivreg.ado
+f aivreg.hlp
+e

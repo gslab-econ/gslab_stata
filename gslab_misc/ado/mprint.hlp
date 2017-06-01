@@ -11,7 +11,7 @@ Converts a variable to a variable that lists all its unique values at a specied 
 Description
 -----------
 
-^mprint^ following a mereg, saves a file with the counts the number "master", "using" and "both"
+^mprint^ following a merge, saves a file with the counts the number "master", "using" and "both"
 observations based on the _merge variable.
 
 
