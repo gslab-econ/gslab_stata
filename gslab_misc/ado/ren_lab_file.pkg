@@ -1,0 +1,7 @@
+d gslab_stata
+d
+d ren_lab_file: Rename and relabel variables using a text file as input
+d
+f ren_lab_file.ado
+f ren_lab_file.hlp
+e

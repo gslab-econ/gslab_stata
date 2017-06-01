@@ -2,7 +2,7 @@
 help for ^mprint^
 .-
 
-Converts a variable to a variable that lists all its unique values at a specied by-group level
+Converts a variable to a variable that lists all its unique values at a specified by-group level
 ------------------------------------------------------------------------------------------------------
 
 	^mprint^   newvariable, ^variable(^varname^)^ ^by(^varlist^)^ 

@@ -1,0 +1,7 @@
+d gslab_stata
+d
+d multicollapse: Replacement for collapse that allows calculation of the mean using more than one weight
+d
+f multicollapse.ado
+f multicollapse.hlp
+e

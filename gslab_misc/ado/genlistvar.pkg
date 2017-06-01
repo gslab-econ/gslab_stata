@@ -1,0 +1,7 @@
+d gslab_stata
+d
+d genlistvar: Converts a variable to a variable that lists all its unique values at a specied by-group level
+d
+f genlistvar.ado
+f genlistvar.hlp
+e

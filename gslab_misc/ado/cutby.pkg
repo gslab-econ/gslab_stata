@@ -1,0 +1,7 @@
+d gslab_stata
+d
+d cutby: By-able version of egen ... = cut()
+d
+f cutby.hlp
+f cutby.hlp
+e

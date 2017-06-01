@@ -1,0 +1,7 @@
+d gslab_stata
+d
+d nlcom_cumul: Cumulate coefficients
+d
+f nlcom_cumul.ado
+f nlcom_cumul.hlp
+e

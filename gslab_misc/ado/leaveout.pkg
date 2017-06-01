@@ -1,0 +1,7 @@
+d gslab_stata
+d
+d leaveout: Creates a variable that (for each observation) contains a weighted average excluding that observation
+d
+f leaveout.ado
+f leaveout.hlp
+e

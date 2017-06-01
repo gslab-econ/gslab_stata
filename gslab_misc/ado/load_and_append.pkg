@@ -1,0 +1,7 @@
+d gslab_stata
+d
+d load_and_append: Load_and_append appends a group of files and loads the appended file into memory.
+d
+f load_and_append.ado
+f load_and_append.hlp
+e

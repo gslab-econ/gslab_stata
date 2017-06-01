@@ -1,0 +1,7 @@
+d gslab_stata
+d
+d center_estimates: Computes difference between mean of coefficients and dependent variable
+d
+f center_estimates.ado
+f center_estimates.hlp
+e

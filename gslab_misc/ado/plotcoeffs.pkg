@@ -1,0 +1,7 @@
+d gslab_stata
+d
+d plotcoeffs: Plot coefficients after a regression
+d
+f plotcoeffs.ado
+f plotcoeffs.hlp
+e

@@ -3,7 +3,7 @@ help for ^benchmark^
 .-
 
 BENCHMARK.ADO: Simulates data and runs analyses that we 
-might expect from a highly computation Stata script. 
+might expect from a computationally intensive Stata script. 
 Logs output time as I/O, Paralleled, or Serial.
 --------------------------------------------------------------
 
@@ -13,7 +13,7 @@ Logs output time as I/O, Paralleled, or Serial.
 Description
 -----------
 Simulates data and runs analyses that we might expect from a
-highly computation Stata script. Logs output time as I/O, 
+computationally intensive Stata script. Logs output time as I/O, 
 Paralleled, or Serial. Takes no options. 
 
 I/O time includes data creation and manipulation.
