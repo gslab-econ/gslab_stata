@@ -1,2 +1,3 @@
+d Matthew Gentzkow and Jesse M. Shapiro
 p xtreg_ch Random-effects regression with correlation and heteroskedasticity
 p xtreg_ch_loglik log likelihood for xtreg_ch
