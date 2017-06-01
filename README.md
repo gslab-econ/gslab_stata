@@ -4,15 +4,5 @@ This repository contains the stata tools used by GSLab. The code in this reposit
 
 ## Installation
 
-You can install this repository's packages by:
-1. Moving their .ado and .hlp files to your `PERSONAL` Stata path. You can find
-   the location of your `PERSONAL` path by entering `sysdir` at the Stata 
-   console. 
-
-2. Adding a gslab_stata clone's `/ado/` subdirectories to your
-   ado-file path. You can do this by adding lines like 
-   ```stata
-   adopath + <directory hosting your gslab_stata clone>/gslab_stata/gslab_misc/ado
-   ```
-   to your [profile.do](http://www.stata.com/support/faqs/programming/profile-do-file/) script. If you install the gslab_stata packages this way, changing the location 
-   or contents of ado files in your clone will change your installation.
+Each of this repository's packages can be installed from the Stata console 
+using the `net` command. See the packages' readme files for more information.
