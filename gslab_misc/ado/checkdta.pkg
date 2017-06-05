@@ -1,7 +1,6 @@
 d gslab_stata
 d
-d checkdta: Create checkdta.log, which allows users to check whether Stata
-datasets have actually changed after make.bat is re-run.
+d checkdta: Create checkdta.log, which allows users to check whether Stata datasets have actually changed after make.bat is re-run.
 d
 f checkdta.ado
 f checkdta.hlp
