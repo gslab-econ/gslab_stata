@@ -1,4 +1,6 @@
-d gslab_stata
+d gslab_stata: gslab_misc
+d
+d Author: Allen T. Zhang
 d
 d center_estimates: Computes difference between mean of coefficients and dependent variable
 d

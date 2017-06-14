@@ -1,4 +1,6 @@
-d gslab_stata
+d gslab_stata: gslab_misc
+d
+d Authors: Matthew Gentzkow, Patrick DeJarnette, and James Mahon
 d
 d plotcoeffs: Plot coefficients after a regression
 d

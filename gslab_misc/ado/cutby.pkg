@@ -1,6 +1,8 @@
-d gslab_stata
+d gslab_stata: gslab_misc
 d
-d cutby: By-able version of egen ... = cut()
+d Author: Matthew Gentzkow
+d
+d cutby: By-able version of `egen ... = cut()`
 d
 f cutby.ado
 f cutby.hlp

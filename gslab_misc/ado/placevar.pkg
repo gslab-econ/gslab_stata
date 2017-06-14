@@ -1,4 +1,6 @@
-d gslab_stata
+d gslab_stata: gslab_misc
+d
+d Author: Jeroen Weesie
 d
 d placevar: Orders varlist
 d

@@ -1,4 +1,6 @@
-d gslab_stata
+d gslab_stata: gslab_misc
+d
+d Authors: Michael Blasnik, Ben Jann, and Matthew Gentzkow
 d
 d matrix_to_txt: Export a Stata matrix to a text file for use in other programs
 d

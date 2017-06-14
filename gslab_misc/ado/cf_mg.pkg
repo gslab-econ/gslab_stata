@@ -1,4 +1,4 @@
-d gslab_stata
+d gslab_stata: gslab_misc
 d
 d cf_mg: Like -cf-, but the exit flag is always zero
 d

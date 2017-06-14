@@ -1,4 +1,6 @@
-d gslab_stata
+d gslab_stata: gslab_misc
+d
+d Author: Ryan Kessler
 d
 d aivreg: Estimates panel IV models using 2SLS within estimator
 d
