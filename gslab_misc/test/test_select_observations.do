@@ -35,7 +35,7 @@ quietly {
 
     program setup_using_datasets
         preserve
-        keep if mod(n,10)==0
+        keep if mod(n, 10) == 0
         gen nstr = string(n)
         save temp/using.dta, replace
         outsheet using temp/using.txt, replace
@@ -51,11 +51,11 @@ quietly {
     end
     
     program basic_assertion
-        assert mod(n,10)==0
+        assert mod(n, 10) == 0
         sum n
-        assert r(min)==10
-        assert r(max)==100
-        assert r(mean)==55
+        assert r(min) == 10
+        assert r(max == 100
+        assert r(mean) == 55
     end
     
     program test_using_csv

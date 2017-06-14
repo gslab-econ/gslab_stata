@@ -1,5 +1,5 @@
 
- make.py started: 2016-04-28 16:26:58 C:\Users\ahthomas\Documents\svn\lib\stata\gslab_misc 
+ make.py started: 2017-06-06 09:07:54 /Users/mrsull/Desktop/gslab_stata/gslab_misc 
 
 
 Path: gslab_make
@@ -7,22 +7,22 @@ URL: https://econ-gentzkow-svn.stanford.edu/repos/main/trunk/lib/python/gslab_ma
 Relative URL: ^/trunk/lib/python/gslab_make
 Repository Root: https://econ-gentzkow-svn.stanford.edu/repos/main
 Repository UUID: 89b4331b-4301-411a-8e06-9c78d9cdb83d
-Revision: 34230
+Revision: 35832
 Node Kind: directory
 Last Changed Author: jwchoi2
 Last Changed Rev: 33502
-Last Changed Date: 2016-02-07 20:40:17 -0500 (Sun, 07 Feb 2016)
+Last Changed Date: 2016-02-07 17:40:17 -0800 (Sun, 07 Feb 2016)
 
 
- get_externals.py started: 2016-04-28 16:27:02 C:\Users\ahthomas\Documents\svn\lib\stata\gslab_misc
+ get_externals.py started: 2017-06-06 09:07:54 /Users/mrsull/Desktop/gslab_stata/gslab_misc
 
- Input was: "33414	%svn%/lib/third_party/stata_tools	*	./lib/third_party/stata_tools	""""".
-SVN command passed: https://econ-gentzkow-svn.stanford.edu/repos/main/trunk/lib/third_party/stata_tools/ @33414 exported to ./external./lib/third_party/stata_tools/.
+ Input was: "33414	%svn%/lib/third_party/stata_tools	*	/lib/third_party/stata_tools	""""".
+SVN command passed: https://econ-gentzkow-svn.stanford.edu/repos/main/trunk/lib/third_party/stata_tools/ @33414 exported to ./external/lib/third_party/stata_tools/.
 
- get_externals.py ended: 2016-04-28 16:27:08
+ get_externals.py ended: 2017-06-06 09:07:56
 
 
-Execute:  %STATAEXE% /e do "test_testgood.do"
+Execute:  statamp -e do "test_testgood.do"
 
   ___  ____  ____  ____  ____ (R)
  /__    /   ____/   /   ____/
@@ -34,10 +34,10 @@ ___/   /   /___/   /   /___/   14.1   Copyright 1985-2015 StataCorp LP
                                       979-696-4600        stata@stata.com
                                       979-696-4601 (fax)
 
-10-user 16-core Stata network perpetual license:
-       Serial number:  501406206055
-         Licensed to:  ECONUSER
-                       Brown University
+Unlimited-user 4-core Stata network license expires 21 Jul 2017:
+       Serial number:  501409012939
+         Licensed to:  SIEPR
+                       Stanford University
 
 Notes:
       1.  Stata is running in batch mode.
@@ -46,7 +46,7 @@ Notes:
       4.  Maximum number of variables is set to 5000; see help set_maxvar.
 
 
-running C:\Program Files (x86)\Stata14\profile.do ...
+running /Applications/Stata/profile.do ...
 
 . do test_testgood.do 
 
@@ -84,7 +84,7 @@ Test failed
 end of do-file
 
 
-Execute:  %STATAEXE% /e do "test_testbad.do"
+Execute:  statamp -e do "test_testbad.do"
 
   ___  ____  ____  ____  ____ (R)
  /__    /   ____/   /   ____/
@@ -96,10 +96,10 @@ ___/   /   /___/   /   /___/   14.1   Copyright 1985-2015 StataCorp LP
                                       979-696-4600        stata@stata.com
                                       979-696-4601 (fax)
 
-10-user 16-core Stata network perpetual license:
-       Serial number:  501406206055
-         Licensed to:  ECONUSER
-                       Brown University
+Unlimited-user 4-core Stata network license expires 21 Jul 2017:
+       Serial number:  501409012939
+         Licensed to:  SIEPR
+                       Stanford University
 
 Notes:
       1.  Stata is running in batch mode.
@@ -108,7 +108,7 @@ Notes:
       4.  Maximum number of variables is set to 5000; see help set_maxvar.
 
 
-running C:\Program Files (x86)\Stata14\profile.do ...
+running /Applications/Stata/profile.do ...
 
 . do test_testbad.do 
 
@@ -144,7 +144,7 @@ Test failed
 end of do-file
 
 
-Execute:  %STATAEXE% /e do "test_save_data.do"
+Execute:  statamp -e do "test_save_data.do"
 
   ___  ____  ____  ____  ____ (R)
  /__    /   ____/   /   ____/
@@ -156,10 +156,10 @@ ___/   /   /___/   /   /___/   14.1   Copyright 1985-2015 StataCorp LP
                                       979-696-4600        stata@stata.com
                                       979-696-4601 (fax)
 
-10-user 16-core Stata network perpetual license:
-       Serial number:  501406206055
-         Licensed to:  ECONUSER
-                       Brown University
+Unlimited-user 4-core Stata network license expires 21 Jul 2017:
+       Serial number:  501409012939
+         Licensed to:  SIEPR
+                       Stanford University
 
 Notes:
       1.  Stata is running in batch mode.
@@ -168,7 +168,7 @@ Notes:
       4.  Maximum number of variables is set to 5000; see help set_maxvar.
 
 
-running C:\Program Files (x86)\Stata14\profile.do ...
+running /Applications/Stata/profile.do ...
 
 . do test_save_data.do 
 
@@ -231,7 +231,7 @@ file ../output/temp.dta saved
 end of do-file
 
 
-Execute:  %STATAEXE% /e do "test_preliminaries.do"
+Execute:  statamp -e do "test_preliminaries.do"
 
   ___  ____  ____  ____  ____ (R)
  /__    /   ____/   /   ____/
@@ -243,10 +243,10 @@ ___/   /   /___/   /   /___/   14.1   Copyright 1985-2015 StataCorp LP
                                       979-696-4600        stata@stata.com
                                       979-696-4601 (fax)
 
-10-user 16-core Stata network perpetual license:
-       Serial number:  501406206055
-         Licensed to:  ECONUSER
-                       Brown University
+Unlimited-user 4-core Stata network license expires 21 Jul 2017:
+       Serial number:  501409012939
+         Licensed to:  SIEPR
+                       Stanford University
 
 Notes:
       1.  Stata is running in batch mode.
@@ -255,7 +255,7 @@ Notes:
       4.  Maximum number of variables is set to 5000; see help set_maxvar.
 
 
-running C:\Program Files (x86)\Stata14\profile.do ...
+running /Applications/Stata/profile.do ...
 
 . do test_preliminaries.do 
 
@@ -268,12 +268,12 @@ running C:\Program Files (x86)\Stata14\profile.do ...
 . 
 . adopath ++ ../ado/
   [1]              "../ado/"
-  [2]  (BASE)      "C:\Program Files (x86)\Stata14\ado\base/"
-  [3]  (SITE)      "C:\Program Files (x86)\Stata14\ado\site/"
+  [2]  (BASE)      "/Applications/Stata/ado/base/"
+  [3]  (SITE)      "/Applications/Stata/ado/site/"
   [4]              "."
-  [5]  (PERSONAL)  "c:\ado\personal/"
-  [6]  (PLUS)      "c:\ado\plus/"
-  [7]  (OLDPLACE)  "c:\ado/"
+  [5]  (PERSONAL)  "~/Library/Application Support/Stata/ado/personal/"
+  [6]  (PLUS)      "~/Library/Application Support/Stata/ado/plus/"
+  [7]  (OLDPLACE)  "~/ado/"
 
 . 
 . display "maxvar " c(maxvar) ", matsize " c(matsize) ", linesize " c(linesize) ", seed " c(seed)
@@ -429,7 +429,7 @@ request ignored because of batch mode
 end of do-file
 
 
-Execute:  %STATAEXE% /e do "test_select_observations.do"
+Execute:  statamp -e do "test_select_observations.do"
 
   ___  ____  ____  ____  ____ (R)
  /__    /   ____/   /   ____/
@@ -441,10 +441,10 @@ ___/   /   /___/   /   /___/   14.1   Copyright 1985-2015 StataCorp LP
                                       979-696-4600        stata@stata.com
                                       979-696-4601 (fax)
 
-10-user 16-core Stata network perpetual license:
-       Serial number:  501406206055
-         Licensed to:  ECONUSER
-                       Brown University
+Unlimited-user 4-core Stata network license expires 21 Jul 2017:
+       Serial number:  501409012939
+         Licensed to:  SIEPR
+                       Stanford University
 
 Notes:
       1.  Stata is running in batch mode.
@@ -453,7 +453,7 @@ Notes:
       4.  Maximum number of variables is set to 5000; see help set_maxvar.
 
 
-running C:\Program Files (x86)\Stata14\profile.do ...
+running /Applications/Stata/profile.do ...
 
 . do test_select_observations.do 
 
@@ -468,13 +468,27 @@ running C:\Program Files (x86)\Stata14\profile.do ...
 . 
 . * EXECUTE
 . main
-Test passed
-Test passed
-Test passed
-Test passed
-Test passed
-Test passed
-Test passed
+Test failed
+    Command: test_basic, 
+    Result: Error where none expected
+Test failed
+    Command: test_using_csv, 
+    Result: Error where none expected
+Test failed
+    Command: test_using_tab, 
+    Result: Error where none expected
+Test failed
+    Command: test_umatch, 
+    Result: Error where none expected
+Test failed
+    Command: test_uif, 
+    Result: Error where none expected
+Test failed
+    Command: test_udestring, 
+    Result: Error where none expected
+Test failed
+    Command: test_utostring, 
+    Result: Error where none expected
 
 . 
 . 
@@ -482,7 +496,7 @@ Test passed
 end of do-file
 
 
-Execute:  %STATAEXE% /e do "test_build_recode_template.do"
+Execute:  statamp -e do "test_build_recode_template.do"
 
   ___  ____  ____  ____  ____ (R)
  /__    /   ____/   /   ____/
@@ -494,10 +508,10 @@ ___/   /   /___/   /   /___/   14.1   Copyright 1985-2015 StataCorp LP
                                       979-696-4600        stata@stata.com
                                       979-696-4601 (fax)
 
-10-user 16-core Stata network perpetual license:
-       Serial number:  501406206055
-         Licensed to:  ECONUSER
-                       Brown University
+Unlimited-user 4-core Stata network license expires 21 Jul 2017:
+       Serial number:  501409012939
+         Licensed to:  SIEPR
+                       Stanford University
 
 Notes:
       1.  Stata is running in batch mode.
@@ -506,7 +520,7 @@ Notes:
       4.  Maximum number of variables is set to 5000; see help set_maxvar.
 
 
-running C:\Program Files (x86)\Stata14\profile.do ...
+running /Applications/Stata/profile.do ...
 
 . do test_build_recode_template.do 
 
@@ -532,7 +546,7 @@ Test passed
 end of do-file
 
 
-Execute:  %STATAEXE% /e do "test_insert_tag.do"
+Execute:  statamp -e do "test_insert_tag.do"
 
   ___  ____  ____  ____  ____ (R)
  /__    /   ____/   /   ____/
@@ -544,10 +558,10 @@ ___/   /   /___/   /   /___/   14.1   Copyright 1985-2015 StataCorp LP
                                       979-696-4600        stata@stata.com
                                       979-696-4601 (fax)
 
-10-user 16-core Stata network perpetual license:
-       Serial number:  501406206055
-         Licensed to:  ECONUSER
-                       Brown University
+Unlimited-user 4-core Stata network license expires 21 Jul 2017:
+       Serial number:  501409012939
+         Licensed to:  SIEPR
+                       Stanford University
 
 Notes:
       1.  Stata is running in batch mode.
@@ -556,7 +570,7 @@ Notes:
       4.  Maximum number of variables is set to 5000; see help set_maxvar.
 
 
-running C:\Program Files (x86)\Stata14\profile.do ...
+running /Applications/Stata/profile.do ...
 
 . do test_insert_tag.do 
 
@@ -588,7 +602,7 @@ Test passed
 end of do-file
 
 
-Execute:  %STATAEXE% /e do "test_load_and_append.do"
+Execute:  statamp -e do "test_load_and_append.do"
 
   ___  ____  ____  ____  ____ (R)
  /__    /   ____/   /   ____/
@@ -600,10 +614,10 @@ ___/   /   /___/   /   /___/   14.1   Copyright 1985-2015 StataCorp LP
                                       979-696-4600        stata@stata.com
                                       979-696-4601 (fax)
 
-10-user 16-core Stata network perpetual license:
-       Serial number:  501406206055
-         Licensed to:  ECONUSER
-                       Brown University
+Unlimited-user 4-core Stata network license expires 21 Jul 2017:
+       Serial number:  501409012939
+         Licensed to:  SIEPR
+                       Stanford University
 
 Notes:
       1.  Stata is running in batch mode.
@@ -612,7 +626,7 @@ Notes:
       4.  Maximum number of variables is set to 5000; see help set_maxvar.
 
 
-running C:\Program Files (x86)\Stata14\profile.do ...
+running /Applications/Stata/profile.do ...
 
 . do test_load_and_append.do 
 
@@ -621,12 +635,12 @@ running C:\Program Files (x86)\Stata14\profile.do ...
 . set more off
 
 . adopath + ../ado
-  [1]  (BASE)      "C:\Program Files (x86)\Stata14\ado\base/"
-  [2]  (SITE)      "C:\Program Files (x86)\Stata14\ado\site/"
+  [1]  (BASE)      "/Applications/Stata/ado/base/"
+  [2]  (SITE)      "/Applications/Stata/ado/site/"
   [3]              "."
-  [4]  (PERSONAL)  "c:\ado\personal/"
-  [5]  (PLUS)      "c:\ado\plus/"
-  [6]  (OLDPLACE)  "c:\ado/"
+  [4]  (PERSONAL)  "~/Library/Application Support/Stata/ado/personal/"
+  [5]  (PLUS)      "~/Library/Application Support/Stata/ado/plus/"
+  [6]  (OLDPLACE)  "~/ado/"
   [7]              "../ado"
 
 . preliminaries
@@ -764,7 +778,9 @@ Test passed
 Test passed
 Test passed
 Test passed
-Test passed
+Test failed
+    Command: load_and_append file1 file2 file3, , dir(.\temp\) clear
+    Result: Error where none expected
 Test passed
 Test passed
 Test passed
@@ -786,7 +802,7 @@ Test passed
 end of do-file
 
 
-Execute:  %STATAEXE% /e do "test_plotcoeffs.do"
+Execute:  statamp -e do "test_plotcoeffs.do"
 
   ___  ____  ____  ____  ____ (R)
  /__    /   ____/   /   ____/
@@ -798,10 +814,10 @@ ___/   /   /___/   /   /___/   14.1   Copyright 1985-2015 StataCorp LP
                                       979-696-4600        stata@stata.com
                                       979-696-4601 (fax)
 
-10-user 16-core Stata network perpetual license:
-       Serial number:  501406206055
-         Licensed to:  ECONUSER
-                       Brown University
+Unlimited-user 4-core Stata network license expires 21 Jul 2017:
+       Serial number:  501409012939
+         Licensed to:  SIEPR
+                       Stanford University
 
 Notes:
       1.  Stata is running in batch mode.
@@ -810,7 +826,7 @@ Notes:
       4.  Maximum number of variables is set to 5000; see help set_maxvar.
 
 
-running C:\Program Files (x86)\Stata14\profile.do ...
+running /Applications/Stata/profile.do ...
 
 . do test_plotcoeffs.do 
 
@@ -819,12 +835,12 @@ running C:\Program Files (x86)\Stata14\profile.do ...
 . set more off
 
 . adopath + ../ado
-  [1]  (BASE)      "C:\Program Files (x86)\Stata14\ado\base/"
-  [2]  (SITE)      "C:\Program Files (x86)\Stata14\ado\site/"
+  [1]  (BASE)      "/Applications/Stata/ado/base/"
+  [2]  (SITE)      "/Applications/Stata/ado/site/"
   [3]              "."
-  [4]  (PERSONAL)  "c:\ado\personal/"
-  [5]  (PLUS)      "c:\ado\plus/"
-  [6]  (OLDPLACE)  "c:\ado/"
+  [4]  (PERSONAL)  "~/Library/Application Support/Stata/ado/personal/"
+  [5]  (PLUS)      "~/Library/Application Support/Stata/ado/plus/"
+  [6]  (OLDPLACE)  "~/ado/"
   [7]              "../ado"
 
 . preliminaries
@@ -924,15 +940,19 @@ running C:\Program Files (x86)\Stata14\profile.do ...
 . main
 Test passed
 Test passed
-Test passed
-Test passed
+Test failed
+    Command: test_with_multiple_regs, 
+    Result: Error where none expected
+Test failed
+    Command: test_with_matrix_notation, 
+    Result: Error where none expected
 Test passed
 
 . 
 end of do-file
 
 
-Execute:  %STATAEXE% /e do "test_center_estimates.do"
+Execute:  statamp -e do "test_center_estimates.do"
 
   ___  ____  ____  ____  ____ (R)
  /__    /   ____/   /   ____/
@@ -944,10 +964,10 @@ ___/   /   /___/   /   /___/   14.1   Copyright 1985-2015 StataCorp LP
                                       979-696-4600        stata@stata.com
                                       979-696-4601 (fax)
 
-10-user 16-core Stata network perpetual license:
-       Serial number:  501406206055
-         Licensed to:  ECONUSER
-                       Brown University
+Unlimited-user 4-core Stata network license expires 21 Jul 2017:
+       Serial number:  501409012939
+         Licensed to:  SIEPR
+                       Stanford University
 
 Notes:
       1.  Stata is running in batch mode.
@@ -956,7 +976,7 @@ Notes:
       4.  Maximum number of variables is set to 5000; see help set_maxvar.
 
 
-running C:\Program Files (x86)\Stata14\profile.do ...
+running /Applications/Stata/profile.do ...
 
 . do test_center_estimates.do 
 
@@ -965,12 +985,12 @@ running C:\Program Files (x86)\Stata14\profile.do ...
 . set more off
 
 . adopath + ../ado
-  [1]  (BASE)      "C:\Program Files (x86)\Stata14\ado\base/"
-  [2]  (SITE)      "C:\Program Files (x86)\Stata14\ado\site/"
+  [1]  (BASE)      "/Applications/Stata/ado/base/"
+  [2]  (SITE)      "/Applications/Stata/ado/site/"
   [3]              "."
-  [4]  (PERSONAL)  "c:\ado\personal/"
-  [5]  (PLUS)      "c:\ado\plus/"
-  [6]  (OLDPLACE)  "c:\ado/"
+  [4]  (PERSONAL)  "~/Library/Application Support/Stata/ado/personal/"
+  [5]  (PLUS)      "~/Library/Application Support/Stata/ado/plus/"
+  [6]  (OLDPLACE)  "~/ado/"
   [7]              "../ado"
 
 . preliminaries
@@ -1051,7 +1071,7 @@ Test passed
 end of do-file
 
 
-Execute:  %STATAEXE% /e do "test_aivreg.do"
+Execute:  statamp -e do "test_aivreg.do"
 
   ___  ____  ____  ____  ____ (R)
  /__    /   ____/   /   ____/
@@ -1063,10 +1083,10 @@ ___/   /   /___/   /   /___/   14.1   Copyright 1985-2015 StataCorp LP
                                       979-696-4600        stata@stata.com
                                       979-696-4601 (fax)
 
-10-user 16-core Stata network perpetual license:
-       Serial number:  501406206055
-         Licensed to:  ECONUSER
-                       Brown University
+Unlimited-user 4-core Stata network license expires 21 Jul 2017:
+       Serial number:  501409012939
+         Licensed to:  SIEPR
+                       Stanford University
 
 Notes:
       1.  Stata is running in batch mode.
@@ -1075,7 +1095,7 @@ Notes:
       4.  Maximum number of variables is set to 5000; see help set_maxvar.
 
 
-running C:\Program Files (x86)\Stata14\profile.do ...
+running /Applications/Stata/profile.do ...
 
 . do test_aivreg.do 
 
@@ -1084,12 +1104,12 @@ running C:\Program Files (x86)\Stata14\profile.do ...
 . set more off
 
 . adopath + ../ado
-  [1]  (BASE)      "C:\Program Files (x86)\Stata14\ado\base/"
-  [2]  (SITE)      "C:\Program Files (x86)\Stata14\ado\site/"
+  [1]  (BASE)      "/Applications/Stata/ado/base/"
+  [2]  (SITE)      "/Applications/Stata/ado/site/"
   [3]              "."
-  [4]  (PERSONAL)  "c:\ado\personal/"
-  [5]  (PLUS)      "c:\ado\plus/"
-  [6]  (OLDPLACE)  "c:\ado/"
+  [4]  (PERSONAL)  "~/Library/Application Support/Stata/ado/personal/"
+  [5]  (PLUS)      "~/Library/Application Support/Stata/ado/plus/"
+  [6]  (OLDPLACE)  "~/ado/"
   [7]              "../ado"
 
 . preliminaries
@@ -1267,4 +1287,4 @@ Test passed
 . 
 end of do-file
 
- make.py ended: 2016-04-28 16:27:47
+ make.py ended: 2017-06-06 09:08:15

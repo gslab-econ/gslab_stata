@@ -1,6 +1,7 @@
 d gslab_stata
 d
 d placevar: Orders varlist
+d
 f placevar.ado
 f placevar.hlp
 e

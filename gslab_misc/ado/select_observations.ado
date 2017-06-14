@@ -23,30 +23,31 @@ program select_observations
         use `using', clear
     }
     
-    if "`utostring'"~="" {
+    if "`utostring'" ~= "" {
         tostring `utostring', replace
     }
-    if "`udestring'"~="" {
+    if "`udestring'" ~= "" {
         destring `udestring', replace
     }
     
-    if "`umatch'"~="" {
-        local mergelist "`umatch'"
-    }
-    else {
-        local mergelist "`varlist'"
+    if "`umatch'" ~= "" {
+        forv i = 1/`nvar'{
+            local oname: word `i' of `umatch'
+            local nname: word `i' of `varlist'
+            if "`oname'" ~= "`nname'"{
+                rename `oname' `nname'
+            }
+        }
     }
 
     if "`uif'"~="" {
         keep if `uif'
     }
 
-    keep `mergelist' 
+    keep `varlist'
     duplicates drop
     save `temp'
     
     restore
-    mmerge `varlist' using `temp', type(n:1) unm(none) umatch(`mergelist')
-    drop _merge
-    
+    merge m:1 `varlist' using `temp', keep(match) nogen    
 end

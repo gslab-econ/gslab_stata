@@ -1,5 +1,17 @@
 This library contains commonly-used gslab stata tools.
 
+## Prerequisites
+- `mmerge`. Install by entering the following at the
+  Stata console.
+```stata
+net from http://www.stata.com
+net cd stb
+net cd stb53
+net describe dm75
+net install dm75
+```
+
+
 ## Installation
 
 Enter the following at the Stata console.
