@@ -20,7 +20,6 @@ p nlcom_cumul           Cumulate coefficients
 p oo                    Command to display a small comment
 p ooo                   Command to display a big comment
 p oooo                  Command to display a really big comment
-p placevar              Orders varlist
 p plotcoeffs_nolab      Plot coefficients after a regression (no labels)
 p plotcoeffs            Plot coefficients after a regression
 p predict_list          Generate predicted values using a subset of right-hand-side variables
