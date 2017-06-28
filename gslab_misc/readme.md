@@ -39,8 +39,7 @@ net install multicollapse
 net install nlcom_cumul          
 net install oo                   
 net install ooo                  
-net install oooo                 
-net install placevar             
+net install oooo                            
 net install plotcoeffs_nolab     
 net install plotcoeffs           
 net install predict_list         
