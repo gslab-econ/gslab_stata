@@ -1,5 +1,5 @@
-Log created:    2017-06-28 16:34:23
-Log completed:  2017-06-28 16:34:24
+Log created:    2017-06-28 18:21:14
+Log completed:  2017-06-28 18:21:14
  
 
   ___  ____  ____  ____  ____ (R)
@@ -54,8 +54,8 @@ Test passed
 . 
 . 
 end of do-file
-Log created:    2017-06-28 16:34:24
-Log completed:  2017-06-28 16:34:24
+Log created:    2017-06-28 18:21:14
+Log completed:  2017-06-28 18:21:15
  
 
   ___  ____  ____  ____  ____ (R)
@@ -97,8 +97,8 @@ Test passed
 
 . 
 end of do-file
-Log created:    2017-06-28 16:34:24
-Log completed:  2017-06-28 16:34:24
+Log created:    2017-06-28 18:21:15
+Log completed:  2017-06-28 18:21:15
  
 
   ___  ____  ____  ____  ____ (R)
@@ -157,13 +157,13 @@ Test failed
 Test failed
     Command: test_utostring, 
     Result: Error where none expected
-could not remove directory temp
-r(693);
 
+. 
+. 
+. 
 end of do-file
-r(693);
-Log created:    2017-06-28 16:34:24
-Log completed:  2017-06-28 16:34:24
+Log created:    2017-06-28 18:21:15
+Log completed:  2017-06-28 18:21:15
  
 
   ___  ____  ____  ____  ____ (R)
@@ -222,8 +222,8 @@ Test failed
 . 
 . 
 end of do-file
-Log created:    2017-06-28 16:34:24
-Log completed:  2017-06-28 16:34:24
+Log created:    2017-06-28 18:21:15
+Log completed:  2017-06-28 18:21:15
  
 
   ___  ____  ____  ____  ____ (R)
@@ -303,8 +303,8 @@ file ../output/temp.dta saved
 . 
 . 
 end of do-file
-Log created:    2017-06-28 16:34:24
-Log completed:  2017-06-28 16:34:24
+Log created:    2017-06-28 18:21:15
+Log completed:  2017-06-28 18:21:15
  
 
   ___  ____  ____  ____  ____ (R)
@@ -504,8 +504,8 @@ request ignored because of batch mode
 . 
 . 
 end of do-file
-Log created:    2017-06-28 16:34:24
-Log completed:  2017-06-28 16:34:24
+Log created:    2017-06-28 18:21:15
+Log completed:  2017-06-28 18:21:15
  
 
   ___  ____  ____  ____  ____ (R)
@@ -566,8 +566,8 @@ Test failed
 . 
 . 
 end of do-file
-Log created:    2017-06-28 16:34:24
-Log completed:  2017-06-28 16:34:26
+Log created:    2017-06-28 18:21:15
+Log completed:  2017-06-28 18:21:17
  
 
   ___  ____  ____  ____  ____ (R)
@@ -610,8 +610,8 @@ Test passed
 
 . 
 end of do-file
-Log created:    2017-06-28 16:34:26
-Log completed:  2017-06-28 16:34:26
+Log created:    2017-06-28 18:21:17
+Log completed:  2017-06-28 18:21:17
  
 
   ___  ____  ____  ____  ____ (R)
@@ -656,8 +656,8 @@ r(693);
 
 end of do-file
 r(693);
-Log created:    2017-06-28 16:34:26
-Log completed:  2017-06-28 16:34:36
+Log created:    2017-06-28 18:21:17
+Log completed:  2017-06-28 18:21:27
  
 
   ___  ____  ____  ____  ____ (R)
@@ -703,8 +703,8 @@ Test passed
 
 . 
 end of do-file
-Log created:    2017-06-28 16:34:36
-Log completed:  2017-06-28 16:34:36
+Log created:    2017-06-28 18:21:27
+Log completed:  2017-06-28 18:21:27
  
 
   ___  ____  ____  ____  ____ (R)
