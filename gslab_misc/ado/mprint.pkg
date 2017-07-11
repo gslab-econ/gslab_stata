@@ -1,9 +1,0 @@
-d gslab_stata: gslab_misc
-d
-d Author: Mike Thomas
-d
-d mprint: Converts a variable to a variable that lists all its unique values at a specified by-group level
-d
-f mprint.ado
-f mprint.hlp
-e

@@ -1,9 +1,0 @@
-d gslab_stata: gslab_misc
-d
-d Authors: Jesse Shapiro and James Mahon
-d
-d nlcom_cumul: Cumulate coefficients
-d
-f nlcom_cumul.ado
-f nlcom_cumul.hlp
-e

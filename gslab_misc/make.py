@@ -7,9 +7,9 @@ def main():
     if os.path.isfile(log):
         os.remove(log)
 
-    scripts = ['insert_tag', 'center_estimates', 'select_observations',
-               'testbad',    'save_data',        'preliminaries', 
-               'testgood',   'aivreg',           'build_recode_template',
+    scripts = ['insert_tag', 'select_observations', 'preliminaries', 
+               'testbad',    'save_data',       
+               'testgood'    'build_recode_template',
                'plotcoeffs', 'load_and_append',]
     for script in scripts:
         run_test('test/test_%s.do' % script, log)

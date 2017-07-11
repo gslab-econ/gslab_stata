@@ -20,7 +20,7 @@ such as word processors or spreadsheets.  The matrix row and column names
 as well as the matrix data values are exported to a tab delimited ASCII file.
 The user may optionally specify a title and/or a note to add text to the file
 before and/or after the matrix.  Display formats may be specified.  The data may
-be appended to an existing file or replace an existing file. [Modified by MG from mat2txt
+be appended to an existing file or replace an existing file.
 
 
 {title:Options}
@@ -76,6 +76,8 @@ to get summary statistics produced by tabstat into a tab delimited file:
 
 {title:Authors}
 
+matrix_to_txt is a GSLab modified version of mat2txt (https://ideas.repec.org/c/boc/bocode/s437601.html), which was created by:
+
 {p 4 4 2}
 Michael Blasnik (M. Blasnik & Associates, Boston, MA) {break}
 Email: {browse "mailto:michael.blasnik@verizon.net":michael.blasnik@verizon.net}
@@ -83,7 +85,4 @@ Email: {browse "mailto:michael.blasnik@verizon.net":michael.blasnik@verizon.net}
 {p 4 4 2}
 Ben Jann (ETH Zurich) {break}
 Email: {browse "mailto:jann@soz.gess.ethz.ch":jann@soz.gess.ethz.ch}
-
-{p 4 4 2}
-Matthew Gentzkow {break}
 
