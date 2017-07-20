@@ -17,15 +17,11 @@ net install dm75
 Enter the following at the Stata console.
 
 ```stata
-net from https://raw.githubusercontent.com/gslab-econ/gslab_stata/master/gslab_misc/ado
-net uninstall aivreg  
-net install aivreg               
+net from https://raw.githubusercontent.com/gslab-econ/gslab_stata/master/gslab_misc/ado          
 net uninstall benchmark 
 net install benchmark            
 net uninstall build_recode_template
-net install build_recode_template
-net uninstall center_estimates 
-net install center_estimates     
+net install build_recode_template 
 net uninstall cf_mg
 net install cf_mg                
 net uninstall checkdta
@@ -49,13 +45,7 @@ net install load_and_append
 net uninstall loadglob
 net install loadglob             
 net uninstall matrix_to_txt
-net install matrix_to_txt        
-net uninstall mprint
-net install mprint               
-net uninstall multicollapse
-net install multicollapse        
-net uninstall nlcom_cumul
-net install nlcom_cumul          
+net install matrix_to_txt                 
 net uninstall oo
 net install oo                   
 net uninstall ooo
