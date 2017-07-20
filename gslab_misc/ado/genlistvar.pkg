@@ -1,0 +1,9 @@
+d gslab_stata: gslab_misc
+d
+d Authors: Ernest Liu and Mike Thomas
+d
+d genlistvar: Converts a variable to a variable that lists all its unique values at a specified by-group level
+d
+f genlistvar.ado
+f genlistvar.hlp
+e

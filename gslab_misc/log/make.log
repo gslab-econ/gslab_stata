@@ -1,28 +1,6 @@
-
- make.py started: 2016-04-28 16:26:58 C:\Users\ahthomas\Documents\svn\lib\stata\gslab_misc 
-
-
-Path: gslab_make
-URL: https://econ-gentzkow-svn.stanford.edu/repos/main/trunk/lib/python/gslab_make
-Relative URL: ^/trunk/lib/python/gslab_make
-Repository Root: https://econ-gentzkow-svn.stanford.edu/repos/main
-Repository UUID: 89b4331b-4301-411a-8e06-9c78d9cdb83d
-Revision: 34230
-Node Kind: directory
-Last Changed Author: jwchoi2
-Last Changed Rev: 33502
-Last Changed Date: 2016-02-07 20:40:17 -0500 (Sun, 07 Feb 2016)
-
-
- get_externals.py started: 2016-04-28 16:27:02 C:\Users\ahthomas\Documents\svn\lib\stata\gslab_misc
-
- Input was: "33414	%svn%/lib/third_party/stata_tools	*	./lib/third_party/stata_tools	""""".
-SVN command passed: https://econ-gentzkow-svn.stanford.edu/repos/main/trunk/lib/third_party/stata_tools/ @33414 exported to ./external./lib/third_party/stata_tools/.
-
- get_externals.py ended: 2016-04-28 16:27:08
-
-
-Execute:  %STATAEXE% /e do "test_testgood.do"
+Log created:    2017-06-28 18:21:14
+Log completed:  2017-06-28 18:21:14
+ 
 
   ___  ____  ____  ____  ____ (R)
  /__    /   ____/   /   ____/
@@ -34,10 +12,10 @@ ___/   /   /___/   /   /___/   14.1   Copyright 1985-2015 StataCorp LP
                                       979-696-4600        stata@stata.com
                                       979-696-4601 (fax)
 
-10-user 16-core Stata network perpetual license:
-       Serial number:  501406206055
-         Licensed to:  ECONUSER
-                       Brown University
+Unlimited-user 4-core Stata network license expires 21 Jul 2017:
+       Serial number:  501409012939
+         Licensed to:  SIEPR
+                       Stanford University
 
 Notes:
       1.  Stata is running in batch mode.
@@ -46,13 +24,13 @@ Notes:
       4.  Maximum number of variables is set to 5000; see help set_maxvar.
 
 
-running C:\Program Files (x86)\Stata14\profile.do ...
+running /Applications/Stata/profile.do ...
 
-. do test_testgood.do 
+. do "test/test_insert_tag.do" 
 
 . ****************************************************************************************************
 . *
-. * TEST_TESTGOOD.DO
+. * TEST_INSERT_TAG.DO
 . *
 . ****************************************************************************************************
 . 
@@ -66,25 +44,19 @@ Test passed
 Test passed
 Test passed
 Test passed
-
-THESE TESTS SHOULD ALL FAIL:
-Test failed
-    Command: regress y q, 
-    Result: Error where none expected
-Test failed
-    Command: regress y x, , blah
-    Result: Error where none expected
-Test failed
-    Command: blah, 
-    Result: Error where none expected
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
 
 . 
 . 
 . 
 end of do-file
-
-
-Execute:  %STATAEXE% /e do "test_testbad.do"
+Log created:    2017-06-28 18:21:14
+Log completed:  2017-06-28 18:21:15
+ 
 
   ___  ____  ____  ____  ____ (R)
  /__    /   ____/   /   ____/
@@ -96,10 +68,10 @@ ___/   /   /___/   /   /___/   14.1   Copyright 1985-2015 StataCorp LP
                                       979-696-4600        stata@stata.com
                                       979-696-4601 (fax)
 
-10-user 16-core Stata network perpetual license:
-       Serial number:  501406206055
-         Licensed to:  ECONUSER
-                       Brown University
+Unlimited-user 4-core Stata network license expires 21 Jul 2017:
+       Serial number:  501409012939
+         Licensed to:  SIEPR
+                       Stanford University
 
 Notes:
       1.  Stata is running in batch mode.
@@ -108,9 +80,117 @@ Notes:
       4.  Maximum number of variables is set to 5000; see help set_maxvar.
 
 
-running C:\Program Files (x86)\Stata14\profile.do ...
+running /Applications/Stata/profile.do ...
 
-. do test_testbad.do 
+. do "test/test_center_estimates.do" 
+
+. quietly {
+
+. 
+. * EXECUTE
+. main
+Test passed
+Test passed
+Test passed
+Test passed
+Test passed
+
+. 
+end of do-file
+Log created:    2017-06-28 18:21:15
+Log completed:  2017-06-28 18:21:15
+ 
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   14.1   Copyright 1985-2015 StataCorp LP
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+Unlimited-user 4-core Stata network license expires 21 Jul 2017:
+       Serial number:  501409012939
+         Licensed to:  SIEPR
+                       Stanford University
+
+Notes:
+      1.  Stata is running in batch mode.
+      2.  Unicode is supported; see help unicode_advice.
+      3.  More than 2 billion observations are allowed; see help obs_advice.
+      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+
+
+running /Applications/Stata/profile.do ...
+
+. do "test/test_select_observations.do" 
+
+. ****************************************************************************************************
+. *
+. * TEST_SELECT_OBSERVATIONS.DO
+. *
+. ****************************************************************************************************
+. 
+. quietly {
+
+. 
+. * EXECUTE
+. main
+Test failed
+    Command: test_basic, 
+    Result: Error where none expected
+Test failed
+    Command: test_using_csv, 
+    Result: Error where none expected
+Test failed
+    Command: test_using_tab, 
+    Result: Error where none expected
+Test failed
+    Command: test_umatch, 
+    Result: Error where none expected
+Test passed
+Test failed
+    Command: test_udestring, 
+    Result: Error where none expected
+Test failed
+    Command: test_utostring, 
+    Result: Error where none expected
+
+. 
+. 
+. 
+end of do-file
+Log created:    2017-06-28 18:21:15
+Log completed:  2017-06-28 18:21:15
+ 
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   14.1   Copyright 1985-2015 StataCorp LP
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+Unlimited-user 4-core Stata network license expires 21 Jul 2017:
+       Serial number:  501409012939
+         Licensed to:  SIEPR
+                       Stanford University
+
+Notes:
+      1.  Stata is running in batch mode.
+      2.  Unicode is supported; see help unicode_advice.
+      3.  More than 2 billion observations are allowed; see help obs_advice.
+      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+
+
+running /Applications/Stata/profile.do ...
+
+. do "test/test_testbad.do" 
 
 . ****************************************************************************************************
 . *
@@ -142,9 +222,9 @@ Test failed
 . 
 . 
 end of do-file
-
-
-Execute:  %STATAEXE% /e do "test_save_data.do"
+Log created:    2017-06-28 18:21:15
+Log completed:  2017-06-28 18:21:15
+ 
 
   ___  ____  ____  ____  ____ (R)
  /__    /   ____/   /   ____/
@@ -156,10 +236,10 @@ ___/   /   /___/   /   /___/   14.1   Copyright 1985-2015 StataCorp LP
                                       979-696-4600        stata@stata.com
                                       979-696-4601 (fax)
 
-10-user 16-core Stata network perpetual license:
-       Serial number:  501406206055
-         Licensed to:  ECONUSER
-                       Brown University
+Unlimited-user 4-core Stata network license expires 21 Jul 2017:
+       Serial number:  501409012939
+         Licensed to:  SIEPR
+                       Stanford University
 
 Notes:
       1.  Stata is running in batch mode.
@@ -168,16 +248,10 @@ Notes:
       4.  Maximum number of variables is set to 5000; see help set_maxvar.
 
 
-running C:\Program Files (x86)\Stata14\profile.do ...
+running /Applications/Stata/profile.do ...
 
-. do test_save_data.do 
+. do "test/test_save_data.do" 
 
-. ****************************************************************************************************
-. *
-. * TEST_SAVE_DATA.DO
-. *
-. ****************************************************************************************************
-. 
 . quietly {
 
 . 
@@ -229,9 +303,9 @@ file ../output/temp.dta saved
 . 
 . 
 end of do-file
-
-
-Execute:  %STATAEXE% /e do "test_preliminaries.do"
+Log created:    2017-06-28 18:21:15
+Log completed:  2017-06-28 18:21:15
+ 
 
   ___  ____  ____  ____  ____ (R)
  /__    /   ____/   /   ____/
@@ -243,10 +317,10 @@ ___/   /   /___/   /   /___/   14.1   Copyright 1985-2015 StataCorp LP
                                       979-696-4600        stata@stata.com
                                       979-696-4601 (fax)
 
-10-user 16-core Stata network perpetual license:
-       Serial number:  501406206055
-         Licensed to:  ECONUSER
-                       Brown University
+Unlimited-user 4-core Stata network license expires 21 Jul 2017:
+       Serial number:  501409012939
+         Licensed to:  SIEPR
+                       Stanford University
 
 Notes:
       1.  Stata is running in batch mode.
@@ -255,9 +329,9 @@ Notes:
       4.  Maximum number of variables is set to 5000; see help set_maxvar.
 
 
-running C:\Program Files (x86)\Stata14\profile.do ...
+running /Applications/Stata/profile.do ...
 
-. do test_preliminaries.do 
+. do "test/test_preliminaries.do" 
 
 .  /**********************************************************
 >  *
@@ -266,14 +340,17 @@ running C:\Program Files (x86)\Stata14\profile.do ...
 >  * 
 >  **********************************************************/ 
 . 
-. adopath ++ ../ado/
-  [1]              "../ado/"
-  [2]  (BASE)      "C:\Program Files (x86)\Stata14\ado\base/"
-  [3]  (SITE)      "C:\Program Files (x86)\Stata14\ado\site/"
+. cd test
+/Users/mrsull/Desktop/gslab_stata/gslab_misc/test
+
+. adopath ++ ado
+  [1]              "ado"
+  [2]  (BASE)      "/Applications/Stata/ado/base/"
+  [3]  (SITE)      "/Applications/ado/"
   [4]              "."
-  [5]  (PERSONAL)  "c:\ado\personal/"
-  [6]  (PLUS)      "c:\ado\plus/"
-  [7]  (OLDPLACE)  "c:\ado/"
+  [5]  (PERSONAL)  "~/Library/Application Support/Stata/ado/personal/"
+  [6]  (PLUS)      "~/Library/Application Support/Stata/ado/plus/"
+  [7]  (OLDPLACE)  "~/ado/"
 
 . 
 . display "maxvar " c(maxvar) ", matsize " c(matsize) ", linesize " c(linesize) ", seed " c(seed)
@@ -427,9 +504,9 @@ request ignored because of batch mode
 . 
 . 
 end of do-file
-
-
-Execute:  %STATAEXE% /e do "test_select_observations.do"
+Log created:    2017-06-28 18:21:15
+Log completed:  2017-06-28 18:21:15
+ 
 
   ___  ____  ____  ____  ____ (R)
  /__    /   ____/   /   ____/
@@ -441,10 +518,10 @@ ___/   /   /___/   /   /___/   14.1   Copyright 1985-2015 StataCorp LP
                                       979-696-4600        stata@stata.com
                                       979-696-4601 (fax)
 
-10-user 16-core Stata network perpetual license:
-       Serial number:  501406206055
-         Licensed to:  ECONUSER
-                       Brown University
+Unlimited-user 4-core Stata network license expires 21 Jul 2017:
+       Serial number:  501409012939
+         Licensed to:  SIEPR
+                       Stanford University
 
 Notes:
       1.  Stata is running in batch mode.
@@ -453,13 +530,13 @@ Notes:
       4.  Maximum number of variables is set to 5000; see help set_maxvar.
 
 
-running C:\Program Files (x86)\Stata14\profile.do ...
+running /Applications/Stata/profile.do ...
 
-. do test_select_observations.do 
+. do "test/test_testgood.do" 
 
 . ****************************************************************************************************
 . *
-. * TEST_SELECT_OBSERVATIONS.DO
+. * TEST_TESTGOOD.DO
 . *
 . ****************************************************************************************************
 . 
@@ -473,16 +550,25 @@ Test passed
 Test passed
 Test passed
 Test passed
-Test passed
-Test passed
+
+THESE TESTS SHOULD ALL FAIL:
+Test failed
+    Command: regress y q, 
+    Result: Error where none expected
+Test failed
+    Command: regress y x, , blah
+    Result: Error where none expected
+Test failed
+    Command: blah, 
+    Result: Error where none expected
 
 . 
 . 
 . 
 end of do-file
-
-
-Execute:  %STATAEXE% /e do "test_build_recode_template.do"
+Log created:    2017-06-28 18:21:15
+Log completed:  2017-06-28 18:21:17
+ 
 
   ___  ____  ____  ____  ____ (R)
  /__    /   ____/   /   ____/
@@ -494,10 +580,10 @@ ___/   /   /___/   /   /___/   14.1   Copyright 1985-2015 StataCorp LP
                                       979-696-4600        stata@stata.com
                                       979-696-4601 (fax)
 
-10-user 16-core Stata network perpetual license:
-       Serial number:  501406206055
-         Licensed to:  ECONUSER
-                       Brown University
+Unlimited-user 4-core Stata network license expires 21 Jul 2017:
+       Serial number:  501409012939
+         Licensed to:  SIEPR
+                       Stanford University
 
 Notes:
       1.  Stata is running in batch mode.
@@ -506,16 +592,54 @@ Notes:
       4.  Maximum number of variables is set to 5000; see help set_maxvar.
 
 
-running C:\Program Files (x86)\Stata14\profile.do ...
+running /Applications/Stata/profile.do ...
 
-. do test_build_recode_template.do 
+. do "test/test_aivreg.do" 
 
-. ****************************************************************************************************
-. *
-. * TEST_BUILD_RECODE_TEMPLATE.DO
-. *
-. ****************************************************************************************************
+. quietly {
+
 . 
+. main
+number of observations (_N) was 0, now 500
+       panel variable:  mask_cust_id (strongly balanced)
+        time variable:  transaction~h, 516 to 525
+                delta:  1 unit
+Test passed
+Test passed
+Test passed
+
+. 
+end of do-file
+Log created:    2017-06-28 18:21:17
+Log completed:  2017-06-28 18:21:17
+ 
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   14.1   Copyright 1985-2015 StataCorp LP
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+Unlimited-user 4-core Stata network license expires 21 Jul 2017:
+       Serial number:  501409012939
+         Licensed to:  SIEPR
+                       Stanford University
+
+Notes:
+      1.  Stata is running in batch mode.
+      2.  Unicode is supported; see help unicode_advice.
+      3.  More than 2 billion observations are allowed; see help obs_advice.
+      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+
+
+running /Applications/Stata/profile.do ...
+
+. do "test/test_build_recode_template.do" 
+
 . quietly {
 
 . 
@@ -527,12 +651,14 @@ Test passed
 Test passed
 Test passed
 Test passed
+could not remove directory temp
+r(693);
 
-. 
 end of do-file
-
-
-Execute:  %STATAEXE% /e do "test_insert_tag.do"
+r(693);
+Log created:    2017-06-28 18:21:17
+Log completed:  2017-06-28 18:21:27
+ 
 
   ___  ____  ____  ____  ____ (R)
  /__    /   ____/   /   ____/
@@ -544,10 +670,10 @@ ___/   /   /___/   /   /___/   14.1   Copyright 1985-2015 StataCorp LP
                                       979-696-4600        stata@stata.com
                                       979-696-4601 (fax)
 
-10-user 16-core Stata network perpetual license:
-       Serial number:  501406206055
-         Licensed to:  ECONUSER
-                       Brown University
+Unlimited-user 4-core Stata network license expires 21 Jul 2017:
+       Serial number:  501409012939
+         Licensed to:  SIEPR
+                       Stanford University
 
 Notes:
       1.  Stata is running in batch mode.
@@ -556,16 +682,10 @@ Notes:
       4.  Maximum number of variables is set to 5000; see help set_maxvar.
 
 
-running C:\Program Files (x86)\Stata14\profile.do ...
+running /Applications/Stata/profile.do ...
 
-. do test_insert_tag.do 
+. do "test/test_plotcoeffs.do" 
 
-. ****************************************************************************************************
-. *
-. * TEST_INSERT_TAG.DO
-. *
-. ****************************************************************************************************
-. 
 . quietly {
 
 . 
@@ -573,22 +693,19 @@ running C:\Program Files (x86)\Stata14\profile.do ...
 . main
 Test passed
 Test passed
-Test passed
-Test passed
-Test passed
-Test passed
-Test passed
-Test passed
-Test passed
+Test failed
+    Command: test_with_multiple_regs, 
+    Result: Error where none expected
+Test failed
+    Command: test_with_matrix_notation, 
+    Result: Error where none expected
 Test passed
 
-. 
-. 
 . 
 end of do-file
-
-
-Execute:  %STATAEXE% /e do "test_load_and_append.do"
+Log created:    2017-06-28 18:21:27
+Log completed:  2017-06-28 18:21:27
+ 
 
   ___  ____  ____  ____  ____ (R)
  /__    /   ____/   /   ____/
@@ -600,10 +717,10 @@ ___/   /   /___/   /   /___/   14.1   Copyright 1985-2015 StataCorp LP
                                       979-696-4600        stata@stata.com
                                       979-696-4601 (fax)
 
-10-user 16-core Stata network perpetual license:
-       Serial number:  501406206055
-         Licensed to:  ECONUSER
-                       Brown University
+Unlimited-user 4-core Stata network license expires 21 Jul 2017:
+       Serial number:  501409012939
+         Licensed to:  SIEPR
+                       Stanford University
 
 Notes:
       1.  Stata is running in batch mode.
@@ -612,126 +729,11 @@ Notes:
       4.  Maximum number of variables is set to 5000; see help set_maxvar.
 
 
-running C:\Program Files (x86)\Stata14\profile.do ...
+running /Applications/Stata/profile.do ...
 
-. do test_load_and_append.do 
+. do "test/test_load_and_append.do" 
 
-. version 12
-
-. set more off
-
-. adopath + ../ado
-  [1]  (BASE)      "C:\Program Files (x86)\Stata14\ado\base/"
-  [2]  (SITE)      "C:\Program Files (x86)\Stata14\ado\site/"
-  [3]              "."
-  [4]  (PERSONAL)  "c:\ado\personal/"
-  [5]  (PLUS)      "c:\ado\plus/"
-  [6]  (OLDPLACE)  "c:\ado/"
-  [7]              "../ado"
-
-. preliminaries
-
-. 
-. program main
-  1.     setup_data
-  2.     local csvlist = r(csvlist)
-  3.     tempfile tempmerged
-  4. 
-.     * Test dta files
-.     testgood load_and_append ./temp/file1 ./temp/file2 ./temp/file3, clear
-  5.     testgood load_and_append ./temp/file1.dta ./temp/file2.dta ./temp/file3.dta, clear
-  6.     qui save "`tempmerged'", replace
-  7. 
-.     * Test tsv files
-.     testgood load_and_append ./temp/delim/file1.txt ./temp/delim/file2.txt ./temp/delim/file3.txt, clear insheet
-  8.     testgood cf * using "`tempmerged'"
-  9. 
-.     * Test csv files
-.     testgood load_and_append ./temp/delim/file1.csv ./temp/delim/file2.csv ./temp/delim/file3.csv, clear insheet
- 10.     testgood cf * using `"`tempmerged'"'
- 11. 
-.     * Test dir() option
-.     testgood load_and_append file1 file2 file3, dir(./temp) clear
- 12.     testgood load_and_append file1 file2 file3, dir(./temp/) clear
- 13.     testgood load_and_append file1.txt file2.txt file3.txt, dir(./temp/delim/) insheet clear
- 14.     testgood load_and_append delim/file1.txt delim/file2.txt delim/file3.txt, dir(./temp/) insheet clear
- 15.     testgood cf * using `"`tempmerged'"'
- 16. 
-.     * Test wildcards
-.     testgood load_and_append file*, dir(./temp) clear
- 17.     testgood load_and_append file*.dta, dir(./temp) clear
- 18.     testgood load_and_append ./temp/file*.dta, clear
- 19.     testgood load_and_append ./temp/delim/file*.txt, clear insheet
- 20.     testgood cf * using `"`tempmerged'"'
- 21. 
-.     * Test clear
-.     testbad load_and_append ./temp/file1 ./temp/file2 ./temp/file3
- 22.     clear
- 23.     testgood load_and_append ./temp/file1 ./temp/file2 ./temp/file3
- 24.     testgood cf * using `"`tempmerged'"'
- 25. 
-.     * Test insheet_options
-.     testbad load_and_append ./temp/delim/file1.csv ./temp/delim/file2.csv ./temp/delim/file3.csv, ///
->         clear insheet insheet_options(blah)
- 26.     testgood load_and_append ./temp/delim/file1.csv ./temp/delim/file2.csv ./temp/delim/file3.csv, ///
->         clear insheet insheet_options(case)
- 27.     testgood cf * using `"`tempmerged'"'
- 28. 
-.     * Test append_options
-.     testbad load_and_append ./temp/file1 ./temp/file2 ./temp/file3, clear append_options(blah)
- 29.     testgood load_and_append ./temp/file1 ./temp/file2 ./temp/file3, clear append_options(force)
- 30.     testgood cf * using `"`tempmerged'"'
- 31. 
-.     * Test if list has only one file
-.     testgood load_and_append ./temp/file1, clear
- 32. 
-.     * Test backslashes
-.     testgood load_and_append .\temp\file1 .\temp\file2 .\temp\file3, clear
- 33.     testgood load_and_append file1 file2 file3, dir(.\temp) clear
- 34.     testgood load_and_append file1 file2 file3, dir(.\temp\) clear
- 35.         
-.         * Test dsid
-.         testgood load_and_append ./temp/file1 ./temp/file2 ./temp/file3, clear dsid(studynumber)
- 36.         
-.         * Test dsname
-.         testgood load_and_append ./temp/file1 ./temp/file2 ./temp/file3, clear dsname(study_name)
- 37.         
-.         * Test obsseq
-.         testgood load_and_append ./temp/file1 ./temp/file2 ./temp/file3, clear obsseq(obs_order)
- 38.         
-.         * Test subset
-.         testgood load_and_append ./temp/file1 ./temp/file2 ./temp/file3, clear subset(x)
- 39.         testbad load_and_append ./temp/file1 ./temp/file2 ./temp/file3, clear subset(z)
- 40.         
-.         * Test fast
-.         testgood load_and_append ./temp/file1 ./temp/file2 ./temp/file3, clear fast
- 41.         use ./temp/file1, clear
- 42.         local orig = c(filename)
- 43.         testbad load_and_append ./temp/file2 ./temp/file3 ./temp/file5, clear fast
- 44.         local test = c(filename)
- 45.         assert "`orig'" != "`test'"
- 46. end
-
-. 
-. program setup_data
-  1.     cap mkdir temp
-  2.     cap mkdir temp/delim
-  3.     foreach i of numlist 1/3 {
-  4.         quietly {
-  5.             clear
-  6.             set obs 100
-  7.             foreach var in x y {
-  8.                 gen `var' = round(uniform(), 0.001)
-  9.             }
- 10. 
-.             save ./temp/file`i'.dta, replace
- 11.             outsheet using ./temp/delim/file`i'.txt, replace
- 12. 
-.             tempfile csvfile`i'
- 13.             outsheet using ./temp/delim/file`i'.csv, comma replace
- 14.         }
- 15.     }
- 16. end
+. quietly {
 
 . 
 . * EXECUTE
@@ -784,487 +786,3 @@ Test passed
 . 
 . 
 end of do-file
-
-
-Execute:  %STATAEXE% /e do "test_plotcoeffs.do"
-
-  ___  ____  ____  ____  ____ (R)
- /__    /   ____/   /   ____/
-___/   /   /___/   /   /___/   14.1   Copyright 1985-2015 StataCorp LP
-  Statistics/Data Analysis            StataCorp
-                                      4905 Lakeway Drive
-     MP - Parallel Edition            College Station, Texas 77845 USA
-                                      800-STATA-PC        http://www.stata.com
-                                      979-696-4600        stata@stata.com
-                                      979-696-4601 (fax)
-
-10-user 16-core Stata network perpetual license:
-       Serial number:  501406206055
-         Licensed to:  ECONUSER
-                       Brown University
-
-Notes:
-      1.  Stata is running in batch mode.
-      2.  Unicode is supported; see help unicode_advice.
-      3.  More than 2 billion observations are allowed; see help obs_advice.
-      4.  Maximum number of variables is set to 5000; see help set_maxvar.
-
-
-running C:\Program Files (x86)\Stata14\profile.do ...
-
-. do test_plotcoeffs.do 
-
-. version 11
-
-. set more off
-
-. adopath + ../ado
-  [1]  (BASE)      "C:\Program Files (x86)\Stata14\ado\base/"
-  [2]  (SITE)      "C:\Program Files (x86)\Stata14\ado\site/"
-  [3]              "."
-  [4]  (PERSONAL)  "c:\ado\personal/"
-  [5]  (PLUS)      "c:\ado\plus/"
-  [6]  (OLDPLACE)  "c:\ado/"
-  [7]              "../ado"
-
-. preliminaries
-
-. 
-. program main
-  1.     quietly setup_dataset
-  2.     testgood test_basic
-  3.     testgood test_with_options
-  4.     testgood test_with_multiple_regs
-  5.     testgood test_with_matrix_notation
-  6.     testgood test_with_factor_variables
-  7. end
-
-. 
-. program setup_dataset
-  1.     set obs 100
-  2.     gen n = round(_n,10)
-  3.     gen x1 = round(5*runiform(), 1)
-  4.     gen x2 = round(5*runiform(), 1)
-  5.     gen x3 = round(5*runiform(), 1)
-  6.     gen x4 = round(5*runiform(), 1)
-  7.     gen a = _n
-  8.     gen y = a*rnormal(1)
-  9. end
-
-. 
-. program test_basic
-  1.     reg y x1 x2 x3 x4
-  2.     plotcoeffs x1 x2 x4, nodraw
-  3. end
-
-. 
-. program test_with_options
-  1.     reg y x1 x2 x3 x4
-  2.     plotcoeffs x1 x2 x4, graphs(bar) label("cows sheep grass") ytitle(Meat Production) nodraw
-  3.     plotcoeffs x1 x2 x4, graphs(err) label("cows sheep grass") ytitle(Meat Production) nodraw
-  4.     plotcoeffs x1 x2 x4, graphs(line) label("cows sheep grass") ytitle(Meat Production) nodraw
-  5.     plotcoeffs x1 x2 x4, graphs(linearea) label("cows sheep grass") ytitle(Meat Production) nodraw
-  6.     plotcoeffs x1 x2 x4, graphs(linenose) label("cows sheep grass") ytitle(Meat Production) nodraw
-  7.     plotcoeffs x1 x2 x4, graphs(nose) label("cows sheep grass") ytitle(Meat Production) nodraw
-  8.     plotcoeffs x1 x2 x4, graphs(connect) label("cows sheep grass") ytitle(Meat Production) nodraw
-  9.     plotcoeffs x1 x2 x4, yshift(10) lcolor(gs8) fcolor(gs6) nodraw
- 10.     plotcoeffs x1 x2 x4, nodraw savedata(plotted_coefs, replace)
- 11.     erase plotted_coefs.dta
- 12.     plotcoeffs x1 x2 x4, nodraw yshift(10) savedata("Plotted coefficients", replace)
- 13.     erase "Plotted coefficients.dta"
- 14. end
-
-. 
-. program test_with_multiple_regs
-  1.     reg y x1 x2 x3
-  2.     estimates store reg1
-  3.     reg y a x1 x2 x3 x4
-  4.     estimates store reg2
-  5.     plotcoeffs x1 x2 x3, estimates(reg1 reg2) graphs(err line) nodraw
-  6.     plotcoeffs x1 x2 x3, ///
->         scheme(s1color) estimates(reg1 reg2) graphs(connect connect) yshift(5 10) nodraw
-  7.     plotcoeffs x1 x2 x3, ///
->         combine estimates(reg1 reg2) graphs(connect) yshift(5) lcolor(blue) nodraw
-  8. end
-
-. 
-. program test_with_matrix_notation
-  1.     foreach V in x1 x2 x3 x4 {
-  2.         reg y `V'
-  3.         matrix beta1 = nullmat(beta1) \ _b[`V']
-  4.         matrix stderr1 = nullmat(stderr1) \ _se[`V']
-  5.     }
-  6.     matrix beta2 = beta1 + J(rowsof(beta1), 1, 15)
-  7.     matrix stderr2 = stderr1 * 0.5
-  8.     matrix beta = beta1 , beta2
-  9.     matrix stderr = stderr1 , stderr2
- 10.     plotcoeffs, b(beta1) se(stderr1) nodraw
- 11.     plotcoeffs, b(beta1) se(stderr1) graphs(line) nodraw
- 12.     plotcoeffs, b(beta) se(stderr) graphs(err linearea) nodraw
- 13. end
-
-. 
-. program test_with_factor_variables
-  1.     reg y i.n#c.a
-  2.     plotcoeffs i.n#c.a, nodraw
-  3.     plotcoeffs i.n#c.a, graphs(line) label( "1 2 3 4 5 6 7 8 9 10 11") ytitle(Production per year) xtitle(Year) nodraw
-  4.     reg y i.n#i.a
-  5.     plotcoeffs i.n#i.a, nodraw
-  6.     reg y c.n#c.a
-  7.     plotcoeffs c.n#c.a, nodraw
-  8.     reg y c.n#i.a
-  9.     plotcoeffs c.n#i.a, scheme(s1color) graphs(connect) nodraw
- 10.     reg y i.n##c.a
- 11.     plotcoeffs i.n##c.a, scheme(s1color) graphs(connect) nodraw
- 12. end
-
-. 
-. 
-. * EXECUTE
-. main
-Test passed
-Test passed
-Test passed
-Test passed
-Test passed
-
-. 
-end of do-file
-
-
-Execute:  %STATAEXE% /e do "test_center_estimates.do"
-
-  ___  ____  ____  ____  ____ (R)
- /__    /   ____/   /   ____/
-___/   /   /___/   /   /___/   14.1   Copyright 1985-2015 StataCorp LP
-  Statistics/Data Analysis            StataCorp
-                                      4905 Lakeway Drive
-     MP - Parallel Edition            College Station, Texas 77845 USA
-                                      800-STATA-PC        http://www.stata.com
-                                      979-696-4600        stata@stata.com
-                                      979-696-4601 (fax)
-
-10-user 16-core Stata network perpetual license:
-       Serial number:  501406206055
-         Licensed to:  ECONUSER
-                       Brown University
-
-Notes:
-      1.  Stata is running in batch mode.
-      2.  Unicode is supported; see help unicode_advice.
-      3.  More than 2 billion observations are allowed; see help obs_advice.
-      4.  Maximum number of variables is set to 5000; see help set_maxvar.
-
-
-running C:\Program Files (x86)\Stata14\profile.do ...
-
-. do test_center_estimates.do 
-
-. version 13
-
-. set more off
-
-. adopath + ../ado
-  [1]  (BASE)      "C:\Program Files (x86)\Stata14\ado\base/"
-  [2]  (SITE)      "C:\Program Files (x86)\Stata14\ado\site/"
-  [3]              "."
-  [4]  (PERSONAL)  "c:\ado\personal/"
-  [5]  (PLUS)      "c:\ado\plus/"
-  [6]  (OLDPLACE)  "c:\ado/"
-  [7]              "../ado"
-
-. preliminaries
-
-. 
-. program main
-  1.     quietly setup_dataset
-  2.     testgood test_basic
-  3.     testgood test_weights
-  4.     testgood test_alternate_target
-  5.     testbad test_var_missing
-  6.     testbad test_wrong_notation
-  7. end
-
-. 
-. program setup_dataset
-  1.     set obs 100
-  2.     gen group = 1
-  3.     replace group = 2 if (_n >= 30 & _n < 60)
-  4.     replace group = 3 if (_n >= 60 & _n < 90)
-  5.     replace group = 4 if (_n >= 90)
-  6.     gen x = round(5*runiform(), 1)
-  7.     gen a = _n
-  8.     gen y = a*rnormal(1)
-  9.     gen weights = 85 + int(13 * runiform())
- 10. end
-
-. 
-. program test_basic
-  1.     reg y x i.group
-  2.     center_estimates i.group
-  3.     center_estimates i(1/3).group
-  4.     center_estimates i(2/3)bn.group
-  5.     center_estimates i2bn.group i3bn.group
-  6. end
-
-. 
-. program test_weights
-  1.     reg y i.group [weight = weight], nocons
-  2.     center_estimates i(2/4)bn.group
-  3.     assert abs(`r(diff_to_mean)') < 1e-5
-  4. end
-
-. 
-. program test_alternate_target
-  1.     summarize a
-  2.     local expected_mean = r(mean)
-  3.     reg y x i.group
-  4.     center_estimates i.group, target(a)
-  5.     assert (r(target_var) == "a")
-  6.     
-.     assert (`r(target_mean)' == `expected_mean')
-  7.     assert abs(`r(diff_to_mean)' - (`expected_mean' - `r(weighted_b_mean)')) < 1e-5
-  8. end
-
-. 
-. program test_var_missing
-  1.     reg y x i.group
-  2.     center_estimates this_var_doesnt_exist
-  3. end
-
-. 
-. program test_wrong_notation
-  1.     reg y x i.group
-  2.     center_estimates group
-  3. end
-
-. 
-. * EXECUTE
-. main
-Test passed
-Test passed
-Test passed
-Test passed
-Test passed
-
-. 
-end of do-file
-
-
-Execute:  %STATAEXE% /e do "test_aivreg.do"
-
-  ___  ____  ____  ____  ____ (R)
- /__    /   ____/   /   ____/
-___/   /   /___/   /   /___/   14.1   Copyright 1985-2015 StataCorp LP
-  Statistics/Data Analysis            StataCorp
-                                      4905 Lakeway Drive
-     MP - Parallel Edition            College Station, Texas 77845 USA
-                                      800-STATA-PC        http://www.stata.com
-                                      979-696-4600        stata@stata.com
-                                      979-696-4601 (fax)
-
-10-user 16-core Stata network perpetual license:
-       Serial number:  501406206055
-         Licensed to:  ECONUSER
-                       Brown University
-
-Notes:
-      1.  Stata is running in batch mode.
-      2.  Unicode is supported; see help unicode_advice.
-      3.  More than 2 billion observations are allowed; see help obs_advice.
-      4.  Maximum number of variables is set to 5000; see help set_maxvar.
-
-
-running C:\Program Files (x86)\Stata14\profile.do ...
-
-. do test_aivreg.do 
-
-. version 13
-
-. set more off
-
-. adopath + ../ado
-  [1]  (BASE)      "C:\Program Files (x86)\Stata14\ado\base/"
-  [2]  (SITE)      "C:\Program Files (x86)\Stata14\ado\site/"
-  [3]              "."
-  [4]  (PERSONAL)  "c:\ado\personal/"
-  [5]  (PLUS)      "c:\ado\plus/"
-  [6]  (OLDPLACE)  "c:\ado/"
-  [7]              "../ado"
-
-. preliminaries
-
-. 
-. program main
-  1.     build_data, num_hhlds(50) num_periods(10)
-  2.     testgood test_basic
-  3.     testgood test_nested_cluster
-  4.     testgood test_errors
-  5.     
-.     // PRIOR TO STATA 14 XTIVREG DIDN'T SUPPORT CLUSTERING
-.     if _caller() >= 14.0 testgood test_basic, cluster(mask_cust_id)
-  6. end
-
-. 
-. program build_data 
-  1.     syntax, num_hhlds(str) num_periods(str)
-  2.     
-.     clear 
-  3.     set obs `=`num_hhlds' * `num_periods''
-  4.     gen mask_cust_id = int((_n-1)/`num_periods') + 1
-  5.     bysort mask_cust_id : gen transaction_month = ym(2002, 12) + _n 
-  6.     gen z1 = rnormal()
-  7.     gen z2 = rnormal()
-  8.     gen x1 = z1 + rnormal()
-  9.     gen x2 = z2 + rnormal()
- 10.     gen y = 10*x1 + 10*x2 + rnormal()
- 11.     
-.     xtset mask_cust_id transaction_month 
- 12. end 
-
-. 
-. program test_basic
-  1.     syntax [, cluster(varname) ]
-  2.     if "`cluster'" != "" local clustopt "cluster(`cluster')"
-  3. 
-.     test_run y (x1 = z1), `clustopt'
-  4.     test_run y (x1 x2 = z1 z2), `clustopt'
-  5.     test_run y i.transaction_month (x1 = z1), `clustopt'
-  6.     test_run y (x1 x2 = z1 z2) i.transaction_month, `clustopt'
-  7.     test_run y (x1 x2 = i.transaction_month), `clustopt'
-  8.     test_run y (x1 x2 = i.transaction_month z1 z2), `clustopt'
-  9.     test_run y (x1 = z1) if x1 < 0, `clustopt'
- 10.     test_run y i.transaction_month (x1 = z1) if x2 > 0, `clustopt'
- 11.     test_run y (z1 = z1), `clustopt'
- 12. end
-
-. 
-. program test_run 
-  1.     syntax anything(name = cmd) [if] [, cluster(varname) tolerance(real `=10^(-12)') ]
-  2.     
-.     if "`cluster'" != "" {
-  3.         local aivreg_clustopt "cluster(`cluster')"
-  4.         local xtivreg_clustopt "vce(cluster `cluster')"
-  5.     }
-  6.     
-.     timer clear 1
-  7.     timer clear 2
-  8. 
-.     timer on 1
-  9.     xtivreg `cmd', fe small `xtivreg_clustopt'
- 10.     timer off 1
- 11.     
-.     mata: b_xt = st_matrix("e(b)")
- 12.     mata: V_xt = st_matrix("e(V)")
- 13. 
-.     timer on 2
- 14.     aivreg `cmd', absorb(mask_cust_id) `aivreg_clustopt'
- 15.     timer off 2
- 16.     
-.     mata: b_aiv = st_matrix("e(b)")
- 17.     mata: V_aiv = st_matrix("e(V)")
- 18. 
-.     mata {
- 19.         assert(sum(abs(b_xt:-b_aiv):> `tolerance') == 0)
- 20.         assert(sum(abs(V_xt:-V_aiv):> `tolerance') == 0)
- 21.     }
- 22. 
-.     di "Run time of xtivreg (in seconds)"
- 23.     timer list 1
- 24.     di "Run time of aivreg (in seconds)"
- 25.     timer list 2
- 26. end
-
-. 
-. program test_nested_cluster
-  1.     test_run_nc, exog(x1)
-  2.     test_run_nc if z1 > 0, exog(x1)
-  3.     test_run_nc, exog(x1 x2)
-  4.     test_run_nc, exog(x1) controls(i.transaction_month)
-  5.     test_run_nc if z1 < 0, exog(x1) controls(i.transaction_month)
-  6. end 
-
-. 
-. program test_run_nc 
-  1.     syntax [if], exog(varlist) [ controls(varlist fv) tolerance(real `=10^(-12)') ]
-  2.     
-.     /* WHEN X ARE EXOGENOUS AND PANELS ARE NESTED W/I CLUSTERS AIVREG SHOULD REPLICATE XTREG */
-.     xtreg y `exog' `controls' `if', fe cluster(mask_cust_id)
-  3.     
-.     mata: b_xt = st_matrix("e(b)")
-  4.     mata: V_xt = st_matrix("e(V)")
-  5.     
-.     aivreg y `controls' (`exog' = `exog') `if', absorb(mask_cust_id) cluster(mask_cust_id)
-  6.     
-.     mata: b_aiv = st_matrix("e(b)")
-  7.     mata: V_aiv = st_matrix("e(V)")
-  8. 
-.     mata {
-  9.         assert(sum(abs(b_xt:-b_aiv):>  `tolerance') == 0)
- 10.         assert(sum(abs(V_xt:-V_aiv):>  `tolerance') == 0)
- 11.     }
- 12.     
-.     /* WHEN X ARE EXOGENOUS, PANELS ARE NESTED W/I CLUSTERS, AND DFADJ_ABSORB 
->     OPTION IS SPECIFIED AIVREG SHOULD REPLICATE AREG */
-.     areg y `exog' `if', absorb(transaction_month) cluster(transaction_month)
- 13.     
-.     mata: b_a = st_matrix("e(b)")
- 14.     mata: V_a = st_matrix("e(V)")
- 15.     
-.     aivreg y (`exog' = `exog') `if', absorb(transaction_month) cluster(transaction_month) dfadj_absorb
- 16.     
-.     mata: b_aiv = st_matrix("e(b)")
- 17.     mata: V_aiv = st_matrix("e(V)")
- 18. 
-.     mata {
- 19.         assert(sum(abs(b_a:-b_aiv):>  `tolerance') == 0)
- 20.         assert(sum(abs(V_a:-V_aiv):>  `tolerance') == 0)
- 21.     }
- 22.     
-.     /* WHEN X ARE EXOGENOUS AND PANELS ARE NOT NESTED W/I CLUSTERS 
->     AIVREG SHOULD REPLICATE AREG */
-.     areg y `exog' `controls' `if', absorb(mask_cust_id) cluster(transaction_month)
- 23.     
-.     mata: b_a = st_matrix("e(b)")
- 24.     mata: V_a = st_matrix("e(V)")
- 25.     
-.     aivreg y `controls' (`exog' = `exog') `if', absorb(mask_cust_id) cluster(transaction_month)
- 26.     
-.     mata: b_aiv = st_matrix("e(b)")
- 27.     mata: V_aiv = st_matrix("e(V)")
- 28. 
-.     mata {
- 29.         assert(sum(abs(b_a:-b_aiv):>  `tolerance') == 0)
- 30.         assert(sum(abs(V_a:-V_aiv):>  `tolerance') == 0)
- 31.     }
- 32. end
-
-. 
-. program test_errors
-  1.     // NO ABSORB()
-.     cap aivreg y x1
-  2.     assert _rc == 198
-  3.     
-.     // NO ENDOGENOUS VARIABLES
-.     cap aivreg y x1, absorb(mask_cust_id)
-  4.     assert _rc == 198
-  5.     
-.     // NOT IDENTIFIED
-.     cap aivreg y (x1 x2 = z1), absorb(mask_cust_id)
-  6.     assert _rc == 481
-  7. end
-
-. 
-. main
-number of observations (_N) was 0, now 500
-       panel variable:  mask_cust_id (strongly balanced)
-        time variable:  transaction~h, 516 to 525
-                delta:  1 unit
-Test passed
-Test passed
-Test passed
-
-. 
-end of do-file
-
- make.py ended: 2016-04-28 16:27:47

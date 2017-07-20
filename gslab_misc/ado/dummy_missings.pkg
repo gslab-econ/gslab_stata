@@ -1,0 +1,9 @@
+d gslab_stata: gslab_misc
+d
+d Authors: Patrick DeJarnette and Yao Lu
+d
+d dummy_missings: Creates dummy variables for missing values and recodes the missing values for a set of variables.
+d
+f dummy_missings.ado
+f dummy_missings.hlp
+e

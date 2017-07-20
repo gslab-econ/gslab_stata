@@ -1,0 +1,33 @@
+p aivreg                Estimates panel IV models using 2SLS within estimator
+p benchmark             Simulates data and runs analyses that we might expect from a computationally intensive Stata script. Logs output time as I/O, Paralleled, or Serial.
+p build_recode_template Creates a new recode CSV file from a using dataset.
+p center_estimates      Computes difference between mean of coefficients and dependent variable
+p cf_mg                 Like -cf-, but the exit flag is always zero
+p checkdta              Create checkdta.log, which allows users to check whether Stata datasets have actually changed after make.bat is re-run
+p cutby                 By-able version of egen ... = cut()
+p dta_to_txt            Write dta file to text
+p dummy_missings        Creates dummy variables for missing values and recodes the missing values for a set of variables.
+p fillby                Fill missing values by group
+p genlistvar            Converts a variable to a variable that lists all its unique values at a specied by-group level
+p insert_tag            Insert HTML tags into logfile
+p leaveout              Creates a variable that (for each observation) contains a weighted average excluding that observation
+p load_and_append       Append a group of files aand load the appended file into memory
+p loadglob              Define global variables based on an input file
+p matrix_to_txt         Export a Stata matrix to a text file for use in other programs
+p mprint                Converts a variable to a variable that lists all its unique values at a specified by-group level
+p multicollapse         Replacement for collapse that allows calculation of the mean using more than one weight
+p nlcom_cumul           Cumulate coefficients
+p oo                    Command to display a small comment
+p ooo                   Command to display a big comment
+p oooo                  Command to display a really big comment
+p plotcoeffs_nolab      Plot coefficients after a regression (no labels)
+p plotcoeffs            Plot coefficients after a regression
+p predict_list          Generate predicted values using a subset of right-hand-side variables
+p preliminaries         Command to set preliminaries for do files
+p rankunique            Replacement for egen ... = rank(), unique that uses explicit randomization
+p ren_lab_file          Rename and relabel variables using a text file as input
+p save_data             Custom version of save command that requires the user to specify a key for the file
+p select_observations   Keep observations from the dataset in memory that match a using dataset on specified variables
+p sortunique            Replacement for gsort that uses explicit randomization
+p testbad               Unit test utility which confirms that the command entered fails
+p testgood              Unit test utility which confirms that the command entered succeeds

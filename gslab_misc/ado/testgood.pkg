@@ -1,0 +1,7 @@
+d gslab_stata: gslab_misc
+d
+d testgood: Unit test utility which confirms that the command entered succeeds
+d
+f testgood.ado
+f testgood.hlp
+e

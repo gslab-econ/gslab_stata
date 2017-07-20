@@ -1,0 +1,7 @@
+d gslab_stata: gslab_misc
+d
+d ooo: Command to display a big comment
+d
+f ooo.ado
+f ooo.hlp
+e

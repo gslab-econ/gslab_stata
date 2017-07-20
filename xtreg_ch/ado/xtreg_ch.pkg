@@ -1,0 +1,7 @@
+d xtreg_ch
+d
+d xtreg_ch: Random-effects regression with correlation and heteroskedasticity
+d
+f xtreg_ch.ado
+f xtreg_ch.hlp
+e

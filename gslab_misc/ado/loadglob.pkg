@@ -1,0 +1,9 @@
+d gslab_stata: gslab_misc
+d
+d Author: Matthew Gentzkow
+d
+d loadglob: Define global variables using an input file
+d
+f loadglob.ado
+f loadglob.hlp
+e

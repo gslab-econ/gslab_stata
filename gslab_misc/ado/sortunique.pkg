@@ -1,0 +1,9 @@
+d gslab_stata
+d
+d Author: Matthew Gentzkow
+d
+d sortunique: Replacement for gsort that uses explicit randomization
+d
+f sortunique.ado
+f sortunique.hlp
+e

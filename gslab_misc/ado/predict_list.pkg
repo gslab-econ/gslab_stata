@@ -1,0 +1,9 @@
+d gslab_stata: gslab_misc
+d
+d Author: Matthew Gentzkow
+d
+d predict_list: Generate predicted values using a subset of right-hand-side variables
+d
+f predict_list.ado
+f predict_list.hlp
+e

@@ -1,0 +1,6 @@
+d gslab_stata: gslab_misc
+d
+d plotcoeffs_nolab: Plot coefficients after a regression (no labels)
+d
+f plotcoeffs_nolab.ado
+e

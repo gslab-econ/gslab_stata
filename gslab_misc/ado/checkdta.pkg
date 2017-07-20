@@ -1,0 +1,9 @@
+d gslab_stata: gslab_misc
+d
+d Authors: Patrick DeJarnette, Yao Lu, CJ Verbeck, and Nathan Petek
+d
+d checkdta: Create checkdta.log, which allows users to check whether Stata datasets have actually changed after make.bat is re-run.
+d
+f checkdta.ado
+f checkdta.hlp
+e

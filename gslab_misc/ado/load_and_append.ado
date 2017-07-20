@@ -8,6 +8,7 @@ program load_and_append
     version 12
     syntax anything, [clear insheet dir(str) insheet_options(str) append_options(str) DSId(string) DSName(string) OBSseq(string) SUBset(string asis) fast ]
     
+    local dir : subinstr local dir  "\"  "/", all
     parse_input `anything', dir(`dir')
     local filelist "`r(filelist)'"
     local numfiles : word count `filelist'

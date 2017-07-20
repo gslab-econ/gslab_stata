@@ -1,0 +1,9 @@
+d gslab_stata: gslab_misc
+d
+d Author: Matthew Gentzkow
+d
+d cutby: By-able version of `egen ... = cut()`
+d
+f cutby.ado
+f cutby.hlp
+e

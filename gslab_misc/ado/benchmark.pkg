@@ -1,0 +1,9 @@
+d gslab_stata: gslab_misc
+d
+d Author: CJ Verbeck
+d
+d benchmark: Simulates data and runs analyses that we might expect from a computationally intensive Stata script. Logs output time as I/O, Paralleled, or Serial.
+d
+f benchmark.ado
+f benchmark.hlp
+e

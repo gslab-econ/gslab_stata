@@ -1,9 +1,3 @@
-****************************************************************************************************
-*
-* TEST_SAVE_DATA.DO
-*
-****************************************************************************************************
-
 quietly {
     version 11
     set more off
@@ -41,7 +35,7 @@ quietly {
         testbad save_data `tempdta', key(id) log(./blah/output.log) 
         
         * Help file exists
-        testgood type ../ado/save_data.hlp        
+        testgood type ado/save_data.hlp        
    
         * Confirm if expression works for .dta and .csv
         testgood save_data `tempdta' if id<=50, key(id) replace

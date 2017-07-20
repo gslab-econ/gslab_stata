@@ -1,0 +1,9 @@
+d gslab_stata: gslab_misc
+d
+d Author: CJ Verbeck
+d
+d preliminaries: Command to set preliminaries for do files
+d
+f preliminaries.ado
+f preliminaries.hlp
+e

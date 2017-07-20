@@ -1,0 +1,7 @@
+d gslab_stata: gslab_misc
+d
+d dta_to_txt: Write dta file to text
+d
+f dta_to_txt.ado
+f dta_to_txt.sthlp
+e

@@ -5,7 +5,8 @@
  * 
  **********************************************************/ 
 
-adopath ++ ../ado/
+cd test
+adopath ++ ado
 
 display "maxvar " c(maxvar) ", matsize " c(matsize) ", linesize " c(linesize) ", seed " c(seed)
 query sortseed

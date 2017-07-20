@@ -1,0 +1,7 @@
+d gslab_stata: gslab_misc
+d
+d testbad: Unit test utility which confirms that the command entered fails
+d
+f testbad.ado
+f testbad.hlp
+e

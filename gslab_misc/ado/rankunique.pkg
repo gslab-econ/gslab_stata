@@ -1,0 +1,9 @@
+d gslab_stata: gslab_misc
+d
+d Author: Matthew Gentzkow
+d
+d rankunique: Replacement for `egen ... = rank()`, unique that uses explicit randomization
+d
+f rankunique.ado
+f rankunique.hlp
+e

@@ -1,0 +1,8 @@
+d gslab_stata: gslab_misc
+d
+d
+d build_recode_template: Creates a new recode CSV file from a using dataset.
+d
+f build_recode_template.ado
+f build_recode_template.hlp
+e

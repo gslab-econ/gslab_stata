@@ -2,7 +2,7 @@
 help for ^predict_list^
 .-
 
-Command to do this, that, and the other thing
+Generate predicted values using a subset of right-hand-side variables
 -----------------------------------------------------------------------
 
 	^predict_list^   varlist , ^gen(^newvar^)^

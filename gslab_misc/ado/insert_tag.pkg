@@ -1,0 +1,9 @@
+d gslab_stata: gslab_misc
+d
+d Author: Nick Tsivanidis
+d
+d insert_tag: Insert HTML tags into logfile
+d
+f insert_tag.ado
+f insert_tag.hlp
+e
