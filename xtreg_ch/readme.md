@@ -8,6 +8,6 @@ Enter the following at the Stata console.
 
 ```stata
 net from https://raw.githubusercontent.com/gslab-econ/gslab_stata/master/xtreg_ch/ado
-net install xtreg_ch               
-net install xtreg_ch_loglik            
+net install xtreg_ch,        replace               
+net install xtreg_ch_loglik, replace            
 ```
