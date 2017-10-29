@@ -18,60 +18,32 @@ Enter the following at the Stata console.
 
 ```stata
 net from https://raw.githubusercontent.com/gslab-econ/gslab_stata/master/gslab_misc/ado          
-net uninstall benchmark 
-net install benchmark            
-net uninstall build_recode_template
-net install build_recode_template 
-net uninstall cf_mg
-net install cf_mg                
-net uninstall checkdta
-net install checkdta             
-net uninstall cutby
-net install cutby                
-net uninstall dta_to_txt
-net install dta_to_txt           
-net uninstall dummy_missings
-net install dummy_missings       
-net uninstall fillby
-net install fillby               
-net uninstall genlistvar
-net install genlistvar           
-net uninstall insert_tag
-net install insert_tag           
-net uninstall leaveout
-net install leaveout             
-net uninstall load_and_append
-net install load_and_append      
-net uninstall loadglob
-net install loadglob             
-net uninstall matrix_to_txt
-net install matrix_to_txt                 
-net uninstall oo
-net install oo                   
-net uninstall ooo
-net install ooo                  
-net uninstall oooo
-net install oooo                            
-net uninstall plotcoeffs_nolab
-net install plotcoeffs_nolab     
-net uninstall plotcoeffs
-net install plotcoeffs           
-net uninstall predict_list
-net install predict_list         
-net uninstall preliminaries
-net install preliminaries        
-net uninstall rankunique
-net install rankunique           
-net uninstall ren_lab_file
-net install ren_lab_file         
-net uninstall save_data
-net install save_data            
-net uninstall select_observations
-net install select_observations  
-net uninstall sortunique
-net install sortunique           
-net uninstall testbad
-net install testbad              
-net uninstall testgood
-net install testgood             
+net install benchmark, replace
+net install build_recode_template, replace
+net install cf_mg, replace
+net install checkdta, replace
+net install cutby, replace
+net install dta_to_txt, replace
+net install dummy_missings, replace
+net install fillby, replace
+net install genlistvar, replace
+net install insert_tag, replace
+net install leaveout, replace
+net install load_and_append, replace
+net install loadglob, replace
+net install matrix_to_txt, replace
+net install oo, replace
+net install ooo, replace
+net install oooo, replace
+net install plotcoeffs_nolab, replace
+net install plotcoeffs, replace
+net install predict_list, replace
+net install preliminaries, replace
+net install rankunique, replace
+net install ren_lab_file, replace
+net install save_data, replace
+net install select_observations, replace
+net install sortunique, replace
+net install testbad, replace
+net install testgood, replace
 ```
