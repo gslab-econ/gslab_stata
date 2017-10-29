@@ -8,7 +8,7 @@ net from http://www.stata.com
 net cd stb
 net cd stb53
 net describe dm75
-net install dm75
+net install dm75, replace
 ```
 
 

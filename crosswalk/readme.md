@@ -7,7 +7,7 @@ Enter the following at the Stata console.
 
 ```stata
 net from https://raw.githubusercontent.com/gslab-econ/gslab_stata/master/crosswalk/ado
-net install make_input_template
-net install merge_manual_input 
-net install save_crosswalk     
+net install make_input_template, replace
+net install merge_manual_input,  replace
+net install save_crosswalk,      replace     
 ```
