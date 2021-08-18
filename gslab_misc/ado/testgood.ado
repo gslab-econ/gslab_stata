@@ -7,7 +7,7 @@
 ****************************************************************************************************
 
 program testgood
-    version 11
+    version 14
     syntax anything(equalok everything), [showoutput *]
     if "`options'"!="" {
         local options ", `options'"
