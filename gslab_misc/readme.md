@@ -17,7 +17,7 @@ net install dm75, replace
 Enter the following at the Stata console.
 
 ```stata
-net from https://raw.githubusercontent.com/gslab-econ/gslab_stata/master/gslab_misc/ado          
+net from https://raw.githubusercontent.com/gslab-econ/gslab_stata/issue10_autofill/gslab_misc/ado          
 net install benchmark,             replace
 net install build_recode_template, replace
 net install cf_mg,                 replace
@@ -46,4 +46,5 @@ net install select_observations,   replace
 net install sortunique,            replace
 net install testbad,               replace
 net install testgood,              replace
+net install autofill,              replace
 ```
