@@ -4,5 +4,5 @@ d
 d autofill: facilitates exporting values as TeX macros.
 d
 f autofill.ado
-f autofill.hlp
+f autofill.sthlp
 e
