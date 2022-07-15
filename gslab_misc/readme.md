@@ -46,4 +46,5 @@ net install select_observations,   replace
 net install sortunique,            replace
 net install testbad,               replace
 net install testgood,              replace
+net install autofill,              replace
 ```

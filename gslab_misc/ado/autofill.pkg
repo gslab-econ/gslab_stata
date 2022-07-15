@@ -1,0 +1,8 @@
+d gslab_stata: gslab_misc
+d
+d
+d autofill: facilitates exporting values as TeX macros.
+d
+f autofill.ado
+f autofill.sthlp
+e
